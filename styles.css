@@ -1,4 +1,17 @@
-body
-{
-  background: red !important;
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(
+    to bottom,
+    #2A5DB0,
+    #6FAED9,
+    #A9D6D8,
+    #E79A6A,
+    #F1D2A2
+  );
+  background-attachment: fixed;
 }
