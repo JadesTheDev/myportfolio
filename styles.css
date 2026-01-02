@@ -1,15 +1,4 @@
 body
 {
-  background: linear-gradient
-  (
-    to bottom,
-    #2A5DB0,
-    #6FAED9,
-    #A9D6D8,
-    #E79A6A,
-    #F1D2A2
-  );
-
-  margin: 0;
-  min-height: 100vh;
+  background: red !important;
 }
