@@ -1,11 +1,14 @@
-html, body {
+html, body
+{
   height: 100%;
   margin: 0;
 }
 
-body {
+body
+{
   min-height: 100vh;
-  background: linear-gradient(
+  background: linear-gradient
+    (
     to bottom,
     #2A5DB0,
     #6FAED9,
