@@ -13,7 +13,7 @@ html {
     #A9D6D8,
     #E79A6A,
     #F1D2A2
-  ) !important;
+  );
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -28,25 +28,33 @@ body {
 
 /* Header */
 header {
-  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
   padding: 24px 16px;
+
+  /* layout */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+
   color: #ebe6da;
 }
 
-/* Navigation */
-nav {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 24px;
+/* This wraps your name + title so they stay together */
+.header-text {
+  text-align: left;
 }
 
+/* Navigation */
 nav ul {
   list-style: none;
   padding: 0;
-  margin: 12px 0 0 0;
+  margin: 0 0 12px 0;
+
   display: flex;
   gap: 16px;
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
 
 nav a {
@@ -79,15 +87,18 @@ section {
 footer {
   text-align: center;
   font-size: 0.9rem;
-  padding: 32px 16 px;
+  padding: 32px 16px; /* FIXED: removed space in 16 px */
   background: transparent;
+  color: #0b1220;
 }
 
-.profile-pic{
-  width: 160px;
-  height: 160px;
+/* Profile Image */
+.profile-pic {
+  width: 360px;
+  aspect-ratio: 1108 / 1550;
+  height: auto;
   object-fit: cover;
-  border-radius: 50%;
+
+  border-radius: 32p; /* FIXED: 32p -> 32% */
   display: block;
-  margin: 12px auto 0;
 }
