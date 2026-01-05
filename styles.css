@@ -35,13 +35,19 @@ header {
 }
 
 /* Navigation */
+nav {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
 nav ul {
   list-style: none;
   padding: 0;
   margin: 12px 0 0 0;
   display: flex;
   gap: 16px;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 nav a {
