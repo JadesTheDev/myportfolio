@@ -82,3 +82,12 @@ footer {
   padding: 32px 16 px;
   background: transparent;
 }
+
+.profile-pic{
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  margin: 12px auto 0;
+}
