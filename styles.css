@@ -30,7 +30,7 @@ body {
 header {
   max-width: 900px;
   margin: 0 auto;
-  padding: 24px 16px;
+  padding: 16px 24px;
 
   /* layout */
   display: flex;
@@ -46,15 +46,34 @@ header {
   text-align: left;
 }
 
+.intro {
+  max-width: 900px;
+  margin: 24px auto 0;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.intro-text h1,
+.intro-text h2 {
+  margin: 0;
+}
+
+nav {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px;
+
 /* Navigation */
 nav ul {
   list-style: none;
   padding: 0;
-  margin: 0 0 12px 0;
-
+  margin: 0;
   display: flex;
   gap: 16px;
-  justify-content: flex-start;
+  justify-content: flex-end;
 }
 
 nav a {
