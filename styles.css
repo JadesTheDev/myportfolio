@@ -23,7 +23,7 @@ body {
   min-height: 100vh;
   background: transparent; /* let html paint the gradient */
   font-family: Arial, Helvetica, sans-serif;
-  color: #0b1220;
+  color: #fcf6cf;
 }
 
 /* Header */
@@ -38,7 +38,7 @@ header {
   justify-content: space-between;
   gap: 24px;
 
-  color: #ebe6da;
+  color: #fcf6cf;
 }
 
 /* This wraps your name + title so they stay together */
@@ -57,14 +57,15 @@ header {
 }
 
 .intro-text h1,
-.intro-text h2 {
+.intro-text h2
+.intro-text h3
+{
   margin: 0;
 }
 
 nav {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 24px;
+  width: 100%;
+  padding: 16px 24px;
 
 /* Navigation */
 nav ul {
@@ -79,7 +80,7 @@ nav ul {
 nav a {
   text-decoration: none;
   font-weight: bold;
-  color: #ebe6da;
+  color: #fcf6cf;
 }
 
 nav a:hover {
@@ -108,7 +109,7 @@ footer {
   font-size: 0.9rem;
   padding: 32px 16px; /* FIXED: removed space in 16 px */
   background: transparent;
-  color: #0b1220;
+  color: #fcf6cf;
 }
 
 /* Profile Image */
