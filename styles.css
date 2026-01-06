@@ -17,7 +17,7 @@ html
     #A6A3E8 42%,       /* Lavender Mist */
     #F2B7A1 62%,      /* Warm Blush / Sunset Pink */
     #E78A6E 72%,     /* Soft Peach Glow */
-    #F6C46A 78%,    /* Golden Sand / Horizon Light */
+    #F6C46A 75%,    /* Golden Sand / Horizon Light */
     #364E6E 100%   /* Deep Ocean Blue (Bottom Anchor) */
   );
   background-repeat: no-repeat;
@@ -140,7 +140,7 @@ body.home .intro
   align-items: center;
   justify-content: space-between;
   gap: 32px;
-  font-family: "Brush Script MT", cursive;
+  font-family: "Montserrat";
   color: #2F3E5C;
 }
 
