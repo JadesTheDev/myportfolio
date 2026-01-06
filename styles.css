@@ -8,24 +8,25 @@ html, body
   padding: 0;
 }
 
-html
-{
+html {
   background: linear-gradient(
     to bottom,
-    /* Sky / upper atmosphere */
+
+    /* Sky */
     #4B57E3 0%,     /* deep sky blue */
-    #6E7AF0 22%,    /* soft periwinkle */
+    #6E7AF0 22%,    /* periwinkle */
     #A6A3E8 55%,    /* lavender haze */
 
-    /* Horizon warmth */
-    #F2B7A1 75%,    /* peach */
-    #E78A6E 84%,    /* sunset coral */
+    /* Sunset */
+    #F2B7A1 72%,    /* peach */
+    #E78A6E 82%,    /* coral */
+    #F6C46A 89%,    /* GOLD SUNSET (kept strong) */
 
-    /* Transition buffer */
-    #C9B37A 90%,    /* muted sand (kills green bleed) */
+    /* Micro buffer (barely visible) */
+    #BFAE7A 91%,    /* warm neutral – kills green */
 
     /* Ocean */
-    #6B7C8F 96%,    /* slate blue water */
+    #6B7C8F 94%,    /* slate water */
     #364E6E 100%    /* deep ocean */
   );
 
