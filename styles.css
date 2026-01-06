@@ -164,8 +164,8 @@ body.home .intro-text h3 {
 /* Homepage photo sizing */
 body.home .profile-pic
 {
-  width: 360px;
-  height: 504px;
+  width: 540px;
+  height: 756px;
   object-fit: cover;
   border-radius: 32px;
   display: block;
