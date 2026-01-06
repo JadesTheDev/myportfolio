@@ -12,16 +12,18 @@ html
 {
   background: linear-gradient(
     to bottom,
-    #2A5DB0,
-    #6FAED9,
-    #A9D6D8,
-    #E79A6A,
-    #F1D2A2
+    #4B57E3 0%,
+    #6E7AF0 25%,
+    #A6A3E8 50%,
+    #F2B7A1 70%,
+    #E78A6E 85%,
+    #F4D1A6 100%
   );
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
 }
+
 
 body
 {
