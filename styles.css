@@ -12,14 +12,23 @@ html
 {
   background: linear-gradient(
     to bottom,
-    #4B57E3 0%,          /* Deep Sky Blue (Top / Header Area) */
-    #6E7AF0 18%,        /* Soft Periwinkle Blue */
-    #A6A3E8 42%,       /* Lavender Mist */
-    #F2B7A1 62%,      /* Warm Blush / Sunset Pink */
-    #E78A6E 72%,     /* Soft Peach Glow */
-    #F6C46A 75%,    /* Golden Sand / Horizon Light */
-    #364E6E 100%   /* Deep Ocean Blue (Bottom Anchor) */
+    /* Sky / upper atmosphere */
+    #4B57E3 0%,     /* deep sky blue */
+    #6E7AF0 22%,    /* soft periwinkle */
+    #A6A3E8 55%,    /* lavender haze */
+
+    /* Horizon warmth */
+    #F2B7A1 75%,    /* peach */
+    #E78A6E 84%,    /* sunset coral */
+
+    /* Transition buffer */
+    #C9B37A 90%,    /* muted sand (kills green bleed) */
+
+    /* Ocean */
+    #6B7C8F 96%,    /* slate blue water */
+    #364E6E 100%    /* deep ocean */
   );
+
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
