@@ -13,15 +13,16 @@ html
   background: linear-gradient(
     to bottom,
     #4B57E3 0%,
+    #364E6E 15%,
     #6E7AF0 22%,
     #A6A3E8 40%,
     #A6A3E8 55%,
     #F2B7A1 72%,
     #E78A6E 88%,
-    #F4D1A6 100%,
-    #364E6E 15%,
+    #F4D1A6 100%
   );
 }
+
 
 body
 {
