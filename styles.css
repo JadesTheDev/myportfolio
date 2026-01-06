@@ -150,8 +150,9 @@ body.home .profile-pic
 body.home .intro-text h1
 {
   font-family: "Brush Script MT", cursive;
+  font-size: 3rem;
+  letter-spacing: 0.05em;
 }
-
 
 /* Projects page only */
 body.projects
