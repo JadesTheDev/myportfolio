@@ -57,8 +57,8 @@ header {
 }
 
 .intro-text h1,
-.intro-text h2
-.intro-text h3
+.intro-text h2,
+.intro-text h3,
 {
   margin: 0;
 }
@@ -66,15 +66,20 @@ header {
 nav {
   width: 100%;
   padding: 16px 24px;
+  }
 
 /* Navigation */
 nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
+
   display: flex;
   flex-direction: row;
+  flex-wrap: nowrap;
   gap: 16px;
+
+  justify-content: flex-end; /* <-- right side */
 }
 
 nav a {
@@ -118,6 +123,6 @@ footer {
   height: 504px;
   object-fit: cover;
 
-  border-radius: 32p; /* FIXED: 32p -> 32% */
+  border-radius: 32%;
   display: block;
 }
