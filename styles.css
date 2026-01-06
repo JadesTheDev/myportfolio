@@ -140,6 +140,7 @@ body.home .intro
   align-items: center;
   justify-content: space-between;
   gap: 32px;
+  font-family: "Brush Script MT", cursive;
   color: #2F3E5C;
 }
 
