@@ -147,6 +147,12 @@ body.home .profile-pic
   display: block;
 }
 
+body.home .intro-text h1
+{
+  font-family: "Brush Script MT", cursive;
+}
+
+
 /* Projects page only */
 body.projects
 {
