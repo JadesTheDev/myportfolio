@@ -1,11 +1,15 @@
-/* Reset + full-page background */
-html, body {
+/* ========================= */
+/* ==== GLOBAL VARIABLES ==== */
+/* ========================= */
+html, body
+{
   height: 100%;
   margin: 0;
   padding: 0;
 }
 
-html {
+html
+{
   background: linear-gradient(
     to bottom,
     #2A5DB0,
@@ -19,20 +23,32 @@ html {
   background-attachment: fixed;
 }
 
-body {
+body
+{
   min-height: 100vh;
-  background: transparent; /* let html paint the gradient */
+  background: transparent;
   font-family: Arial, Helvetica, sans-serif;
   color: #fcf6cf;
 }
 
-/* Header */
-header {
+main
+{
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+/* ============================== */
+/* ==== REUSABLE BLOCKS ==== */
+/* ============================== */
+
+/* Header (safe reusable default) */
+header
+{
   max-width: 900px;
   margin: 0 auto;
   padding: 16px 24px;
 
-  /* layout */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -41,35 +57,20 @@ header {
   color: #fcf6cf;
 }
 
-/* This wraps your name + title so they stay together */
-.header-text {
+.header-text
+{
   text-align: left;
 }
 
-.intro {
-  max-width: 900px;
-  margin: 24px auto 0;
-  padding: 0 24px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 32px;
-}
-
-.intro-text h1,
-.intro-text h2,
-.intro-text h3,
+/* Navigation (reusable default) */
+nav
 {
-  margin: 0;
-}
-
-nav {
   width: 100%;
   padding: 16px 24px;
-  }
+}
 
-/* Navigation */
-nav ul {
+nav ul
+{
   list-style: none;
   margin: 0;
   padding: 0;
@@ -79,28 +80,24 @@ nav ul {
   flex-wrap: nowrap;
   gap: 16px;
 
-  justify-content: flex-end; /* <-- right side */
+  justify-content: flex-end;
 }
 
-nav a {
+nav a
+{
   text-decoration: none;
   font-weight: bold;
   color: #fcf6cf;
 }
 
-nav a:hover {
+nav a:hover
+{
   text-decoration: underline;
 }
 
-/* Main layout */
-main {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 24px 16px;
-}
-
-/* Sections */
-section {
+/* Cards (reusable default) */
+section
+{
   background: rgba(255, 255, 255, 0.35);
   padding: 16px;
   margin: 16px 0;
@@ -108,21 +105,62 @@ section {
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.10);
 }
 
-/* Footer */
-footer {
+/* Footer (reusable default) */
+footer
+{
   text-align: center;
   font-size: 0.9rem;
-  padding: 32px 16px; /* FIXED: removed space in 16 px */
+  padding: 32px 16px;
   background: transparent;
   color: #fcf6cf;
 }
 
-/* Profile Image */
-.profile-pic {
+/* ============================== */
+/* ==== HOME PAGE ONLY ==== */
+/* ============================== */
+
+body.home .intro
+{
+  max-width: 900px;
+  margin: 24px auto 0;
+  padding: 0 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+body.home .intro-text h1,
+body.home .intro-text h2,
+body.home .intro-text h3 {
+  margin: 0;
+}
+
+/* Homepage photo sizing */
+body.home .profile-pic
+{
   width: 360px;
   height: 504px;
   object-fit: cover;
-
-  border-radius: 32p;
+  border-radius: 32px;
   display: block;
+}
+
+/* Projects page only */
+body.projects
+{
+  /* projects-specific tweaks go here */
+}
+
+/* About page only */
+body.about
+{
+  /* about-specific tweaks go here */
+}
+
+/* Contact page only */
+body.contact
+{
+  /* contact-specific tweaks go here */
 }
