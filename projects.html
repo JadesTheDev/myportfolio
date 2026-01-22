@@ -1,40 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="description" content="Projects portfolio for Jade Powell">
-    <meta name="keywords" content="web development, portfolio, projects, web designer, game development">
-    <meta name="author" content="Jade Powell">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Metadata -->
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Personal portfolio website featuring web development and game projects."
+    />
+    <meta name="keywords" content="web development, portfolio, projects, web designer" />
+    <meta name="author" content="Jade Powell" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Projects | Jade Powell</title>
-    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./styles.css" />
   </head>
 
   <body class="projects">
+    <!-- Header -->
     <header>
       <nav class="hero-links">
         <a href="index.html">Home</a>
-        <a href="projects.html">Projects</a>
+        <a href="projects.html" aria-current="page">Projects</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
       </nav>
     </header>
 
+    <!-- Main Content -->
     <main>
-      <!-- ===== Featured Websites ===== -->
-      <section class="projects-section">
+      <!-- Featured Websites -->
+      <section class="projects-section" id="featured-websites">
         <h1 class="section-title">Featured Websites</h1>
 
-        <table class="featured-grid" aria-label="Featured Websites">
-          <caption>Featured Websites</caption>
+        <table class="featured-grid">
+          <caption>
+            Featured websites: click each preview to visit the live project.
+          </caption>
 
+          <!-- Required colgroup/col for assignment -->
           <colgroup>
-            <col class="col-card">
-            <col class="col-card">
-            <col class="col-card">
+            <col class="col-1" />
+            <col class="col-2" />
+            <col class="col-3" />
           </colgroup>
 
+          <!-- Required thead for assignment -->
           <thead>
             <tr>
               <th scope="col">Website 1</th>
@@ -45,74 +55,78 @@
 
           <tbody>
             <tr>
-              <!-- Card 1 -->
-              <td id="featured-site-1">
-                <a
-                  class="preview-box"
-                  href="https://jadesthedev.github.io/lashays.website/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+              <td>
+                <a class="preview-box" href="featured-site-1.html" target="_blank" rel="noopener">
                   <img
-                    src="images/featured-site-1.jpg"
-                    alt="Preview of Featured Website 1"
-                  >
+                    src="images/featured-site-1.png"
+                    alt="Preview of featured website 1"
+                    class="preview-img"
+                  />
                 </a>
 
                 <ul class="project-links">
-                  <li><a href="https://jadesthedev.github.io/lashays.website/" target="_blank">Live site</a></li>
-                  <li><a href="https://jadesthedev.github.io/lashays.website/">GitHub repo</a></li>
-                  <li><a href="#">Case study</a></li>
+                  <li><a href="featured-site-1.html" target="_blank" rel="noopener">Live site</a></li>
+                  <li><a href="#" target="_blank" rel="noopener">GitHub repo</a></li>
+                  <li><a href="#" target="_blank" rel="noopener">Case study</a></li>
                 </ul>
               </td>
 
-              <!-- Card 2 -->
-              <td id="featured-site-2">
-                <a class="preview-box" href="#" aria-label="Open Featured Website 2">
-                  <span>Image preview of<br>featured website 2</span>
+              <td>
+                <a class="preview-box" href="featured-site-2.html" target="_blank" rel="noopener">
+                  <img
+                    src="images/featured-site-2.png"
+                    alt="Preview of featured website 2"
+                    class="preview-img"
+                  />
                 </a>
 
                 <ul class="project-links">
-                  <li><a href="#">Live site</a></li>
-                  <li><a href="#">GitHub repo</a></li>
-                  <li><a href="#">Case study</a></li>
+                  <li><a href="featured-site-2.html" target="_blank" rel="noopener">Live site</a></li>
+                  <li><a href="#" target="_blank" rel="noopener">GitHub repo</a></li>
+                  <li><a href="#" target="_blank" rel="noopener">Case study</a></li>
                 </ul>
               </td>
 
-              <!-- Card 3 -->
-              <td id="featured-site-3">
-                <a class="preview-box" href="#" aria-label="Open Featured Website 3">
-                  <span>Image preview of<br>featured website 3</span>
+              <td>
+                <a class="preview-box" href="featured-site-3.html" target="_blank" rel="noopener">
+                  <img
+                    src="images/featured-site-3.png"
+                    alt="Preview of featured website 3"
+                    class="preview-img"
+                  />
                 </a>
 
                 <ul class="project-links">
-                  <li><a href="#">Live site</a></li>
-                  <li><a href="#">GitHub repo</a></li>
-                  <li><a href="#">Case study</a></li>
+                  <li><a href="featured-site-3.html" target="_blank" rel="noopener">Live site</a></li>
+                  <li><a href="#" target="_blank" rel="noopener">GitHub repo</a></li>
+                  <li><a href="#" target="_blank" rel="noopener">Case study</a></li>
                 </ul>
               </td>
             </tr>
           </tbody>
 
+          <!-- Required tfoot for assignment -->
           <tfoot>
             <tr>
-              <td colspan="3">More websites coming soon.</td>
+              <td colspan="3" class="table-note">More websites coming soon.</td>
             </tr>
           </tfoot>
         </table>
       </section>
 
-      <!-- ===== Featured Games ===== -->
-      <section class="projects-section">
+      <!-- Featured Games -->
+      <section class="projects-section" id="featured-games">
         <h2 class="section-title">Featured Games</h2>
 
-        <table class="featured-grid" aria-label="Featured Games">
-          <caption>Featured Games</caption>
+        <table class="featured-grid">
+          <caption>
+            Featured games: click each preview to view the project page.
+          </caption>
 
           <colgroup>
-            <col class="col-card">
-            <col class="col-card">
-            <col class="col-card">
+            <col class="col-1" />
+            <col class="col-2" />
+            <col class="col-3" />
           </colgroup>
 
           <thead>
@@ -125,42 +139,51 @@
 
           <tbody>
             <tr>
-              <!-- Card 1 -->
-              <td id="featured-game-1">
-                <a class="preview-box" href="#" aria-label="Open Featured Game 1">
-                  <span>Image preview of<br>featured game 1</span>
+              <td>
+                <a class="preview-box" href="featured-game-1.html" target="_blank" rel="noopener">
+                  <img
+                    src="images/featured-game-1.png"
+                    alt="Preview of featured game 1"
+                    class="preview-img"
+                  />
                 </a>
 
                 <ul class="project-links">
-                  <li><a href="#">Playable build</a></li>
-                  <li><a href="#">GitHub repo</a></li>
-                  <li><a href="#">Dev log</a></li>
+                  <li><a href="featured-game-1.html" target="_blank" rel="noopener">Project page</a></li>
+                  <li><a href="#" target="_blank" rel="noopener">GitHub repo</a></li>
+                  <li><a href="#" target="_blank" rel="noopener">Devlog</a></li>
                 </ul>
               </td>
 
-              <!-- Card 2 -->
-              <td id="featured-game-2">
-                <a class="preview-box" href="#" aria-label="Open Featured Game 2">
-                  <span>Image preview of<br>featured game 2</span>
+              <td>
+                <a class="preview-box" href="featured-game-2.html" target="_blank" rel="noopener">
+                  <img
+                    src="images/featured-game-2.png"
+                    alt="Preview of featured game 2"
+                    class="preview-img"
+                  />
                 </a>
 
                 <ul class="project-links">
-                  <li><a href="#">Playable build</a></li>
-                  <li><a href="#">GitHub repo</a></li>
-                  <li><a href="#">Dev log</a></li>
+                  <li><a href="featured-game-2.html" target="_blank" rel="noopener">Project page</a></li>
+                  <li><a href="#" target="_blank" rel="noopener">GitHub repo</a></li>
+                  <li><a href="#" target="_blank" rel="noopener">Devlog</a></li>
                 </ul>
               </td>
 
-              <!-- Card 3 -->
-              <td id="featured-game-3">
-                <a class="preview-box" href="#" aria-label="Open Featured Game 3">
-                  <span>Image preview of<br>featured game 3</span>
+              <td>
+                <a class="preview-box" href="featured-game-3.html" target="_blank" rel="noopener">
+                  <img
+                    src="images/featured-game-3.png"
+                    alt="Preview of featured game 3"
+                    class="preview-img"
+                  />
                 </a>
 
                 <ul class="project-links">
-                  <li><a href="#">Playable build</a></li>
-                  <li><a href="#">GitHub repo</a></li>
-                  <li><a href="#">Dev log</a></li>
+                  <li><a href="featured-game-3.html" target="_blank" rel="noopener">Project page</a></li>
+                  <li><a href="#" target="_blank" rel="noopener">GitHub repo</a></li>
+                  <li><a href="#" target="_blank" rel="noopener">Devlog</a></li>
                 </ul>
               </td>
             </tr>
@@ -168,13 +191,14 @@
 
           <tfoot>
             <tr>
-              <td colspan="3">More games coming soon.</td>
+              <td colspan="3" class="table-note">More games coming soon.</td>
             </tr>
           </tfoot>
         </table>
       </section>
     </main>
 
+    <!-- Footer -->
     <footer>
       <p>&copy; 2026 Jade Powell</p>
     </footer>
