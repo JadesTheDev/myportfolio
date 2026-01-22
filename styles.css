@@ -196,3 +196,104 @@ body.contact
 {
   /* contact-specific tweaks go here */
 }
+
+/* ===== Projects Page Layout ===== */
+body.projects main {
+  width: min(1200px, 92vw);
+  margin: 0 auto;
+  padding: 2.5rem 0 3.5rem;
+}
+
+.section-title {
+  text-align: center;
+  color: white;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  margin: 1.5rem 0 1.25rem;
+}
+
+/* ===== Table turned into a card grid ===== */
+.featured-grid {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 3rem 1.25rem; /* space between the 3 cards */
+  margin: 0 auto 2.5rem;
+}
+
+/* hide the caption visually but keep it for accessibility (still counts!) */
+.featured-grid caption {
+  position: absolute;
+  left: -9999px;
+}
+
+.featured-grid thead th {
+  color: transparent; /* keep for rubric, hide visually */
+  font-size: 0;
+  height: 0;
+  padding: 0;
+  border: none;
+}
+
+/* each cell behaves like a “card slot” */
+.featured-grid td {
+  vertical-align: top;
+  text-align: center;
+}
+
+/* ===== The big preview box ===== */
+.preview-box {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  max-width: 340px;
+  height: 190px;
+
+  margin: 0 auto 1rem;
+  background: #7a7a7a;
+  border: 4px solid #0f0f0f;
+  border-radius: 6px;
+
+  color: #111;
+  text-decoration: none;
+  font-weight: 600;
+  line-height: 1.25;
+
+  /* assignment-friendly transition */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.preview-box:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+/* ===== Links under each preview ===== */
+.project-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: white;
+  font-size: 0.85rem;
+}
+
+.project-links li {
+  margin: 0.25rem 0;
+}
+
+.project-links a {
+  color: rgba(255,255,255,0.95);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.project-links a:hover {
+  opacity: 0.75;
+}
+
+/* footer row */
+.featured-grid tfoot td {
+  color: rgba(255,255,255,0.85);
+  text-align: center;
+  padding-top: 0.75rem;
+}
+
