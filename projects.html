@@ -2,8 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Featured projects by Jade Powell">
-    <meta name="keywords" content="projects, web design, game development">
+    <meta name="description" content="Projects portfolio for Jade Powell">
+    <meta name="keywords" content="web development, portfolio, projects, web designer, game development">
     <meta name="author" content="Jade Powell">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -12,7 +12,6 @@
   </head>
 
   <body class="projects">
-    <!-- Header -->
     <header>
       <nav class="hero-links">
         <a href="index.html">Home</a>
@@ -22,103 +21,152 @@
       </nav>
     </header>
 
-    <!-- Main Content -->
     <main>
-      <!-- Required table for 3.9 Structural and Visual Enhancements -->
+      <!-- ===== Featured Websites ===== -->
       <section class="projects-section">
-        <table class="projects-table">
-          <caption>Featured Projects</caption>
+        <h1 class="section-title">Featured Websites</h1>
+
+        <table class="featured-grid" aria-label="Featured Websites">
+          <caption>Featured Websites</caption>
 
           <colgroup>
-            <col class="col-category">
-            <col class="col-title">
-            <col class="col-preview">
+            <col class="col-card">
+            <col class="col-card">
+            <col class="col-card">
           </colgroup>
 
           <thead>
             <tr>
-              <th scope="col">Category</th>
-              <th scope="col">Project</th>
-              <th scope="col">Preview</th>
+              <th scope="col">Website 1</th>
+              <th scope="col">Website 2</th>
+              <th scope="col">Website 3</th>
             </tr>
           </thead>
 
           <tbody>
-            <!-- Featured Websites -->
-            <tr id="featured-site-1">
-              <td>Featured Website</td>
-              <td>Luna Sol</td>
-              <td>
-                <a href="#" class="project-preview">
-                  View Website
+            <tr>
+              <!-- Card 1 -->
+              <td id="featured-site-1">
+                <a class="preview-box" href="#" aria-label="Open Featured Website 1">
+                  <span>Image preview of<br>featured website 1</span>
                 </a>
-              </td>
-            </tr>
 
-            <tr id="featured-site-2">
-              <td>Featured Website</td>
-              <td>Harp Studio</td>
-              <td>
-                <a href="#" class="project-preview">
-                  View Website
-                </a>
+                <ul class="project-links">
+                  <li><a href="#">Live site</a></li>
+                  <li><a href="#">GitHub repo</a></li>
+                  <li><a href="#">Case study</a></li>
+                </ul>
               </td>
-            </tr>
 
-            <tr id="featured-site-3">
-              <td>Featured Website</td>
-              <td>Photography Portfolio</td>
-              <td>
-                <a href="#" class="project-preview">
-                  View Website
+              <!-- Card 2 -->
+              <td id="featured-site-2">
+                <a class="preview-box" href="#" aria-label="Open Featured Website 2">
+                  <span>Image preview of<br>featured website 2</span>
                 </a>
+
+                <ul class="project-links">
+                  <li><a href="#">Live site</a></li>
+                  <li><a href="#">GitHub repo</a></li>
+                  <li><a href="#">Case study</a></li>
+                </ul>
               </td>
-            </tr>
 
-            <!-- Featured Games -->
-            <tr id="featured-game-1">
-              <td>Featured Game</td>
-              <td>Homestead Simulator</td>
-              <td>
-                <a href="#" class="project-preview">
-                  View Game
+              <!-- Card 3 -->
+              <td id="featured-site-3">
+                <a class="preview-box" href="#" aria-label="Open Featured Website 3">
+                  <span>Image preview of<br>featured website 3</span>
                 </a>
-              </td>
-            </tr>
 
-            <tr id="featured-game-2">
-              <td>Featured Game</td>
-              <td>Doomagotchi</td>
-              <td>
-                <a href="#" class="project-preview">
-                  View Game
-                </a>
-              </td>
-            </tr>
-
-            <tr id="featured-game-3">
-              <td>Featured Game</td>
-              <td>The Chicken and the Harvester</td>
-              <td>
-                <a href="#" class="project-preview">
-                  View Game
-                </a>
+                <ul class="project-links">
+                  <li><a href="#">Live site</a></li>
+                  <li><a href="#">GitHub repo</a></li>
+                  <li><a href="#">Case study</a></li>
+                </ul>
               </td>
             </tr>
           </tbody>
 
           <tfoot>
             <tr>
-              <td colspan="3">
-                More projects coming soon 🌙
+              <td colspan="3">More websites coming soon.</td>
+            </tr>
+          </tfoot>
+        </table>
+      </section>
+
+      <!-- ===== Featured Games ===== -->
+      <section class="projects-section">
+        <h2 class="section-title">Featured Games</h2>
+
+        <table class="featured-grid" aria-label="Featured Games">
+          <caption>Featured Games</caption>
+
+          <colgroup>
+            <col class="col-card">
+            <col class="col-card">
+            <col class="col-card">
+          </colgroup>
+
+          <thead>
+            <tr>
+              <th scope="col">Game 1</th>
+              <th scope="col">Game 2</th>
+              <th scope="col">Game 3</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <!-- Card 1 -->
+              <td id="featured-game-1">
+                <a class="preview-box" href="#" aria-label="Open Featured Game 1">
+                  <span>Image preview of<br>featured game 1</span>
+                </a>
+
+                <ul class="project-links">
+                  <li><a href="#">Playable build</a></li>
+                  <li><a href="#">GitHub repo</a></li>
+                  <li><a href="#">Dev log</a></li>
+                </ul>
               </td>
+
+              <!-- Card 2 -->
+              <td id="featured-game-2">
+                <a class="preview-box" href="#" aria-label="Open Featured Game 2">
+                  <span>Image preview of<br>featured game 2</span>
+                </a>
+
+                <ul class="project-links">
+                  <li><a href="#">Playable build</a></li>
+                  <li><a href="#">GitHub repo</a></li>
+                  <li><a href="#">Dev log</a></li>
+                </ul>
+              </td>
+
+              <!-- Card 3 -->
+              <td id="featured-game-3">
+                <a class="preview-box" href="#" aria-label="Open Featured Game 3">
+                  <span>Image preview of<br>featured game 3</span>
+                </a>
+
+                <ul class="project-links">
+                  <li><a href="#">Playable build</a></li>
+                  <li><a href="#">GitHub repo</a></li>
+                  <li><a href="#">Dev log</a></li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+
+          <tfoot>
+            <tr>
+              <td colspan="3">More games coming soon.</td>
             </tr>
           </tfoot>
         </table>
       </section>
     </main>
 
-    <!-- Footer -->
     <footer>
       <p>&copy; 2026 Jade Powell</p>
     </footer>
