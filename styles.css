@@ -180,127 +180,150 @@ body.home .intro-text h1
 }
 
 /* ============================== */
-/* ==== PROJECTS PAGE ONLY ==== */
+/* ==== PROJECTS PAGE ONLY ====== */
 /* ============================== */
-body.projects
-{
-  body.projects main {
+
+body.projects main {
   width: min(1200px, 92vw);
   margin: 0 auto;
   padding: 2.5rem 0 3.5rem;
 }
 
-.section-title {
-  text-align: center;
-  color: white;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  margin: 1.5rem 0 1.25rem;
+/* NAV hover background (assignment requirement: transition + hover bg) */
+body.projects .hero-links a {
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
-/* ===== Table turned into a card grid ===== */
-.featured-grid {
+body.projects .hero-links a:hover {
+  background-color: rgba(255, 255, 255, 0.18);
+}
+
+/* Section hover interactivity (assignment requirement: transform + transition) */
+body.projects .projects-section {
+  margin: 1.75rem auto 2.5rem;
+  padding: 0.5rem 0;
+  transition: transform 0.2s ease;
+}
+
+body.projects .projects-section:hover {
+  transform: scale(1.02);
+}
+
+body.projects .section-title {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  margin: 1.25rem 0 1.25rem;
+}
+
+/* ===== TABLE (rubric: borders, padding, full width, header background color) ===== */
+body.projects .featured-grid {
   width: 100%;
   border-collapse: separate;
-  border-spacing: 3rem 1.25rem; /* space between the 3 cards */
+  border-spacing: 3rem 1.25rem;
   margin: 0 auto 2.5rem;
+
+  /* IMPORTANT: this keeps it invisible (NO GLASS BOX) */
+  background: none;
+  padding: 0;
 }
 
-/* hide the caption visually but keep it for accessibility (still counts!) */
-.featured-grid caption {
+/* Keep caption for accessibility/rubric but hide visually */
+body.projects .featured-grid caption {
   position: absolute;
   left: -9999px;
 }
 
-.featured-grid thead th {
-  color: transparent; /* keep for rubric, hide visually */
-  font-size: 0;
-  height: 0;
-  padding: 0;
-  border: none;
-}
-
-/* each cell behaves like a “card slot” */
-.featured-grid td {
-  vertical-align: top;
+/* Header styling (exists + styled, but not screaming) */
+body.projects .featured-grid thead th {
+  background-color: rgba(0, 0, 0, 0.12);
+  color: rgba(255, 255, 255, 0.9);
+  padding: 0.75rem;
+  border-radius: 12px;
+  font-weight: 600;
   text-align: center;
 }
 
-/* ===== The big preview box ===== */
-.preview-box {
-  display: grid;
-  place-items: center;
+/* Apply background color to first & third columns via colgroup/col (rubric) */
+body.projects .featured-grid col.col-1 {
+  background-color: rgba(255, 255, 255, 0.06);
+}
+body.projects .featured-grid col.col-3 {
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+/* Each cell behaves like a card slot */
+body.projects .featured-grid td {
+  vertical-align: top;
+  text-align: center;
+  padding: 0.5rem 0;
+}
+
+/* ===== Clickable preview box ===== */
+body.projects .preview-box {
+  display: block;
   width: 100%;
-  max-width: 340px;
-  height: 190px;
+  max-width: 260px;
+  aspect-ratio: 4 / 5;
+  margin: 0 auto 0.85rem;
 
-  margin: 0 auto 1rem;
-  background: #7a7a7a;
-  border: 4px solid #0f0f0f;
-  border-radius: 6px;
+  border: 4px solid rgba(15, 15, 15, 0.95);
+  border-radius: 14px;
+  overflow: hidden;
 
-  color: #111;
   text-decoration: none;
-  font-weight: 600;
-  line-height: 1.25;
 
   /* assignment-friendly transition */
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.preview-box:hover {
+body.projects .preview-box:hover {
   transform: scale(1.02);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* Preview image fills the box */
+body.projects .preview-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 /* ===== Links under each preview ===== */
-.project-links
-{
+body.projects .project-links {
   list-style: none;
   padding: 0;
   margin: 0;
-  color: white;
-  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 0.9rem;
 }
 
-.project-links li
-{
+body.projects .project-links li {
   margin: 0.25rem 0;
 }
 
-.project-links a
-{
-  color: rgba(255,255,255,0.95);
+body.projects .project-links a {
+  color: rgba(255, 255, 255, 0.95);
   text-decoration: none;
   transition: opacity 0.2s ease;
 }
 
-.project-links a:hover
-{
+body.projects .project-links a:hover {
   opacity: 0.75;
+  text-decoration: underline;
 }
 
-/* footer row */
-.featured-grid tfoot td
-{
-  color: rgba(255,255,255,0.85);
+/* Footer row */
+body.projects .featured-grid tfoot td.table-note {
+  color: rgba(255, 255, 255, 0.85);
   text-align: center;
   padding-top: 0.75rem;
 }
 
-/* Glass-style project cards */
-.featured-grid 
-{
-  background: rgba(255, 255, 255, 0.15); /* translucent */
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-
-  border-radius: 20px;
-  padding: 2rem;
-  margin-bottom: 3rem;
-}
-
-}
 
 /* About page only */
 body.about
