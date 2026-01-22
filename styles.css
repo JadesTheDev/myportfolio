@@ -179,26 +179,12 @@ body.home .intro-text h1
   color: #2F3E5C;
 }
 
-/* Projects page only */
+/* ============================== */
+/* ==== PROJECTS PAGE ONLY ==== */
+/* ============================== */
 body.projects
 {
-  /* projects-specific tweaks go here */
-}
-
-/* About page only */
-body.about
-{
-  /* about-specific tweaks go here */
-}
-
-/* Contact page only */
-body.contact
-{
-  /* contact-specific tweaks go here */
-}
-
-/* ===== Projects Page Layout ===== */
-body.projects main {
+  body.projects main {
   width: min(1200px, 92vw);
   margin: 0 auto;
   padding: 2.5rem 0 3.5rem;
@@ -268,7 +254,8 @@ body.projects main {
 }
 
 /* ===== Links under each preview ===== */
-.project-links {
+.project-links
+{
   list-style: none;
   padding: 0;
   margin: 0;
@@ -276,24 +263,53 @@ body.projects main {
   font-size: 0.85rem;
 }
 
-.project-links li {
+.project-links li
+{
   margin: 0.25rem 0;
 }
 
-.project-links a {
+.project-links a
+{
   color: rgba(255,255,255,0.95);
   text-decoration: none;
   transition: opacity 0.2s ease;
 }
 
-.project-links a:hover {
+.project-links a:hover
+{
   opacity: 0.75;
 }
 
 /* footer row */
-.featured-grid tfoot td {
+.featured-grid tfoot td
+{
   color: rgba(255,255,255,0.85);
   text-align: center;
   padding-top: 0.75rem;
 }
 
+/* Glass-style project cards */
+.featured-grid 
+{
+  background: rgba(255, 255, 255, 0.15); /* translucent */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  border-radius: 20px;
+  padding: 2rem;
+  margin-bottom: 3rem;
+}
+
+}
+
+/* About page only */
+body.about
+{
+  /* about-specific tweaks go here */
+}
+
+/* Contact page only */
+body.contact
+{
+  /* contact-specific tweaks go here */
+}
