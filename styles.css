@@ -1,60 +1,39 @@
-/* ========================= */
-/* ==== GLOBAL VARIABLES ==== */
-/* ========================= */
-html, body
-{
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
 html {
   background: linear-gradient(
     to bottom,
 
-    /* Sky */
-    #4457EE 10%,      /* deep sky blue */
-    #6E7AF0 20%,     /* periwinkle */
-    #A6A3E8 48%,     /* lavender haze */
+    /* Sky — deep sky blue */
+    #4457EE 10%,
 
-    /* Pink transition (NEW – proper pink, very light) */
-    #DDB7EB 53%,     /* soft true pink (5% band) */
+    /* Sky — periwinkle */
+    #6E7AF0 20%,
 
-    /* Sunset (reined in) */
-    #F1B3A3 66%,     /* softened peach (less salmon) */
-    #E78A6E 76%,     /* coral */
+    /* Sky — lavender haze */
+    #A6A3E8 48%,
 
-    /* Sun */
-    #F6C46A 84%,     /* GOLD band – still dominant */
+    /* Pink transition — soft true pink (5% band) */
+    #DDB7EB 53%,
 
-    /* Micro buffer */
-    #BFAE7A 87%,     /* warm neutral */
+    /* Sunset — softened peach (less salmon) */
+    #F1B3A3 66%,
 
-    /* Ocean */
-    #6B7C8F 92%,     /* slate water */
-    #364E6E 100%     /* deep ocean */
+    /* Sunset — coral */
+    #E78A6E 76%,
+
+    /* Sun — GOLD band (still dominant) */
+    #F6C46A 84%,
+
+    /* Micro buffer — warm neutral */
+    #BFAE7A 87%,
+
+    /* Ocean — slate water */
+    #6B7C8F 92%,
+
+    /* Ocean — deep ocean */
+    #364E6E 100%
   );
 }
 
-body
-{
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-
-  background: transparent;
-  font-family: Arial, Helvetica, sans-serif;
-  color: #fcf6cf;
-}
-
-main
-{
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 24px 16px;
-
-  flex: 1; /* THIS is the magic */
-}
 
 /* ============================== */
 /* ==== REUSABLE BLOCKS ==== */
