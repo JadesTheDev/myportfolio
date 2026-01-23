@@ -336,3 +336,27 @@ body.contact
 {
   /* contact-specific tweaks go here */
 }
+
+/* ============================== */
+/* ==== REMOVE CARD BACKGROUNDS ==== */
+/* ============================== */
+
+/* Projects page: sections should be invisible wrappers */
+body.projects section {
+  background: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+/* About page: single long text block, no card */
+body.about section {
+  background: none;
+  box-shadow: none;
+}
+
+/* Contact page: keep layout but remove glass effect */
+body.contact section {
+  background: none;
+  box-shadow: none;
+}
+
