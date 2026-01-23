@@ -1,104 +1,102 @@
-html {
-  background: linear-gradient(
-    to bottom,
+/* ============================== */
+/* ====== BASE / GLOBAL ========== */
+/* ============================== */
 
-    /* Sky — deep sky blue */
-    #4457EE 10%,
-
-    /* Sky — periwinkle */
-    #6E7AF0 20%,
-
-    /* Sky — lavender haze */
-    #A6A3E8 48%,
-
-    /* Pink transition — soft true pink (5% band) */
-    #DDB7EB 53%,
-
-    /* Sunset — softened peach (less salmon) */
-    #F1B3A3 66%,
-
-    /* Sunset — coral */
-    #E78A6E 76%,
-
-    /* Sun — GOLD band (still dominant) */
-    #F6C46A 84%,
-
-    /* Micro buffer — warm neutral */
-    #BFAE7A 87%,
-
-    /* Ocean — slate water */
-    #6B7C8F 92%,
-
-    /* Ocean — deep ocean */
-    #364E6E 100%
-  );
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
+html,
+body {
+  height: 100%;
+}
 
-/* ============================== */
-/* ==== REUSABLE BLOCKS ==== */
-/* ============================== */
+body {
+  margin: 0;
 
-/* Header (safe reusable default) */
-header
-{
-  max-width: 900px;
+  /* IMPORTANT: background goes on BODY so it fills the viewport correctly */
+  background: linear-gradient(
+    to bottom,
+    #4457EE 10%,
+    #6E7AF0 20%,
+    #A6A3E8 48%,
+    #DDB7EB 53%,
+    #F1B3A3 66%,
+    #E78A6E 76%,
+    #F6C46A 84%,
+    #BFAE7A 87%,
+    #6B7C8F 92%,
+    #364E6E 100%
+  );
+
+  /* Prevent the "tile/repeat" look */
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  /* Keeps gradient stable even if page gets tall */
+  background-attachment: fixed;
+
+  min-height: 100vh;
+
+  font-family: "Montserrat", Arial, sans-serif;
+}
+
+/* A simple page container you can reuse everywhere */
+.page {
+  width: min(1000px, 92vw);
   margin: 0 auto;
-  padding: 16px 24px;
+  padding: 2.25rem 0 3.5rem;
+}
+
+/* ============================== */
+/* ============ HEADER =========== */
+/* ============================== */
+
+header {
+  width: min(1000px, 92vw);
+  margin: 0 auto;
+  padding: 16px 0;
 
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-
-  color: #fcf6cf;
-}
-
-.header-text
-{
-  text-align: left;
-}
-
-/* Navigation (reusable default) */
-nav
-{
-  width: 100%;
-  padding: 16px 24px;
-
-  display: flex;
-  justify-content: flex-end; /* GLOBAL DEFAULT: right side */
-  gap: 16px;
-}
-
-nav ul
-{
-  list-style: none;
-  margin: 0;
-  padding: 0;
-
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  gap: 16px;
-
   justify-content: flex-end;
 }
 
-nav a
-{
+.hero-links {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  padding: 10px 0;
+}
+
+.hero-links a {
   text-decoration: none;
   font-weight: bold;
   color: #F2F4F8;
+
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+
+  transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
-nav a:hover
-{
-  text-decoration: underline;
+.hero-links a:hover {
+  background-color: rgba(255, 255, 255, 0.18);
 }
 
-/* Footer (reusable default) */
-footer
-{
+.hero-links a:focus {
+  outline: 3px solid rgba(252, 246, 207, 0.8);
+  outline-offset: 3px;
+}
+
+/* ============================== */
+/* ============ FOOTER =========== */
+/* ============================== */
+
+footer {
   text-align: center;
   font-size: 0.9rem;
   padding: 32px 16px;
@@ -107,20 +105,19 @@ footer
 }
 
 /* ============================== */
-/* ==== HOME PAGE ONLY ==== */
+/* ====== HOME PAGE (kept) ======= */
 /* ============================== */
 
-body.home .intro
-{
-  max-width: 900px;
+body.home .intro {
+  width: min(1000px, 92vw);
   margin: 24px auto 0;
-  padding: 0 24px;
+  padding: 0;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 32px;
-  font-family: "Montserrat";
+
   color: #2F3E5C;
 }
 
@@ -130,9 +127,7 @@ body.home .intro-text h3 {
   margin: 0;
 }
 
-/* Homepage photo sizing */
-body.home .profile-pic
-{
+body.home .profile-pic {
   width: 540px;
   height: 756px;
   object-fit: cover;
@@ -140,8 +135,7 @@ body.home .profile-pic
   display: block;
 }
 
-body.home .intro-text h1
-{
+body.home .intro-text h1 {
   font-family: "Brush Script MT", cursive;
   font-size: 4rem;
   letter-spacing: 0.10em;
@@ -149,7 +143,7 @@ body.home .intro-text h1
 }
 
 /* ============================== */
-/* ==== PROJECTS PAGE ONLY ====== */
+/* ===== PROJECTS PAGE (kept) ==== */
 /* ============================== */
 
 body.projects main {
@@ -158,18 +152,6 @@ body.projects main {
   padding: 2.5rem 0 3.5rem;
 }
 
-/* NAV hover background (assignment requirement: transition + hover bg) */
-body.projects .hero-links a {
-  padding: 0.4rem 0.75rem;
-  border-radius: 999px;
-  transition: background-color 0.2s ease, transform 0.2s ease;
-}
-
-body.projects .hero-links a:hover {
-  background-color: rgba(255, 255, 255, 0.18);
-}
-
-/* Section hover interactivity (assignment requirement: transform + transition) */
 body.projects .projects-section {
   margin: 1.75rem auto 2.5rem;
   padding: 0.5rem 0;
@@ -188,25 +170,20 @@ body.projects .section-title {
   margin: 1.25rem 0 1.25rem;
 }
 
-/* ===== TABLE (rubric: borders, padding, full width, header background color) ===== */
 body.projects .featured-grid {
   width: 100%;
   border-collapse: separate;
   border-spacing: 3rem 1.25rem;
   margin: 0 auto 2.5rem;
-
-  /* IMPORTANT: this keeps it invisible (NO GLASS BOX) */
   background: none;
   padding: 0;
 }
 
-/* Keep caption for accessibility/rubric but hide visually */
 body.projects .featured-grid caption {
   position: absolute;
   left: -9999px;
 }
 
-/* Header styling (exists + styled, but not screaming) */
 body.projects .featured-grid thead th {
   background-color: rgba(0, 0, 0, 0.12);
   color: rgba(255, 255, 255, 0.9);
@@ -216,7 +193,6 @@ body.projects .featured-grid thead th {
   text-align: center;
 }
 
-/* Apply background color to first & third columns via colgroup/col (rubric) */
 body.projects .featured-grid col.col-1 {
   background-color: rgba(255, 255, 255, 0.06);
 }
@@ -224,14 +200,12 @@ body.projects .featured-grid col.col-3 {
   background-color: rgba(255, 255, 255, 0.06);
 }
 
-/* Each cell behaves like a card slot */
 body.projects .featured-grid td {
   vertical-align: top;
   text-align: center;
   padding: 0.5rem 0;
 }
 
-/* ===== Clickable preview box ===== */
 body.projects .preview-box {
   display: block;
   width: 100%;
@@ -244,8 +218,6 @@ body.projects .preview-box {
   overflow: hidden;
 
   text-decoration: none;
-
-  /* assignment-friendly transition */
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -254,7 +226,6 @@ body.projects .preview-box:hover {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
 }
 
-/* Preview image fills the box */
 body.projects .preview-img {
   width: 100%;
   height: 100%;
@@ -262,7 +233,6 @@ body.projects .preview-img {
   display: block;
 }
 
-/* ===== Links under each preview ===== */
 body.projects .project-links {
   list-style: none;
   padding: 0;
@@ -286,46 +256,135 @@ body.projects .project-links a:hover {
   text-decoration: underline;
 }
 
-/* Footer row */
 body.projects .featured-grid tfoot td.table-note {
   color: rgba(255, 255, 255, 0.85);
   text-align: center;
   padding-top: 0.75rem;
 }
 
-
-/* About page only */
-body.about
-{
-  /* about-specific tweaks go here */
-}
-
-/* Contact page only */
-body.contact
-{
-  /* contact-specific tweaks go here */
-}
-
 /* ============================== */
-/* ==== REMOVE CARD BACKGROUNDS ==== */
+/* ===== CONTACT PAGE ONLY ======= */
 /* ============================== */
 
-/* Projects page: sections should be invisible wrappers */
-body.projects section {
-  background: none;
-  box-shadow: none;
-  padding: 0;
+body.contact .contact-card {
+  width: min(720px, 92vw);
+  margin: 2rem auto 0;
+  padding: 2rem 1.75rem;
+
+  border-radius: 18px;
+
+  /* "Lovely box" — clean glass card that ONLY exists on contact page */
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+
+  color: rgba(255, 255, 255, 0.95);
 }
 
-/* About page: single long text block, no card */
-body.about section {
-  background: none;
-  box-shadow: none;
+body.contact .contact-card h1 {
+  margin: 0 0 0.75rem;
+  font-size: 2.4rem;
+  letter-spacing: 0.02em;
 }
 
-/* Contact page: keep layout but remove glass effect */
-body.contact section {
-  background: none;
-  box-shadow: none;
+body.contact .contact-intro {
+  margin: 0 0 1.5rem;
+  color: rgba(255, 255, 255, 0.92);
+  line-height: 1.5;
 }
 
+body.contact .contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+body.contact .form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+body.contact .field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+body.contact .field-full {
+  grid-column: 1 / -1;
+}
+
+body.contact .label-text {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+body.contact input,
+body.contact textarea {
+  width: 100%;
+  padding: 0.75rem 0.85rem;
+
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(10, 10, 15, 0.20);
+
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 1rem;
+
+  transition: transform 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+}
+
+body.contact textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+body.contact input:focus,
+body.contact textarea:focus {
+  outline: none;
+  border-color: rgba(252, 246, 207, 0.95);
+  background: rgba(10, 10, 15, 0.26);
+  transform: translateY(-1px);
+}
+
+body.contact .btn {
+  align-self: flex-start;
+  padding: 0.8rem 1.1rem;
+  border-radius: 999px;
+
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.18);
+
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+
+  cursor: pointer;
+
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+body.contact .btn:hover {
+  background: rgba(255, 255, 255, 0.26);
+  transform: translateY(-1px);
+}
+
+body.contact .btn:focus {
+  outline: 3px solid rgba(252, 246, 207, 0.8);
+  outline-offset: 3px;
+}
+
+/* ===== Responsive: stacks nicely on phones ===== */
+@media (max-width: 700px) {
+  body.contact .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  body.contact .btn {
+    width: 100%;
+    text-align: center;
+    align-self: stretch;
+  }
+}
