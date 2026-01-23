@@ -388,3 +388,14 @@ body.contact .btn:focus {
     align-self: stretch;
   }
 }
+
+.hidden {
+  position: absolute;
+  left: -9999px;
+}
+
+body.contact .contact-note {
+  margin: 0.75rem 0 0;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.85);
+}
