@@ -399,3 +399,23 @@ body.contact .contact-note {
   font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.85);
 }
+
+/* ============================== */
+/* ===== NETLIFY FORM EXTRAS ===== */
+/* ============================== */
+
+/* Hide the honeypot field from humans */
+.hidden {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* Small reassurance text under submit button */
+body.contact .contact-note {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.85);
+}
