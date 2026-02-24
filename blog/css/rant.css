@@ -192,3 +192,10 @@ body{
   font-size: 22px;
   text-decoration: none;
 }
+
+body {
+  background-image: url("../assets/leaf_background.jpg");
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+}
