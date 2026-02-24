@@ -1,12 +1,16 @@
-/* ============================= */
-/* ===== ABOUT PAGE ONLY ======= */
-/* ============================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
-body.about {
+html,
+body {
+  height: 100%;
+}
+
+body {
   margin: 0;
-  min-height: 100vh;
-
-  font-family: "Montserrat", Arial, sans-serif;
 
   background: linear-gradient(
     to bottom,
@@ -21,24 +25,64 @@ body.about {
     #6B7C8F 92%,
     #364E6E 100%
   );
-
+  background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
-  background-repeat: no-repeat;
+  min-height: 100vh;
+
+  font-family: "Montserrat", Arial, sans-serif;
 }
 
-.about-container {
-  width: min(900px, 92vw);
+.page {
+  width: min(1000px, 92vw);
   margin: 0 auto;
-  padding: 3rem 0;
+  padding: 2.25rem 0 3.5rem;
 }
 
-/* About card */
-.about-card {
-  padding: 2rem 1.75rem;
-  border-radius: 18px;
+header {
+  width: min(1000px, 92vw);
+  margin: 0 auto;
+  padding: 16px 0;
 
-  background: rgba(255, 255, 255, 0.14);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.hero-links {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  padding: 10px 0;
+}
+
+.hero-links a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #F2F4F8;
+
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.hero-links a:hover {
+  background-color: rgba(255, 255, 255, 0.18);
+}
+
+.hero-links a:focus {
+  outline: 3px solid rgba(252, 246, 207, 0.8);
+  outline-offset: 3px;
+}
+
+.about-card {
+  margin-top: 1.25rem;
+  padding: 2rem 1.75rem;
+
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.12);
   border: 1px solid rgba(255, 255, 255, 0.25);
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
 
@@ -55,6 +99,10 @@ body.about {
   line-height: 1.6;
 }
 
-.about-card p:last-child {
-  margin-bottom: 0;
+footer {
+  text-align: center;
+  font-size: 0.9rem;
+  padding: 32px 16px;
+  background: transparent;
+  color: #fcf6cf;
 }
