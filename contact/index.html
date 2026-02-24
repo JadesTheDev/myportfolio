@@ -1,1 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Metadata -->
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Contact page for Jade Powell's web development services."
+    />
+    <meta
+      name="keywords"
+      content="web development, portfolio, contact, freelance"
+    />
+    <meta name="author" content="Jade Powell" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <title>Contact | Jade Powell</title>
+
+    <!-- IMPORTANT: matches your repo filename -->
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+
+  <body class="contact">
+    <header>
+      <nav class="hero-links" aria-label="Primary navigation">
+        <!-- Folder-based paths -->
+        <a href="../index.html">Home</a>
+        <a href="../projects/index.html">Projects</a>
+        <a href="../about/index.html">About</a>
+        <a href="./index.html" aria-current="page">Contact</a>
+      </nav>
+    </header>
+
+    <main class="page">
+      <section class="contact-card" aria-labelledby="contactTitle">
+        <h1 id="contactTitle">Email Me</h1>
+
+        <p class="contact-intro">
+          Have a question, project idea, or just want to reach out? Fill out the
+          form below and I’ll get back to you soon!
+        </p>
+
+        <!-- NETLIFY FORMS -->
+        <form
+          class="contact-form"
+          name="service-inquiry"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+        >
+          <input type="hidden" name="form-name" value="service-inquiry" />
+
+          <!-- Honeypot (spam trap) -->
+          <p class="hidden">
+            <label>
+              Don’t fill this out: <input name="bot-field" />
+            </label>
+          </p>
+
+          <div class="form-grid">
+            <label class="field">
+              <span class="label-text">Name</span>
+              <input type="text" name="name" autocomplete="name" required />
+            </label>
+
+            <label class="field">
+              <span class="label-text">Email</span>
+              <input type="email" name="email" autocomplete="email" required />
+            </label>
+
+            <label class="field field-full">
+              <span class="label-text">Phone Number (optional)</span>
+              <input type="tel" name="phone" autocomplete="tel" />
+            </label>
+
+            <label class="field field-full">
+              <span class="label-text">Message</span>
+              <textarea
+                name="message"
+                rows="6"
+                placeholder="Write your message here..."
+                required
+              ></textarea>
+            </label>
+          </div>
+
+          <button class="btn" type="submit">Send Message</button>
+
+          <p class="contact-note">
+            This form sends directly to Jade Powell (no redirects).
+          </p>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Jade Powell</p>
+    </footer>
+  </body>
+</html>
