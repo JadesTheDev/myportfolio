@@ -1,0 +1,60 @@
+/* ============================= */
+/* ===== ABOUT PAGE ONLY ======= */
+/* ============================= */
+
+body.about {
+  margin: 0;
+  min-height: 100vh;
+
+  font-family: "Montserrat", Arial, sans-serif;
+
+  background: linear-gradient(
+    to bottom,
+    #4457EE 10%,
+    #6E7AF0 20%,
+    #A6A3E8 48%,
+    #DDB7EB 53%,
+    #F1B3A3 66%,
+    #E78A6E 76%,
+    #F6C46A 84%,
+    #BFAE7A 87%,
+    #6B7C8F 92%,
+    #364E6E 100%
+  );
+
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+.about-container {
+  width: min(900px, 92vw);
+  margin: 0 auto;
+  padding: 3rem 0;
+}
+
+/* About card */
+.about-card {
+  padding: 2rem 1.75rem;
+  border-radius: 18px;
+
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.about-card h1 {
+  margin: 0 0 1rem;
+  font-size: 2.4rem;
+}
+
+.about-card p {
+  margin: 0 0 1rem;
+  line-height: 1.6;
+}
+
+.about-card p:last-child {
+  margin-bottom: 0;
+}
