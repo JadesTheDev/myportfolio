@@ -82,6 +82,21 @@
     }).join("");
   }
 
+  // ---------- Time Script ---------- //
+  function updatePhoneTime() {
+  const now = new Date();
+  const time = now.toLocaleTimeString([], {
+    hour: "2-digit",
+    minute: "2-digit"
+  });
+
+  const el = document.getElementById("phone-time");
+  if (el) el.textContent = time;
+}
+
+updatePhoneTime();
+setInterval(updatePhoneTime, 30000);
+
   // ---------- Page: thread.html (chat) ----------
   function renderThread() {
     const chat = $("chat");
