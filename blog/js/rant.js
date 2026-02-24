@@ -20,13 +20,29 @@
       .replaceAll("'", "&#039;");
   }
 
+  // ===== Phone time (real) =====
+  function updatePhoneTime() {
+    const el = $("phone-time");
+    if (!el) return;
+
+    const now = new Date();
+    const time = now.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+    el.textContent = time;
+  }
+
+  updatePhoneTime();
+  setInterval(updatePhoneTime, 30000);
+
   // ---------- Page: index.html (launcher) ----------
   function renderLauncher() {
     const grid = $("categoryGrid");
     if (!grid) return;
 
-    $("siteTitle").textContent = rantData.site?.title || "Rant OS";
-    $("siteTagline").textContent = rantData.site?.tagline || "";
+    const titleEl = $("siteTitle");
+    const tagEl = $("siteTagline");
+
+    if (titleEl) titleEl.textContent = rantData.site?.title || "Rant OS";
+    if (tagEl) tagEl.textContent = rantData.site?.tagline || "";
 
     const cats = rantData.categories || [];
     grid.innerHTML = cats.map(c => {
@@ -51,14 +67,18 @@
     const cat = getCategoryById(catId);
 
     if (!cat) {
-      $("categoryTitle").textContent = "Category not found";
-      $("categorySubtitle").textContent = "Check the link and try again.";
+      const titleEl = $("categoryTitle");
+      const subEl = $("categorySubtitle");
+      if (titleEl) titleEl.textContent = "Category not found";
+      if (subEl) subEl.textContent = "Check the link and try again.";
       list.innerHTML = `<div class="empty">No topics to show.</div>`;
       return;
     }
 
-    $("categoryTitle").textContent = `${cat.emoji || "📁"} ${cat.name}`;
-    $("categorySubtitle").textContent = "Pick a topic to open the thread.";
+    const titleEl = $("categoryTitle");
+    const subEl = $("categorySubtitle");
+    if (titleEl) titleEl.textContent = `${cat.emoji || "📁"} ${cat.name}`;
+    if (subEl) subEl.textContent = "Pick a topic to open the thread.";
 
     const topics = (rantData.topics && rantData.topics[catId]) ? rantData.topics[catId] : [];
     if (!topics.length) {
@@ -82,21 +102,6 @@
     }).join("");
   }
 
-  // ---------- Time Script ---------- //
-  function updatePhoneTime() {
-  const now = new Date();
-  const time = now.toLocaleTimeString([], {
-    hour: "2-digit",
-    minute: "2-digit"
-  });
-
-  const el = document.getElementById("phone-time");
-  if (el) el.textContent = time;
-}
-
-updatePhoneTime();
-setInterval(updatePhoneTime, 30000);
-
   // ---------- Page: thread.html (chat) ----------
   function renderThread() {
     const chat = $("chat");
@@ -114,12 +119,14 @@ setInterval(updatePhoneTime, 30000);
     if (back && catId) back.href = `category.html?cat=${encodeURIComponent(catId)}`;
 
     if (!cat || !thread) {
-      $("threadTitle").textContent = "Thread not found";
+      const titleEl = $("threadTitle");
+      if (titleEl) titleEl.textContent = "Thread not found";
       chat.innerHTML = `<div class="empty">Missing data for <code>${escapeHtml(key)}</code>.</div>`;
       return;
     }
 
-    $("threadTitle").textContent = thread.title || "Thread";
+    const titleEl = $("threadTitle");
+    if (titleEl) titleEl.textContent = thread.title || "Thread";
 
     const msgs = thread.messages || [];
     chat.innerHTML = msgs.map(m => {
