@@ -1,69 +1,97 @@
 :root{
-  --bg: #08110b;
+  --stage1:#050505;
+  --stage2:#2a2a2a;
+
   --text: rgba(255,255,255,0.92);
-  --muted: rgba(255,255,255,0.70);
+  --muted: rgba(255,255,255,0.72);
 
-  --card: rgba(0,0,0,0.32);
-  --border: rgba(255,255,255,0.16);
-  --shadow: 0 14px 34px rgba(0,0,0,0.40);
+  --phone-border: #000;
+  --phone-bg: rgba(0,0,0,0.20);
 
-  --radius: 18px;
-  --max: 980px;
+  --radius: 34px;
+  --status-h: 34px;
+  --nav-h: 58px;
 
-  --status-h: 32px;
-  --nav-h: 56px;
+  --shadow: 0 30px 80px rgba(0,0,0,0.55);
 
   --font: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 }
 
-/* Reset */
-*{ box-sizing: border-box; }
-html, body { height: 100%; }
-
+/* ========== Stage background (diagonal black -> gray -> black) ========== */
+*{ box-sizing:border-box; }
+html, body{ height:100%; }
 body{
   margin:0;
   font-family: var(--font);
   color: var(--text);
 }
 
-/* Phone wallpaper background */
-body.phone{
-  background-image: url("../../assets/wallpaper/leaf.jpg");
+body.stage{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  /* diagonal black -> gray -> black */
+  background: linear-gradient(135deg, var(--stage1) 0%, var(--stage2) 50%, var(--stage1) 100%);
+  padding: 24px;
+}
+
+/* ========== Phone shell ========== */
+.phone-shell{
+  position: relative;
+
+  width: min(420px, 96vw);
+  height: min(860px, 92vh);
+
+  border: 12px solid var(--phone-border); /* thickness of phone outline */
+  border-radius: var(--radius);
+  overflow: hidden; /* clips wallpaper to rounded corners */
+  box-shadow: var(--shadow);
+
+  background: #111; /* fallback */
+}
+
+/* Leaf wallpaper INSIDE phone, rotated 180 degrees, portrait fit */
+.phone-shell::before{
+  content:"";
+  position:absolute;
+  inset:0;
+
+  /* IMPORTANT: this path is from blog/css/ -> ../../assets/ */
+  background-image: url("../../assets/wallpaper/leaf.jpeg");
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
-  min-height: 100vh;
-  position: relative;
+  background-repeat: no-repeat;
+
+  transform: rotate(180deg);
+  transform-origin: center;
+
+  /* keep behind everything */
+  z-index: 0;
 }
 
-/* Dark overlay so text stays readable */
-body.phone::before{
+/* Slight dark overlay inside phone so text/cards read cleanly */
+.phone-shell::after{
   content:"";
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.35);
-  z-index: -1;
+  position:absolute;
+  inset:0;
+  background: rgba(0,0,0,0.28);
+  z-index: 0;
 }
 
-/* Layout padding so content doesn't hide under bars */
-.phone-content{
-  padding-top: calc(var(--status-h) + 16px);
-  padding-bottom: calc(var(--nav-h) + 20px);
-}
-
-/* Status bar */
+/* ========== Status bar (INSIDE phone) ========== */
 .status-bar{
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  position: relative;
+  z-index: 2;
+
   height: var(--status-h);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
   padding: 0 12px;
-  z-index: 1000;
-  background: rgba(0,0,0,0.30);
+  background: rgba(0,0,0,0.20);
   backdrop-filter: blur(8px);
 }
 
@@ -73,45 +101,90 @@ body.phone::before{
 }
 
 .status-icons{
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.status-icon{
+  display:flex;
+  align-items:center;
+  gap: 10px;
   font-size: 14px;
   opacity: 0.95;
 }
 
-.status-battery{
-  width: 22px;
-  height: auto;
-  opacity: 0.95;
+/* ========== Phone content area ========== */
+.phone-content{
+  position: relative;
+  z-index: 2;
+
+  height: calc(100% - var(--status-h) - var(--nav-h));
+  overflow:auto;
+
+  padding: 18px 18px 18px;
 }
 
-/* Android nav bar */
+/* Title area */
+.top h1{
+  margin: 0 0 6px;
+  font-size: 30px;
+}
+.muted{ color: var(--muted); margin:0; }
+
+/* ========== App grid ========== */
+.grid{
+  margin-top: 18px;
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+/* App “cards” (we can convert these into thick-outlined squares later) */
+.card{
+  display:block;
+  text-decoration:none;
+  color: var(--text);
+
+  padding: 16px;
+  border-radius: 18px;
+
+  background: rgba(0,0,0,0.30);
+  border: 1px solid rgba(255,255,255,0.16);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.35);
+}
+
+.card:hover{ transform: translateY(-1px); }
+
+.emoji{
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+.cardTitle{
+  font-size: 15px;
+  font-weight: 800;
+}
+
+/* ========== Android nav (INSIDE phone) ========== */
 .android-nav{
-  position: fixed;
-  bottom: 0;
+  position: absolute;
   left: 0;
   right: 0;
+  bottom: 0;
+
   height: var(--nav-h);
-  z-index: 1000;
-  background: rgba(0,0,0,0.32);
+  z-index: 2;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-around;
+
+  background: rgba(0,0,0,0.22);
   backdrop-filter: blur(10px);
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
 }
 
 .nav-btn,
 .nav-home{
   border: none;
   background: transparent;
-  color: rgba(255,255,255,0.88);
+  color: rgba(255,255,255,0.90);
   font-size: 22px;
-  text-decoration: none;
-  line-height: 1;
+  text-decoration:none;
+
   padding: 10px 16px;
   border-radius: 999px;
 }
@@ -120,151 +193,9 @@ body.phone::before{
   opacity: 0.45;
 }
 
-/* Main shell */
-.shell{
-  max-width: var(--max);
-  margin: 0 auto;
-  padding-left: 18px;
-  padding-right: 18px;
-}
-
-/* Header */
-.top{
-  margin-bottom: 18px;
-}
-.top h1{
-  margin: 0 0 6px;
-  font-size: 30px;
-  letter-spacing: 0.3px;
-}
-.muted{ color: var(--muted); }
-
-.row{
-  display:flex;
-  gap: 14px;
-  align-items: center;
-}
-
-.back{
-  display:inline-flex;
-  padding: 10px 14px;
-  border-radius: 999px;
-  border: 1px solid var(--border);
-  background: rgba(0,0,0,0.28);
-  color: var(--text);
-  text-decoration:none;
-  white-space: nowrap;
-  box-shadow: var(--shadow);
-}
-
-/* Home grid */
-.grid{
-  display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-  gap: 14px;
-}
-
-.card{
-  display:block;
-  padding: 18px;
-  border-radius: var(--radius);
-  border: 1px solid var(--border);
-  background: var(--card);
-  box-shadow: var(--shadow);
-  text-decoration:none;
-  color: var(--text);
-}
-
-.card:hover{
-  transform: translateY(-1px);
-}
-
-.emoji{
-  font-size: 28px;
-  margin-bottom: 10px;
-}
-
-.cardTitle{
-  font-size: 16px;
-  font-weight: 700;
-}
-
-/* Topic list */
-.list{
-  display:flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.rowItem{
-  display:flex;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 14px 14px;
-  border-radius: var(--radius);
-  border: 1px solid var(--border);
-  background: var(--card);
-  text-decoration:none;
-  color: var(--text);
-  box-shadow: var(--shadow);
-}
-
-.rowTitle{ font-weight: 800; margin-bottom: 4px; }
-.rowBlurb{ font-size: 14px; }
-.rowMeta{ font-size: 13px; white-space: nowrap; }
-
-/* Chat */
-.chat{
-  display:flex;
-  flex-direction: column;
-  gap: 14px;
-  margin-top: 10px;
-}
-
-.pair{
-  display:grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-}
-
-.bubble{
-  padding: 14px 14px;
-  border-radius: 20px;
-  border: 1px solid var(--border);
-  background: rgba(0,0,0,0.24);
-  box-shadow: var(--shadow);
-}
-
-.claim{
-  background: rgba(24, 110, 70, 0.35);
-}
-
-.receipt{
-  background: rgba(0,0,0,0.28);
-}
-
-.evidence{ margin-bottom: 10px; line-height: 1.35; }
-.cite{ font-size: 13px; line-height: 1.25; }
-
-.source{
-  display:inline-block;
-  margin-top: 8px;
-  font-size: 13px;
-  color: var(--text);
-  text-decoration: underline;
-  opacity: 0.85;
-}
-
-.empty{
-  padding: 16px;
-  border: 1px dashed var(--border);
-  border-radius: var(--radius);
-  color: var(--muted);
-  background: rgba(0,0,0,0.22);
-  box-shadow: var(--shadow);
-}
-
-@media (max-width: 760px){
-  .pair{ grid-template-columns: 1fr; }
-  .grid{ grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
+/* Mobile tweaks */
+@media (max-width: 520px){
+  .top h1{ font-size: 26px; }
+  .grid{ gap: 12px; }
+  .phone-content{ padding: 16px; }
 }
