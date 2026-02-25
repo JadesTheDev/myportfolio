@@ -1,7 +1,7 @@
 (function () {
   "use strict";
 
-  function $(id) { return document.getElementById(id); }
+  const $ = (id) => document.getElementById(id);
 
   function getParams() {
     return new URLSearchParams(window.location.search);
@@ -20,44 +20,63 @@
       .replaceAll("'", "&#039;");
   }
 
-  // ===== Phone time (real) =====
+  // ===== phone time (real) =====
   function updatePhoneTime() {
     const el = $("phone-time");
     if (!el) return;
-
     const now = new Date();
-    const time = now.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
-    el.textContent = time;
+    el.textContent = now.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
   }
-
   updatePhoneTime();
   setInterval(updatePhoneTime, 30000);
 
-  // ---------- Page: index.html (launcher) ----------
+  // ===== Launcher (blog/index.html) =====
   function renderLauncher() {
     const grid = $("categoryGrid");
     if (!grid) return;
 
     const titleEl = $("siteTitle");
     const tagEl = $("siteTagline");
-
     if (titleEl) titleEl.textContent = rantData.site?.title || "Rant OS";
     if (tagEl) tagEl.textContent = rantData.site?.tagline || "";
 
-    const cats = rantData.categories || [];
-    grid.innerHTML = cats.map(c => {
-      const name = escapeHtml(c.name);
-      const emoji = escapeHtml(c.emoji || "📁");
+    const layout = rantData.launcherApps || [];
+
+    grid.innerHTML = layout.map(item => {
+      if (item.type === "spacer") {
+        return `<div class="app-spacer" aria-hidden="true"></div>`;
+      }
+
+      if (item.type === "link") {
+        const emoji = escapeHtml(item.emoji || "🔗");
+        const label = escapeHtml(item.label || "Link");
+        const href = escapeHtml(item.href || "#");
+        return `
+          <a class="app" href="${href}">
+            <div class="app-square"><div class="app-emoji" aria-hidden="true">${emoji}</div></div>
+            <div class="app-label">${label}</div>
+          </a>
+        `;
+      }
+
+      // category app
+      const cat = getCategoryById(item.id);
+      if (!cat) return `<div class="app-spacer" aria-hidden="true"></div>`;
+
+      const emoji = escapeHtml(cat.emoji || "📁");
+      const label = escapeHtml(cat.name || "Category");
+      const href = `pages/category.html?cat=${encodeURIComponent(cat.id)}`;
+
       return `
-        <a class="card" href="pages/category.html?cat=${encodeURIComponent(c.id)}">
-          <div class="emoji" aria-hidden="true">${emoji}</div>
-          <div class="cardTitle">${name}</div>
+        <a class="app" href="${href}">
+          <div class="app-square"><div class="app-emoji" aria-hidden="true">${emoji}</div></div>
+          <div class="app-label">${label}</div>
         </a>
       `;
     }).join("");
   }
 
-  // ---------- Page: category.html (topic list) ----------
+  // ===== Category page (blog/pages/category.html) =====
   function renderCategory() {
     const list = $("topicList");
     if (!list) return;
@@ -102,7 +121,7 @@
     }).join("");
   }
 
-  // ---------- Page: thread.html (chat) ----------
+  // ===== Thread page (blog/pages/thread.html) =====
   function renderThread() {
     const chat = $("chat");
     if (!chat) return;
@@ -110,15 +129,11 @@
     const params = getParams();
     const catId = params.get("cat");
     const threadId = params.get("thread");
-
-    const cat = getCategoryById(catId);
     const key = `${catId}/${threadId}`;
+
     const thread = (rantData.threads && rantData.threads[key]) ? rantData.threads[key] : null;
 
-    const back = $("backToCategory");
-    if (back && catId) back.href = `category.html?cat=${encodeURIComponent(catId)}`;
-
-    if (!cat || !thread) {
+    if (!thread) {
       const titleEl = $("threadTitle");
       if (titleEl) titleEl.textContent = "Thread not found";
       chat.innerHTML = `<div class="empty">Missing data for <code>${escapeHtml(key)}</code>.</div>`;
@@ -133,26 +148,19 @@
       const claim = escapeHtml(m.claim || "");
       const evidence = escapeHtml(m.evidence || "");
       const citation = escapeHtml(m.citation || "");
-      const sourceUrl = (m.sourceUrl || "").trim();
-
-      const sourceLink = sourceUrl
-        ? `<a class="source" href="${escapeHtml(sourceUrl)}" target="_blank" rel="noopener">Open source</a>`
-        : "";
-
       return `
         <div class="pair">
           <div class="bubble claim">${claim}</div>
           <div class="bubble receipt">
             <div class="evidence">${evidence}</div>
             <div class="cite muted">${citation}</div>
-            ${sourceLink}
           </div>
         </div>
       `;
     }).join("");
   }
 
-  // Run the right renderer automatically
+  // Run whichever applies
   renderLauncher();
   renderCategory();
   renderThread();
