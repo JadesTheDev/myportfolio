@@ -10,10 +10,9 @@
 <body class="stage">
   <div class="phone-shell" role="application" aria-label="Rant OS Phone">
 
-    <!-- PHONE STATUS BAR (INSIDE PHONE) -->
+    <!-- STATUS BAR -->
     <header class="status-bar" aria-label="Phone status bar">
       <div id="phone-time" class="status-time">12:00</div>
-
       <div class="status-icons" aria-hidden="true">
         <span title="Signal">📶</span>
         <span title="Wi-Fi">📡</span>
@@ -21,17 +20,21 @@
       </div>
     </header>
 
-    <!-- PHONE CONTENT -->
+    <!-- CONTENT -->
     <main class="phone-content">
-      <header class="top">
-        <h1 id="siteTitle">Rant OS</h1>
-        <p id="siteTagline" class="muted">Opinion in conversation. Evidence as receipts.</p>
-      </header>
+      <!-- SEARCH BAR (replaces title/subtitle) -->
+      <div class="search-wrap">
+        <div class="search">
+          <span class="search-ico" aria-hidden="true">🔎</span>
+          <input id="launcherSearch" type="search" placeholder="Search apps…" autocomplete="off" />
+          <button id="searchClear" class="search-clear" type="button" aria-label="Clear search">✕</button>
+        </div>
+      </div>
 
-      <section class="grid" id="categoryGrid" aria-label="Categories"></section>
+      <section class="grid" id="categoryGrid" aria-label="Apps"></section>
     </main>
 
-    <!-- ANDROID NAV (INSIDE PHONE) -->
+    <!-- ANDROID NAV -->
     <nav class="android-nav" aria-label="Android navigation bar">
       <button class="nav-btn" type="button" onclick="history.back()" aria-label="Back">◁</button>
       <a class="nav-home" href="../home/index.html" aria-label="Home">◯</a>
@@ -40,7 +43,6 @@
 
   </div>
 
-  <!-- keep your existing data + js -->
   <script src="data/rantData.js"></script>
   <script src="js/rant.js"></script>
 </body>
