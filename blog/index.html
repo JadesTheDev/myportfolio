@@ -7,34 +7,40 @@
   <link rel="stylesheet" href="css/rant.css" />
 </head>
 
-<body class="phone">
-  <!-- STATUS BAR -->
-  <header class="status-bar" aria-label="Phone status bar">
-    <div id="phone-time" class="status-time">12:00</div>
-    <div class="status-icons">
-      <span class="status-icon" aria-hidden="true">📶</span>
-      <span class="status-icon" aria-hidden="true">📡</span>
-      <img class="status-battery" src="../assets/icons/battery.png" alt="Battery">
-    </div>
-  </header>
+<body class="stage">
+  <div class="phone-shell" role="application" aria-label="Rant OS Phone">
 
-  <!-- MAIN CONTENT -->
-  <main class="shell phone-content">
-    <header class="top">
-      <h1 id="siteTitle">Rant OS</h1>
-      <p id="siteTagline" class="muted"></p>
+    <!-- PHONE STATUS BAR (INSIDE PHONE) -->
+    <header class="status-bar" aria-label="Phone status bar">
+      <div id="phone-time" class="status-time">12:00</div>
+
+      <div class="status-icons" aria-hidden="true">
+        <span title="Signal">📶</span>
+        <span title="Wi-Fi">📡</span>
+        <span title="Battery">🔋</span>
+      </div>
     </header>
 
-    <section class="grid" id="categoryGrid" aria-label="Categories"></section>
-  </main>
+    <!-- PHONE CONTENT -->
+    <main class="phone-content">
+      <header class="top">
+        <h1 id="siteTitle">Rant OS</h1>
+        <p id="siteTagline" class="muted">Opinion in conversation. Evidence as receipts.</p>
+      </header>
 
-  <!-- ANDROID NAV BAR -->
-  <nav class="android-nav" aria-label="Android navigation bar">
-    <button class="nav-btn" type="button" onclick="history.back()" aria-label="Back">◁</button>
-    <a class="nav-home" href="/home/index.html" aria-label="Home">◯</a>
-    <button class="nav-btn" type="button" aria-label="Recents" disabled>▢</button>
-  </nav>
+      <section class="grid" id="categoryGrid" aria-label="Categories"></section>
+    </main>
 
+    <!-- ANDROID NAV (INSIDE PHONE) -->
+    <nav class="android-nav" aria-label="Android navigation bar">
+      <button class="nav-btn" type="button" onclick="history.back()" aria-label="Back">◁</button>
+      <a class="nav-home" href="../home/index.html" aria-label="Home">◯</a>
+      <button class="nav-btn" type="button" aria-label="Recents" disabled>▢</button>
+    </nav>
+
+  </div>
+
+  <!-- keep your existing data + js -->
   <script src="data/rantData.js"></script>
   <script src="js/rant.js"></script>
 </body>
