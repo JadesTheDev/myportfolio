@@ -20,7 +20,7 @@
       .replaceAll("'", "&#039;");
   }
 
-  // ===== phone time (real) =====
+  // ===== phone time =====
   function updatePhoneTime() {
     const el = $("phone-time");
     if (!el) return;
@@ -30,15 +30,10 @@
   updatePhoneTime();
   setInterval(updatePhoneTime, 30000);
 
-  // ===== Launcher (blog/index.html) =====
+  // ===== Launcher =====
   function renderLauncher() {
     const grid = $("categoryGrid");
     if (!grid) return;
-
-    const titleEl = $("siteTitle");
-    const tagEl = $("siteTagline");
-    if (titleEl) titleEl.textContent = rantData.site?.title || "Rant OS";
-    if (tagEl) tagEl.textContent = rantData.site?.tagline || "";
 
     const layout = rantData.launcherApps || [];
 
@@ -52,14 +47,13 @@
         const label = escapeHtml(item.label || "Link");
         const href = escapeHtml(item.href || "#");
         return `
-          <a class="app" href="${href}">
+          <a class="app" href="${href}" data-label="${label.toLowerCase()}">
             <div class="app-square"><div class="app-emoji" aria-hidden="true">${emoji}</div></div>
             <div class="app-label">${label}</div>
           </a>
         `;
       }
 
-      // category app
       const cat = getCategoryById(item.id);
       if (!cat) return `<div class="app-spacer" aria-hidden="true"></div>`;
 
@@ -68,15 +62,40 @@
       const href = `pages/category.html?cat=${encodeURIComponent(cat.id)}`;
 
       return `
-        <a class="app" href="${href}">
+        <a class="app" href="${href}" data-label="${label.toLowerCase()}">
           <div class="app-square"><div class="app-emoji" aria-hidden="true">${emoji}</div></div>
           <div class="app-label">${label}</div>
         </a>
       `;
     }).join("");
+
+    // Hook up search (only on launcher)
+    const input = $("launcherSearch");
+    const clear = $("searchClear");
+    if (!input) return;
+
+    const apps = Array.from(grid.querySelectorAll(".app"));
+
+    function applyFilter() {
+      const q = input.value.trim().toLowerCase();
+      apps.forEach(a => {
+        const label = a.getAttribute("data-label") || "";
+        a.style.display = (!q || label.includes(q)) ? "" : "none";
+      });
+    }
+
+    input.addEventListener("input", applyFilter);
+
+    if (clear) {
+      clear.addEventListener("click", () => {
+        input.value = "";
+        input.focus();
+        applyFilter();
+      });
+    }
   }
 
-  // ===== Category page (blog/pages/category.html) =====
+  // ===== Category page =====
   function renderCategory() {
     const list = $("topicList");
     if (!list) return;
@@ -121,7 +140,7 @@
     }).join("");
   }
 
-  // ===== Thread page (blog/pages/thread.html) =====
+  // ===== Thread page =====
   function renderThread() {
     const chat = $("chat");
     if (!chat) return;
@@ -160,7 +179,6 @@
     }).join("");
   }
 
-  // Run whichever applies
   renderLauncher();
   renderCategory();
   renderThread();
