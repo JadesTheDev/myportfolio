@@ -1,7 +1,7 @@
 <!DOCTYPE html>
+
 <html lang="en">
   <head>
-    <!-- Metadata -->
     <meta charset="UTF-8" />
     <meta
       name="description"
@@ -14,16 +14,18 @@
     <meta name="author" content="Jade Powell" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Projects | Jade Powell</title>
+```
+<title>Projects | Jade Powell</title>
 
-    <!-- Page stylesheet -->
-    <link rel="stylesheet" href="./styles.css" />
+<link rel="stylesheet" href="./styles.css" />
+```
+
   </head>
 
   <body class="projects">
     <!-- Header -->
     <header>
-      <nav class="hero-links" aria-label="Primary navigation">
+      <nav class="hero-links">
         <a href="/myportfolio/home/">Home</a>
         <a href="/myportfolio/projects/">Projects</a>
         <a href="/myportfolio/about/">About</a>
@@ -32,290 +34,173 @@
       </nav>
     </header>
 
-    <!-- Main Content -->
-    <main class="page">
-      <!-- ============================= -->
-      <!-- ===== Featured Websites ===== -->
-      <!-- ============================= -->
-      <section class="projects-section" id="featured-websites">
-        <h1 class="section-title">Featured Websites</h1>
+```
+<main class="page">
 
-        <table class="featured-grid">
-          <caption>
-            Featured websites: click each preview to visit the live project.
-          </caption>
+  <!-- ============================= -->
+  <!-- ===== Featured Websites ===== -->
+  <!-- ============================= -->
+  <section class="projects-section">
+    <h1 class="section-title">Featured Websites</h1>
 
-          <colgroup>
-            <col class="col-1" />
-            <col class="col-2" />
-            <col class="col-3" />
-          </colgroup>
+    <table class="featured-grid">
+      <thead>
+        <tr>
+          <th>Website 1</th>
+          <th>Website 2</th>
+          <th>Website 3</th>
+        </tr>
+      </thead>
 
-          <thead>
-            <tr>
-              <th scope="col">Website 1</th>
-              <th scope="col">Website 2</th>
-              <th scope="col">Website 3</th>
-            </tr>
-          </thead>
+      <tbody>
+        <tr>
+          <!-- Website 1 -->
+          <td>
+            <a class="preview-box"
+               href="https://jadesthedev.github.io/academic_projects/SDC_205/lincoln/"
+               target="_blank">
+              <img src="../assets/lincoln-preview.png" class="preview-img" />
+            </a>
 
-          <tbody>
-            <tr>
-              <!-- Website 1 -->
-              <td>
-                <a
-                  class="preview-box"
-                  href="https://jadesthedev.github.io/academic_projects/SDC_205/lincoln/"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <img
-                    src="../assets/lincoln-preview.png"
-                    alt="Lincoln — Gettysburg Address assignment"
-                    class="preview-img"
-                  />
+            <ul class="project-links">
+              <li><a href="https://jadesthedev.github.io/assignment_websites_art/lincoln/" target="_blank">Live site</a></li>
+              <li><a href="https://github.com/JadesTheDev/assignment_websites_art" target="_blank">GitHub repo</a></li>
+              <li><a href="https://jadesthedev.github.io/assignment_websites_art/" target="_blank">Assignment index</a></li>
+            </ul>
+          </td>
+
+          <!-- Website 2 -->
+          <td>
+            <a class="preview-box"
+               href="https://jadesthedev.github.io/assignment_websites_art/cube/"
+               target="_blank">
+              <img src="../assets/cube-preview.png" class="preview-img" />
+            </a>
+
+            <ul class="project-links">
+              <li><a href="https://jadesthedev.github.io/assignment_websites_art/cube/" target="_blank">Live site</a></li>
+              <li><a href="https://github.com/JadesTheDev/assignment_websites_art" target="_blank">GitHub repo</a></li>
+              <li><a href="https://jadesthedev.github.io/assignment_websites_art/" target="_blank">Assignment index</a></li>
+            </ul>
+          </td>
+
+          <!-- Website 3 -->
+          <td>
+            <a class="preview-box"
+               href="https://jadesthedev.github.io/sdc255.final.group.project/"
+               target="_blank">
+              <img src="../assets/sdc255-preview.png" class="preview-img" />
+            </a>
+
+            <ul class="project-links">
+              <li><a href="https://jadesthedev.github.io/sdc255.final.group.project/" target="_blank">Live site</a></li>
+              <li><a href="https://github.com/JadesTheDev" target="_blank">GitHub profile</a></li>
+              <li>Case study (coming soon)</li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ========================== -->
+  <!-- ===== Featured Games ===== -->
+  <!-- ========================== -->
+  <section class="projects-section">
+    <h2 class="section-title">Featured Playable Projects</h2>
+
+    <table class="featured-grid">
+      <thead>
+        <tr>
+          <th>Island Survival Simulator</th>
+          <th>Coming Soon</th>
+          <th>Coming Soon</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+
+          <!-- Game 1 -->
+          <td>
+            <a class="preview-box game-card" href="#">
+              <div class="game-preview-content">
+                <h3>Island Survival Simulator</h3>
+                <p>
+                  Survive 10 days on an island by managing hunger,
+                  thirst, energy, shelter, fire, and illness.
+                </p>
+              </div>
+            </a>
+
+            <ul class="project-links">
+              <li>
+                <a href="/myportfolio/projects/island-survival-simulator/">
+                  Project page
                 </a>
+              </li>
 
-                <ul class="project-links">
-                  <li>
-                    <a
-                      href="https://jadesthedev.github.io/assignment_websites_art/lincoln/"
-                      target="_blank"
-                      rel="noopener"
-                    >
-                      Live site
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://github.com/JadesTheDev/assignment_websites_art"
-                      target="_blank"
-                      rel="noopener"
-                    >
-                      GitHub repo
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://jadesthedev.github.io/assignment_websites_art/"
-                      target="_blank"
-                      rel="noopener"
-                    >
-                      Assignment index
-                    </a>
-                  </li>
-                </ul>
-              </td>
-
-              <!-- Website 2 -->
-              <td>
-                <a
-                  class="preview-box"
-                  href="https://jadesthedev.github.io/assignment_websites_art/cube/"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <img
-                    src="../assets/cube-preview.png"
-                    alt="Animated cube assignment"
-                    class="preview-img"
-                  />
+              <li>
+                <a href="https://github.com/JadesTheDev" target="_blank">
+                  GitHub repo
                 </a>
+              </li>
 
-                <ul class="project-links">
-                  <li>
-                    <a
-                      href="https://jadesthedev.github.io/assignment_websites_art/cube/"
-                      target="_blank"
-                      rel="noopener"
-                    >
-                      Live site
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://github.com/JadesTheDev/assignment_websites_art"
-                      target="_blank"
-                      rel="noopener"
-                    >
-                      GitHub repo
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://jadesthedev.github.io/assignment_websites_art/"
-                      target="_blank"
-                      rel="noopener"
-                    >
-                      Assignment index
-                    </a>
-                  </li>
-                </ul>
-              </td>
+              <li>
+                <a href="/myportfolio/blog/">Devlog</a>
+              </li>
 
-              <!-- Website 3 -->
-              <td>
-                <a
-                  class="preview-box"
-                  href="https://jadesthedev.github.io/sdc255.final.group.project/"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <img
-                    src="../assets/sdc255-preview.png"
-                    alt="SDC255 Final Group Project website preview"
-                    class="preview-img"
-                  />
+              <li>
+                <a href="/myportfolio/projects/Island%20Survival%20Simulator.zip" download>
+                  Download build
                 </a>
+              </li>
+            </ul>
+          </td>
 
-                <ul class="project-links">
-                  <li>
-                    <a
-                      href="https://jadesthedev.github.io/sdc255.final.group.project/"
-                      target="_blank"
-                      rel="noopener"
-                    >
-                      Live site
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://github.com/JadesTheDev"
-                      target="_blank"
-                      rel="noopener"
-                    >
-                      GitHub profile
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" aria-disabled="true">Case study (coming soon)</a>
-                  </li>
-                </ul>
-              </td>
-            </tr>
-          </tbody>
+          <!-- Game 2 -->
+          <td>
+            <div class="preview-box">
+              <div class="game-preview-content">
+                <h3>Coming Soon</h3>
+                <p>Another project will appear here.</p>
+              </div>
+            </div>
 
-          <tfoot>
-            <tr>
-              <td colspan="3" class="table-note">More websites coming soon.</td>
-            </tr>
-          </tfoot>
-        </table>
-      </section>
+            <ul class="project-links">
+              <li>Project page</li>
+              <li>GitHub repo</li>
+              <li>Devlog</li>
+            </ul>
+          </td>
 
-      <!-- ========================== -->
-      <!-- ===== Featured Games ===== -->
-      <!-- ========================== -->
-      <section class="projects-section" id="featured-games">
-        <h2 class="section-title">Featured Playable Projects</h2>
+          <!-- Game 3 -->
+          <td>
+            <div class="preview-box">
+              <div class="game-preview-content">
+                <h3>Coming Soon</h3>
+                <p>More experiments on the way.</p>
+              </div>
+            </div>
 
-        <table class="featured-grid">
-          <caption>
-            Featured games and playable projects.
-          </caption>
+            <ul class="project-links">
+              <li>Project page</li>
+              <li>GitHub repo</li>
+              <li>Devlog</li>
+            </ul>
+          </td>
 
-          <colgroup>
-            <col class="col-1" />
-            <col class="col-2" />
-            <col class="col-3" />
-          </colgroup>
+        </tr>
+      </tbody>
+    </table>
+  </section>
 
-          <thead>
-            <tr>
-              <th scope="col">Island Survival Simulator</th>
-              <th scope="col">Coming Soon</th>
-              <th scope="col">Coming Soon</th>
-            </tr>
-          </thead>
+</main>
 
-          <tbody>
-            <tr>
-              <!-- Game 1 -->
-              <ul class="project-links">
-                <li>
-                  <a href="/myportfolio/projects/island-survival-simulator/">
-                    Project page
-                  </a>
-                </li>
-              
-                <li>
-                  <a
-                    href="https://github.com/JadesTheDev"
-                    target="_blank"
-                    rel="noopener"
-                  >
-                    GitHub repo
-                  </a>
-                </li>
-              
-                <li>
-                  <a href="/myportfolio/blog/">
-                    Devlog
-                  </a>
-                </li>
-              
-                <li>
-                  <a
-                    href="/myportfolio/projects/Island%20Survival%20Simulator.zip"
-                    download
-                  >
-                    Download build
-                  </a>
-                </li>
-              </ul>
+<footer>
+  <p>&copy; 2026 Jade Powell</p>
+</footer>
+```
 
-              <!-- Game 2 -->
-              <td>
-                <div class="preview-box game-card coming-soon-card" aria-hidden="true">
-                  <div class="game-preview-content">
-                    <span class="game-badge">Planned</span>
-                    <h3>Project In Development</h3>
-                    <p>
-                      Another playable project will be added here soon.
-                    </p>
-                  </div>
-                </div>
-
-                <ul class="project-links">
-                  <li>Project page</li>
-                  <li>GitHub repo</li>
-                  <li>Devlog</li>
-                </ul>
-              </td>
-
-              <!-- Game 3 -->
-              <td>
-                <div class="preview-box game-card coming-soon-card" aria-hidden="true">
-                  <div class="game-preview-content">
-                    <span class="game-badge">Planned</span>
-                    <h3>Future Release</h3>
-                    <p>
-                      More experiments, prototypes, and games are on the way.
-                    </p>
-                  </div>
-                </div>
-
-                <ul class="project-links">
-                  <li>Project page</li>
-                  <li>GitHub repo</li>
-                  <li>Devlog</li>
-                </ul>
-              </td>
-            </tr>
-          </tbody>
-
-          <tfoot>
-            <tr>
-              <td colspan="3" class="table-note">More games coming soon.</td>
-            </tr>
-          </tfoot>
-        </table>
-      </section>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-      <p>&copy; 2026 Jade Powell</p>
-    </footer>
   </body>
 </html>
