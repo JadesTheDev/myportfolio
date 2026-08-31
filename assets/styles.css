@@ -15,7 +15,7 @@
   --radius-sm: 12px;
   --max: 1120px;
 
-  /* ORB STARTING POSITIONS */
+  /* Orb positions */
   --orb1-x: 86%;
   --orb1-y: 8%;
 
@@ -62,46 +62,44 @@ body {
       transparent 28rem
     ),
 
-    /* New blue orb */
+    /* Added blue orb */
     radial-gradient(
       circle at var(--orb3-x) var(--orb3-y),
-      rgba(68, 87, 238, .24),
+      rgba(68, 87, 238, .20),
       transparent 26rem
     ),
 
-    /* New coral orb */
+    /* Added coral orb */
     radial-gradient(
       circle at var(--orb4-x) var(--orb4-y),
-      rgba(231, 138, 110, .28),
+      rgba(231, 138, 110, .24),
       transparent 25rem
     ),
 
-    /* New lavender orb */
+    /* Added lavender orb */
     radial-gradient(
       circle at var(--orb5-x) var(--orb5-y),
-      rgba(166, 163, 232, .30),
+      rgba(166, 163, 232, .28),
       transparent 28rem
     ),
 
-    /* ORIGINAL PORTFOLIO SUNSET GRADIENT */
+    /* Modern background from the redesign */
     linear-gradient(
       180deg,
-      #4457EE 10%,
-      #6E7AF0 20%,
-      #A6A3E8 48%,
-      #DDB7EB 53%,
-      #F1B3A3 66%,
-      #E78A6E 76%,
-      #F6C46A 84%,
-      #BFAE7A 87%,
-      #6B7C8F 92%,
-      #364E6E 100%
+      #fffaf5 0%,
+      #f8f4f7 52%,
+      #eef0f6 100%
     );
 
   background-attachment: fixed;
 
-  font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", sans-serif;
+  font-family:
+    Inter,
+    ui-sans-serif,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
 
   line-height: 1.6;
 }
@@ -671,7 +669,6 @@ textarea {
   text-decoration: underline;
 }
 
-/* TABLET */
 @media (max-width: 850px) {
   .site-header {
     align-items: flex-start;
@@ -711,7 +708,6 @@ textarea {
   }
 }
 
-/* MOBILE */
 @media (max-width: 590px) {
   .site-nav {
     gap: .15rem;
