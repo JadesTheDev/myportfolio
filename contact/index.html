@@ -1,101 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Metadata -->
-    <meta charset="UTF-8" />
-    <meta
-      name="description"
-      content="Contact page for Jade Powell's web development services."
-    />
-    <meta
-      name="keywords"
-      content="web development, portfolio, contact, freelance"
-    />
-    <meta name="author" content="Jade Powell" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content="Contact Jade Powell about software development, web projects, or professional opportunities." />
+  <meta name="author" content="Jade Powell" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Jade Powell</title>
+  <link rel="stylesheet" href="../assets/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="../home/"><span class="brand-mark" aria-hidden="true">JP</span><span>Jade Powell</span></a>
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="../home/">Home</a><a href="../projects/">Projects</a><a href="../about/">About</a><a href="../blog/">Blog</a><a href="../contact/" aria-current="page">Contact</a>
+    </nav>
+  </header>
 
-    <title>Contact | Jade Powell</title>
+  <main id="main">
+    <section class="section">
+      <div class="contact-layout">
+        <div class="contact-copy">
+          <p class="eyebrow">Contact</p>
+          <h1>Want to talk?</h1>
+          <p class="lede">For project questions, professional opportunities, collaboration, or a good old-fashioned technical rabbit hole, send me a message.</p>
+          <div class="contact-links"><a href="https://github.com/JadesTheDev" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div>
+        </div>
 
-    <!-- IMPORTANT: matches your repo filename -->
-    <link rel="stylesheet" href="./styles.css" />
-  </head>
+        <div class="content-card">
+          <form class="contact-form" name="service-inquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="service-inquiry" />
+            <p class="hidden"><label>Don’t fill this out: <input name="bot-field" /></label></p>
+            <div class="form-grid">
+              <label class="field"><span class="label-text">Name</span><input type="text" name="name" autocomplete="name" required /></label>
+              <label class="field"><span class="label-text">Email</span><input type="email" name="email" autocomplete="email" required /></label>
+              <label class="field field-full"><span class="label-text">Phone <em>(optional)</em></span><input type="tel" name="phone" autocomplete="tel" /></label>
+              <label class="field field-full"><span class="label-text">Message</span><textarea name="message" rows="6" placeholder="What would you like to talk about?" required></textarea></label>
+            </div>
+            <button class="button button-primary" type="submit">Send message</button>
+            <p class="form-note">This form is configured for Netlify Forms. If the site is hosted somewhere else, the form will need a different submission service.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
 
-  <body class="contact">
-    <header>
-      <nav class="hero-links" aria-label="Primary navigation">
-        <!-- Folder-based paths -->
-        <a href="/myportfolio/home/">Home</a>
-        <a href="/myportfolio/projects/">Projects</a>
-        <a href="/myportfolio/about/">About</a>
-        <a href="/myportfolio/blog/">Blog</a>
-        <a href="/myportfolio/contact/">Contact</a>
-      </nav>
-    </header>
-
-    <main class="page">
-      <section class="contact-card" aria-labelledby="contactTitle">
-        <h1 id="contactTitle">Email Me</h1>
-
-        <p class="contact-intro">
-          Have a question, project idea, or just want to reach out? Fill out the
-          form below and I’ll get back to you soon!
-        </p>
-
-        <!-- NETLIFY FORMS -->
-        <form
-          class="contact-form"
-          name="service-inquiry"
-          method="POST"
-          data-netlify="true"
-          netlify-honeypot="bot-field"
-        >
-          <input type="hidden" name="form-name" value="service-inquiry" />
-
-          <!-- Honeypot (spam trap) -->
-          <p class="hidden">
-            <label>
-              Don’t fill this out: <input name="bot-field" />
-            </label>
-          </p>
-
-          <div class="form-grid">
-            <label class="field">
-              <span class="label-text">Name</span>
-              <input type="text" name="name" autocomplete="name" required />
-            </label>
-
-            <label class="field">
-              <span class="label-text">Email</span>
-              <input type="email" name="email" autocomplete="email" required />
-            </label>
-
-            <label class="field field-full">
-              <span class="label-text">Phone Number (optional)</span>
-              <input type="tel" name="phone" autocomplete="tel" />
-            </label>
-
-            <label class="field field-full">
-              <span class="label-text">Message</span>
-              <textarea
-                name="message"
-                rows="6"
-                placeholder="Write your message here..."
-                required
-              ></textarea>
-            </label>
-          </div>
-
-          <button class="btn" type="submit">Send Message</button>
-
-          <p class="contact-note">
-            This form sends directly to Jade Powell (no redirects).
-          </p>
-        </form>
-      </section>
-    </main>
-
-    <footer>
-      <p>&copy; 2026 Jade Powell</p>
-    </footer>
-  </body>
+  <footer class="site-footer"><span>© 2026 Jade Powell</span><span>Thanks for stopping by.</span></footer>
+</body>
 </html>

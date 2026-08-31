@@ -1,47 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content="Jade Powell — web design and game development portfolio." />
-    <meta name="keywords" content="web development, portfolio, projects, web designer" />
-    <meta name="author" content="Jade Powell" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content="Jade Powell — software development student building practical, user-focused applications and web experiences." />
+  <meta name="author" content="Jade Powell" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jade Powell | Software Developer</title>
+  <link rel="stylesheet" href="../assets/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="../home/" aria-label="Jade Powell home"><span class="brand-mark" aria-hidden="true">JP</span><span>Jade Powell</span></a>
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="../home/" aria-current="page">Home</a>
+      <a href="../projects/">Projects</a>
+      <a href="../about/">About</a>
+      <a href="../blog/">Blog</a>
+      <a href="../contact/">Contact</a>
+    </nav>
+  </header>
 
-    <title>Jade Powell</title>
-    <link rel="stylesheet" href="./styles.css" />
-  </head>
-
-  <body class="home">
-    <header>
-      <nav class="hero-links">
-        <a href="/myportfolio/home/">Home</a>
-        <a href="/myportfolio/projects/">Projects</a>
-        <a href="/myportfolio/about/">About</a>
-        <a href="/myportfolio/blog/">Blog</a>
-        <a href="/myportfolio/contact/">Contact</a>
-      </nav>
-    </header>
-
-    <main class="page">
-      <section class="intro">
-        <div class="intro-text">
-          <h1>Jade Powell</h1>
-          <h2> Software Development Student, </h2>
-          <h2>Junior Systems Engineer,</h2>
-          <h2>& Junior DevOps Engineer</h2>
-
+  <main id="main">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Software development · systems · DevOps</p>
+        <h1>Hi, I’m <span>Jade Powell.</span></h1>
+        <p class="hero-role">I build practical software with a strong eye for the people using it.</p>
+        <p class="lede">I’m a software development student with experience across systems engineering, DevOps, web development, and application design. I like projects that turn real problems into useful, understandable tools.</p>
+        <div class="actions">
+          <a class="button button-primary" href="../projects/">Explore my work</a>
+          <a class="button button-secondary" href="https://github.com/JadesTheDev" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
         </div>
+      </div>
+      <div class="portrait-wrap">
+        <img src="../assets/profile_pic.png" alt="Portrait of Jade Powell" class="profile-pic" />
+      </div>
+    </section>
 
-        <img
-          src="../assets/profile_pic.png"
-          alt="Photo of Jade Powell"
-          class="profile-pic"
-        />
-      </section>
-    </main>
+    <section class="section-tight" aria-label="Professional focus">
+      <div class="stats-strip">
+        <div class="stat"><strong>Software Development</strong><span>Applications, interfaces, and problem solving</span></div>
+        <div class="stat"><strong>Systems + DevOps</strong><span>Infrastructure-minded development and deployment</span></div>
+        <div class="stat"><strong>User-Focused Design</strong><span>Clear experiences built around real needs</span></div>
+      </div>
+    </section>
 
-    <footer>
-      <p>&copy; 2026 Jade Powell</p>
-    </footer>
-  </body>
+    <section class="section" aria-labelledby="featured-title">
+      <div class="section-heading">
+        <div><p class="eyebrow">Selected work</p><h2 id="featured-title">Projects worth opening.</h2></div>
+        <p>A mix of current application work, web development, and programming projects. The projects page has the full collection.</p>
+      </div>
+      <div class="project-grid">
+        <article class="project-card featured">
+          <div class="project-media"><div class="project-placeholder"><span>Interface Design · React</span><strong>From the Farm</strong></div></div>
+          <div class="project-body">
+            <h3>From the Farm</h3>
+            <p>A community-focused supplier discovery application designed to help people find farms, farmers markets, and local producers more easily.</p>
+            <div class="tags"><span class="tag">React</span><span class="tag">Interface Design</span><span class="tag">Responsive UI</span></div>
+            <div class="project-actions"><a href="../projects/#from-the-farm">Project details →</a></div>
+          </div>
+        </article>
+        <article class="project-card">
+          <div class="project-media"><img src="../assets/sdc255-preview.png" alt="Preview of an SDC255 group web project" /></div>
+          <div class="project-body"><h3>SDC255 Group Project</h3><p>A collaborative web project built as part of my software development coursework.</p><div class="tags"><span class="tag">Web</span><span class="tag">Team Project</span></div><div class="project-actions"><a href="https://jadesthedev.github.io/sdc255.final.group.project/" target="_blank" rel="noopener noreferrer">Live site ↗</a></div></div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><span>© 2026 Jade Powell</span><span><a href="https://github.com/JadesTheDev" target="_blank" rel="noopener noreferrer">GitHub</a></span></footer>
+</body>
 </html>

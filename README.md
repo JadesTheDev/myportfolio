@@ -1,31 +1,28 @@
-# Jade Powell Portfolio (SDC260)
+# Jade Powell Portfolio
 
-## Project Overview
-This repository contains my responsive portfolio website for SDC260. The site includes:
-- Home page (intro + navigation)
-- Projects page (table/grid layout)
-- About page
-- Contact page (Netlify form integration)
+Personal software development portfolio featuring current application work, web development projects, and programming coursework.
 
 ## Live Site
-- GitHub Pages: https://jadesthedev.github.io/myportfolio/index.html
-- Netlify (optional): https://jadethedevsportfolio.netlify.app (doesnt work because paywall)
 
-## Pages Included
-- `index.html`
-- `projects.html`
-- `about.html` (needs work)
-- `contact.html`
-- `styles.css`
+- GitHub Pages: https://jadesthedev.github.io/myportfolio/
 
-## Contact Form Notes
-The contact form uses Netlify Forms (POST + honeypot) so users are not redirected to an email client. (doesnt work yet)
+## Structure
 
-## How to Run Locally (XAMPP)
-1. Install XAMPP.
-2. Copy the project folder into: `C:\xampp\htdocs\YOURFOLDER`
-3. Start **Apache** in XAMPP Control Panel.
-4. Open: `http://localhost/YOURFOLDER/`
+- `home/` — landing page and featured work
+- `projects/` — project portfolio
+- `about/` — background, focus areas, and skills
+- `blog/` — Rant OS experimental blog interface
+- `contact/` — contact form
+- `assets/` — shared images and site-wide stylesheet
 
-## Author
-Jade Powell
+## Tech
+
+The main portfolio is intentionally lightweight and uses semantic HTML and shared responsive CSS. The blog is a separate interactive experiment with its own CSS and JavaScript.
+
+## Contact Form
+
+The contact page contains Netlify Forms markup. It will only submit when deployed through a compatible Netlify setup; GitHub Pages does not process form submissions on its own.
+
+## Local Development
+
+No build step is required. Serve the repository with any local static server, or open the pages directly in a browser. Relative internal links are used so the site is portable between local development and GitHub Pages.
