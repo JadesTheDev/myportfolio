@@ -411,10 +411,17 @@ p {
 
   background:
     linear-gradient(
-      100deg,
-      #f0f2ff 0 27%,
-      #d7a7d4 61%,
-      #ef9c8d 100%
+      90deg,
+      #4457EE 10%,
+      #6E7AF0 20%,
+      #A6A3E8 48%,
+      #DDB7EB 53%,
+      #F1B3A3 66%,
+      #E78A6E 76%,
+      #F6C46A 84%,
+      #BFAE7A 87%,
+      #6B7C8F 92%,
+      #364E6E 100%
     );
 
   -webkit-background-clip: text;
