@@ -1363,3 +1363,32 @@ textarea {
       1 1 auto;
   }
 }
+
+/* Featured work: one large card beside two stacked cards. */
+.current-work-grid {
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  grid-template-rows: auto auto;
+}
+.current-work-grid > .project-card { min-width: 0; }
+.current-work-grid > .featured {
+  grid-column: 1;
+  grid-row: 1 / 3;
+}
+.current-work-grid > .featured .project-media { flex: 1; min-height: 280px; }
+.current-work-grid > .featured .project-body { flex: 0; }
+.current-work-grid > .project-card:not(.featured) .project-media {
+  aspect-ratio: auto;
+  min-height: 120px;
+}
+.current-work-grid > .project-card:not(.featured) .project-placeholder { padding: 1.35rem; }
+.current-work-grid > .project-card:not(.featured) .project-placeholder strong {
+  font-size: clamp(1.35rem, 2.2vw, 1.9rem);
+}
+.current-work-grid .academic-card {
+  background: linear-gradient(145deg, rgba(51,45,67,.92), rgba(27,29,42,.9));
+}
+@media (max-width: 850px) {
+  .current-work-grid { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto; }
+  .current-work-grid > .featured { grid-column: auto; grid-row: auto; }
+  .current-work-grid > .featured .project-media { flex: none; min-height: 0; }
+}
