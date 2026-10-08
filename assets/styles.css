@@ -1500,3 +1500,26 @@ textarea {
     grid-row: 1;
   }
 }
+
+
+/* -------------------------------
+   Homepage: slightly tighter desktop spacing
+   ------------------------------- */
+
+@media (min-width: 851px) {
+  .home-page .hero {
+    min-height: 64svh;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .home-page .section-tight {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .home-page .site-footer {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+}
