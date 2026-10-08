@@ -1389,3 +1389,19 @@ textarea {
   .current-work-grid > .featured .project-media { flex: none; min-height: 0; aspect-ratio: 1400 / 866; }
   .current-work-grid > .project-card:not(.featured) .project-media { height: auto; aspect-ratio: 16 / 9; }
 }
+
+/* Contact page: balanced copy, readable fields, and submission feedback. */
+.contact-layout { grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); }
+.contact-copy h1 { font-size: clamp(2.8rem, 5vw, 4.5rem); margin-bottom: 1.3rem; }
+.contact-copy, .contact-panel, .contact-form .field { min-width: 0; }
+.contact-panel { padding: clamp(1.4rem, 3vw, 2.5rem); }
+.contact-form .label-text em { font-style: normal; font-weight: 400; color: var(--ink-soft); }
+.contact-form button { justify-self: start; }
+.contact-form button:disabled { opacity: .65; cursor: wait; transform: none; }
+.contact-status { margin: 0; font-size: .95rem; overflow-wrap: anywhere; }
+.contact-status:empty { display: none; }
+.contact-status[data-state="success"] { color: #bde7c4; }
+.contact-status[data-state="error"] { color: #ffc1b7; }
+.contact-form .form-note { margin: 0; }
+@media (max-width: 850px) { .contact-layout { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 590px) { .contact-form button { width: 100%; } }

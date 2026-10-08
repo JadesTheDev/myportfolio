@@ -21,7 +21,7 @@ The main portfolio is intentionally lightweight and uses semantic HTML and share
 
 ## Contact Form
 
-The contact page contains Netlify Forms markup. It will only submit when deployed through a compatible Netlify setup; GitHub Pages does not process form submissions on its own.
+The contact page submits to Formspree using a standard HTML POST action, enhanced by vanilla JavaScript for validation and in-page sending, success, and error feedback. Formspree sends notifications to the verified recipient configured in its dashboard. No email credentials are stored in this repository.
 
 ## Local Development
 

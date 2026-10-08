@@ -27,10 +27,10 @@
           <div class="contact-links"><a href="https://github.com/JadesTheDev" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div>
         </div>
 
-        <div class="content-card">
-          <form class="contact-form" name="service-inquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-            <input type="hidden" name="form-name" value="service-inquiry" />
-            <p class="hidden"><label>Don’t fill this out: <input name="bot-field" /></label></p>
+        <div class="content-card contact-panel">
+          <form class="contact-form" id="contact-form" action="https://formspree.io/f/xqpeqlen" method="POST">
+            <input type="hidden" name="_subject" value="New portfolio contact message" />
+            <div class="hidden" aria-hidden="true"><label>Leave this field empty<input type="text" name="_gotcha" tabindex="-1" autocomplete="off" /></label></div>
             <div class="form-grid">
               <label class="field"><span class="label-text">Name</span><input type="text" name="name" autocomplete="name" required /></label>
               <label class="field"><span class="label-text">Email</span><input type="email" name="email" autocomplete="email" required /></label>
@@ -38,7 +38,8 @@
               <label class="field field-full"><span class="label-text">Message</span><textarea name="message" rows="6" placeholder="What would you like to talk about?" required></textarea></label>
             </div>
             <button class="button button-primary" type="submit">Send message</button>
-            <p class="form-note">This form is configured for Netlify Forms. If the site is hosted somewhere else, the form will need a different submission service.</p>
+            <p id="contact-status" class="contact-status" role="status" aria-live="polite" aria-atomic="true"></p>
+            <p class="form-note">Your message goes straight to my inbox. I’ll reply using the email address you provide.</p>
           </form>
         </div>
       </div>
@@ -48,6 +49,7 @@
   <footer class="site-footer"><span>© 2026 Jade Powell</span><span>Thanks for stopping by.</span></footer>
 
   <script src="../assets/orbs.js"></script>
+  <script src="../assets/contact.js" defer></script>
   
 </body>
 </html>
