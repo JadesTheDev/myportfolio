@@ -1503,23 +1503,43 @@ textarea {
 
 
 /* -------------------------------
-   Homepage: slightly tighter desktop spacing
+   Homepage: distribute desktop sections within one viewport
+   Allow content to expand on short screens or enlarged text
    ------------------------------- */
 
 @media (min-width: 851px) {
+  .home-page {
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .home-page .site-header,
+  .home-page .site-footer {
+    flex: none;
+  }
+
+  .home-page main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
   .home-page .hero {
-    min-height: 64svh;
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+    flex: 1;
+    min-height: auto;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
   }
 
   .home-page .section-tight {
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
+    flex: none;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
   }
 
   .home-page .site-footer {
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
   }
 }
