@@ -1359,3 +1359,30 @@ textarea {
 .contact-form select {
   color-scheme: dark;
 }
+
+/* -------------------------------
+   LaShay's photography project card
+   ------------------------------- */
+.lashay-card {
+  position: relative;
+}
+
+.lashay-card .project-media {
+  background: #111;
+}
+
+.lashay-card .project-media img {
+  object-fit: contain;
+}
+
+.lashay-card .card-primary-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
+.lashay-card:has(.card-primary-link:focus-visible) {
+  outline: 3px solid var(--violet);
+  outline-offset: 4px;
+}
