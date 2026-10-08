@@ -240,7 +240,8 @@ a {
 .button:focus-visible,
 .project-card a:focus-visible,
 input:focus-visible,
-textarea:focus-visible {
+textarea:focus-visible,
+select:focus-visible {
   outline: 3px solid rgba(153, 152, 255, 0.6);
   outline-offset: 3px;
 }
@@ -822,7 +823,8 @@ p {
 }
 
 input,
-textarea {
+textarea,
+select {
   width: 100%;
 
   padding: 0.78rem 0.85rem;
@@ -1338,4 +1340,22 @@ textarea {
     animation: none;
     opacity: 0.2;
   }
+}
+
+/* -------------------------------
+   Centered support invitation and inquiry selector
+   ------------------------------- */
+.footer-support,
+.support-after-copy {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.support-invitation {
+  max-width: 100%;
+}
+
+.contact-form select {
+  color-scheme: dark;
 }

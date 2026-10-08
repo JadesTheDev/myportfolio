@@ -102,8 +102,8 @@
             >
               <input
                 type="hidden"
-                name="_subject"
-                value="New portfolio contact message"
+                name="subject"
+                value="Portfolio inquiry: {{ inquiry_type }}"
               />
               <div
                 class="hidden"
@@ -120,6 +120,27 @@
                 </label>
               </div>
               <div class="form-grid">
+                <!-- -------------------------------
+                     Inquiry type included in the email
+                     ------------------------------- -->
+                <label class="field field-full">
+                  <span class="label-text">What is your message about?</span>
+                  <select
+                    name="inquiry_type"
+                    id="inquiry-type"
+                    required
+                  >
+                    <option value="General inquiry">General inquiry</option>
+                    <option value="Project sponsorship">Project sponsorship</option>
+                    <option value="Investment or partnership">
+                      Investment or partnership
+                    </option>
+                    <option value="Paid project request">Paid project request</option>
+                    <option value="Professional opportunity">
+                      Professional opportunity
+                    </option>
+                  </select>
+                </label>
                 <label class="field">
                   <span class="label-text">Name</span>
                   <input

@@ -8,6 +8,23 @@
   const status = document.querySelector("#contact-status");
   let sending = false;
 
+  /* -------------------------------
+     Preselect the inquiry from Support page links
+     ------------------------------- */
+  const inquiry = form.elements.namedItem("inquiry_type");
+  const inquiryTypes = {
+    sponsorship: "Project sponsorship",
+    investment: "Investment or partnership",
+  };
+  const requestedType = new URLSearchParams(window.location.search).get("inquiry");
+  if (Object.hasOwn(inquiryTypes, requestedType)) {
+    inquiry.value = inquiryTypes[requestedType];
+    // Keep this choice when the form resets after a successful submission.
+    for (const option of inquiry.options) {
+      option.defaultSelected = option.value === inquiry.value;
+    }
+  }
+
   form.addEventListener("input", (event) => {
     if (typeof event.target.setCustomValidity === "function") {
       event.target.setCustomValidity("");
