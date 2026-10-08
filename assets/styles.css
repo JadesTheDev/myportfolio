@@ -1386,3 +1386,62 @@ textarea {
   outline: 3px solid var(--violet);
   outline-offset: 4px;
 }
+
+/* -------------------------------
+   About my work: stacked cards
+   ------------------------------- */
+
+.work-section {
+  padding-top: 0;
+}
+
+.work-stack {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.5rem;
+}
+
+.work-card {
+  min-width: 0;
+  scroll-margin-top: 2rem;
+}
+
+.work-card h3 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin-bottom: 1.25rem;
+}
+
+.work-card p {
+  color: var(--ink-soft);
+  max-width: 80ch;
+}
+
+/* -------------------------------
+   Homepage links to work sections
+   ------------------------------- */
+
+.stat-link {
+  display: block;
+  text-decoration: none;
+  transition: border-color 0.18s ease, background 0.18s ease;
+}
+
+.stat-link:hover {
+  border-color: var(--plum);
+  background: rgba(36, 38, 54, 0.9);
+}
+
+.stat-link:focus-visible {
+  outline: 3px solid var(--violet);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .stat-link {
+    transition: none;
+  }
+}
