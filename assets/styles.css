@@ -66,7 +66,7 @@ body {
        ========================================================= */
     radial-gradient(
       circle at var(--orb1-x) var(--orb1-y),
-      rgba(221, 183, 235, 0.55),
+      var(--glow-lavender, rgba(221, 183, 235, 0.55)),
       transparent 30rem
     ),
     /* =========================================================
@@ -75,7 +75,7 @@ body {
        ========================================================= */
       radial-gradient(
         circle at var(--orb2-x) var(--orb2-y),
-        rgba(246, 196, 106, 0.3),
+        var(--glow-gold, rgba(246, 196, 106, 0.3)),
         transparent 28rem
       ),
     /* =========================================================
@@ -84,7 +84,7 @@ body {
        ========================================================= */
       radial-gradient(
         circle at var(--orb3-x) var(--orb3-y),
-        rgba(68, 87, 238, 0.26),
+        var(--glow-blue, rgba(68, 87, 238, 0.26)),
         transparent 24rem
       ),
     /* =========================================================
@@ -93,7 +93,7 @@ body {
        ========================================================= */
       radial-gradient(
         circle at var(--orb4-x) var(--orb4-y),
-        rgba(231, 138, 110, 0.24),
+        var(--glow-coral, rgba(231, 138, 110, 0.24)),
         transparent 23rem
       ),
     /* =========================================================
@@ -102,7 +102,7 @@ body {
        ========================================================= */
       radial-gradient(
         circle at var(--orb5-x) var(--orb5-y),
-        rgba(166, 163, 232, 0.25),
+        var(--glow-violet, rgba(166, 163, 232, 0.25)),
         transparent 25rem
       ),
     /* =========================================================
@@ -1542,4 +1542,76 @@ textarea {
     padding-top: 1rem;
     padding-bottom: 1rem;
   }
+}
+
+
+/* -------------------------------
+   Page gradients: shared palette, individual emphasis
+   ------------------------------- */
+
+.projects-page {
+  --glow-lavender: rgba(221, 183, 235, 0.22);
+  --glow-gold: rgba(246, 196, 106, 0.08);
+  --glow-blue: rgba(68, 87, 238, 0.42);
+  --glow-coral: rgba(231, 138, 110, 0.06);
+  --glow-violet: rgba(166, 163, 232, 0.38);
+}
+
+.about-page {
+  --glow-lavender: rgba(214, 164, 212, 0.4);
+  --glow-gold: rgba(246, 196, 106, 0.1);
+  --glow-blue: rgba(68, 87, 238, 0.08);
+  --glow-coral: rgba(231, 138, 110, 0.32);
+  --glow-violet: rgba(166, 163, 232, 0.12);
+}
+
+.contact-page {
+  --glow-lavender: rgba(221, 183, 235, 0.4);
+  --glow-gold: rgba(246, 196, 106, 0.28);
+  --glow-blue: rgba(68, 87, 238, 0.08);
+  --glow-coral: rgba(231, 138, 110, 0.06);
+  --glow-violet: rgba(166, 163, 232, 0.15);
+}
+
+.support-page {
+  --glow-lavender: rgba(214, 164, 212, 0.35);
+  --glow-gold: rgba(246, 196, 106, 0.4);
+  --glow-blue: rgba(68, 87, 238, 0.06);
+  --glow-coral: rgba(231, 138, 110, 0.1);
+  --glow-violet: rgba(166, 163, 232, 0.08);
+}
+
+/* -------------------------------
+   About: accessible expandable details
+   ------------------------------- */
+
+.about-details {
+  margin-top: 1.25rem;
+  border-top: 1px solid var(--line);
+  padding-top: 1rem;
+}
+
+.about-details summary {
+  cursor: pointer;
+  color: var(--plum);
+  font-weight: 800;
+  padding: 0.5rem 0;
+}
+
+.about-details summary:hover {
+  color: var(--ink);
+}
+
+.about-details summary:focus-visible {
+  outline: 3px solid var(--violet);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.details-copy {
+  padding-top: 1rem;
+}
+
+.details-copy p:last-child {
+  margin-bottom: 0;
 }
