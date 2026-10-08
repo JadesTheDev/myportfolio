@@ -1369,26 +1369,23 @@ textarea {
   grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
   grid-template-rows: auto auto;
 }
-.current-work-grid > .project-card { min-width: 0; }
-.current-work-grid > .featured {
-  grid-column: 1;
-  grid-row: 1 / 3;
-}
-.current-work-grid > .featured .project-media { flex: 1; min-height: 280px; }
+.current-work-grid > .project-card { min-width: 0; position: relative; }
+.current-work-grid > .featured { grid-column: 1; grid-row: 1 / 3; }
+.current-work-grid .project-media { position: relative; aspect-ratio: auto; }
+.current-work-grid > .featured .project-media { flex: 1; min-height: 320px; background: #20221e; }
+.current-work-grid > .featured .project-media img { position: absolute; inset: 0; object-fit: contain; }
 .current-work-grid > .featured .project-body { flex: 0; }
-.current-work-grid > .project-card:not(.featured) .project-media {
-  aspect-ratio: auto;
-  min-height: 120px;
-}
-.current-work-grid > .project-card:not(.featured) .project-placeholder { padding: 1.35rem; }
-.current-work-grid > .project-card:not(.featured) .project-placeholder strong {
-  font-size: clamp(1.35rem, 2.2vw, 1.9rem);
-}
-.current-work-grid .academic-card {
-  background: linear-gradient(145deg, rgba(51,45,67,.92), rgba(27,29,42,.9));
-}
+.current-work-grid > .project-card:not(.featured) .project-media { height: 170px; flex: none; }
+.current-work-grid .academic-card .project-media img { object-position: top; }
+.current-work-grid .academic-card { background: rgba(27, 29, 42, .82); }
+.current-work-grid .card-primary-link::after { content: ""; position: absolute; inset: 0; z-index: 1; }
+.current-work-grid .project-actions a:not(.card-primary-link) { position: relative; z-index: 2; }
+.current-work-grid .project-card:has(.card-primary-link):hover { border-color: rgba(153, 152, 255, .55); }
+.current-work-grid .project-card:has(.card-primary-link:focus-visible) { outline: 3px solid var(--violet); outline-offset: 4px; }
+.project-reserve-grid { margin-top: 1.15rem; }
 @media (max-width: 850px) {
   .current-work-grid { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto; }
   .current-work-grid > .featured { grid-column: auto; grid-row: auto; }
-  .current-work-grid > .featured .project-media { flex: none; min-height: 0; }
+  .current-work-grid > .featured .project-media { flex: none; min-height: 0; aspect-ratio: 1400 / 866; }
+  .current-work-grid > .project-card:not(.featured) .project-media { height: auto; aspect-ratio: 16 / 9; }
 }
