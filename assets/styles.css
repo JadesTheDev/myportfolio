@@ -1429,3 +1429,78 @@ textarea {
 .support-icon svg { width: 100%; height: 100%; }
 .support-thanks { margin: 2rem 0 0; color: var(--ink-soft); text-align: center; }
 @media (max-width: 850px) { .support-options { grid-template-columns: minmax(0, 1fr); } }
+
+/* -------------------------------
+   Megan's project card
+   ------------------------------- */
+
+
+.megan-card {
+  position: relative;
+}
+
+.megan-card .project-media {
+  position: relative;
+}
+
+.megan-card .card-primary-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
+.megan-card:has(.card-primary-link:focus-visible) {
+  outline: 3px solid var(--violet);
+  outline-offset: 4px;
+}
+
+/* Notes are decorative and never intercept card clicks. */
+.megan-notes {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.megan-note {
+  position: absolute;
+  right: 13%;
+  bottom: 8%;
+  width: 22px;
+  height: 33px;
+  color: #594670;
+  fill: currentColor;
+  opacity: 0;
+  animation: megan-note-drift 9s linear infinite;
+}
+
+.megan-note:nth-child(2) {
+  right: 29%;
+  animation-delay: -4.5s;
+}
+
+/* -------------------------------
+   Musical note animation
+   ------------------------------- */
+
+@keyframes megan-note-drift {
+  0% {
+    opacity: 0;
+    transform: translate(0, 15px) rotate(-12deg);
+  }
+  20%, 65% {
+    opacity: 0.35;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(18px, -110px) rotate(12deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .megan-note {
+    animation: none;
+    opacity: 0.2;
+  }
+}
