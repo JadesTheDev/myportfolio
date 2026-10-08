@@ -1405,3 +1405,27 @@ textarea {
 .contact-form .form-note { margin: 0; }
 @media (max-width: 850px) { .contact-layout { grid-template-columns: minmax(0, 1fr); } }
 @media (max-width: 590px) { .contact-form button { width: 100%; } }
+
+/* Support links and page use the portfolio's existing colors and cards. */
+.support-invitation { display: inline-flex; align-items: center; gap: .65rem; color: var(--plum); text-decoration: none; font-weight: 750; }
+.support-invitation:hover { color: var(--ink); text-decoration: underline; text-underline-offset: .25em; }
+.support-invitation:focus-visible { outline: 3px solid var(--violet); outline-offset: 5px; border-radius: 6px; }
+.support-mini-icon { display: inline-flex; width: 1.25rem; height: 1.25rem; flex: none; }
+.support-mini-icon svg { width: 100%; height: 100%; }
+.support-gold { color: var(--gold); }
+.support-violet { color: var(--violet); }
+.footer-support { flex-basis: 100%; margin-top: .35rem; }
+.support-after-copy { margin: 1.8rem 0 0; }
+.support-heading { max-width: 780px; margin-bottom: 2.5rem; }
+.support-heading h1 { font-size: clamp(2.8rem, 5.5vw, 4.8rem); margin-bottom: 1.3rem; }
+.support-options { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.15rem; }
+.support-option { display: flex; flex-direction: column; min-width: 0; padding: 1.6rem; }
+.support-option h2 { font-size: 1.65rem; line-height: 1.2; }
+.support-option > p:not(.eyebrow) { color: var(--ink-soft); margin-bottom: 1.5rem; }
+.support-option .button { margin-top: auto; }
+.support-icon { width: 3.2rem; height: 3.2rem; color: var(--plum); margin-bottom: 1.6rem; }
+.support-icon.support-gold { color: var(--gold); }
+.support-icon.support-violet { color: var(--violet); }
+.support-icon svg { width: 100%; height: 100%; }
+.support-thanks { margin: 2rem 0 0; color: var(--ink-soft); text-align: center; }
+@media (max-width: 850px) { .support-options { grid-template-columns: minmax(0, 1fr); } }
