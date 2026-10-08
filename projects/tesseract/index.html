@@ -1,660 +1,795 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Interactive 4D tesseract explorer by Jade's The Dev." />
-  <title>4D Tesseract Explorer | Jade's The Dev</title>
+  <!-- -------------------------------
+     Page settings and styles
+     ------------------------------- -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <meta
+      name="description"
+      content="Interactive 4D tesseract explorer by Jade's The Dev."
+    />
+    <title>4D Tesseract Explorer | Jade's The Dev</title>
 
-  <style>
-    :root {
-      --bg: #151722;
-      --bg2: #1a1c29;
-      --panel: rgba(30, 33, 48, 0.86);
-      --panel-soft: rgba(255, 255, 255, 0.035);
-      --text: #f4f5fb;
-      --muted: #aeb4c8;
-      --border: rgba(255,255,255,.12);
-      --accent: #ddb7eb;
-      --accent2: #f6c46a;
-      --accent3: #4457ee;
-      --good: #87d7c4;
-      --shadow: 0 20px 60px rgba(0,0,0,.28);
-    }
+    <!-- -------------------------------
+     Page styles
+     ------------------------------- -->
+    <style>
+      :root {
+        --bg: #151722;
+        --bg2: #1a1c29;
+        --panel: rgba(30, 33, 48, 0.86);
+        --panel-soft: rgba(255, 255, 255, 0.035);
+        --text: #f4f5fb;
+        --muted: #aeb4c8;
+        --border: rgba(255, 255, 255, 0.12);
+        --accent: #ddb7eb;
+        --accent2: #f6c46a;
+        --accent3: #4457ee;
+        --good: #87d7c4;
+        --shadow: 0 20px 60px rgba(0, 0, 0, 0.28);
+      }
 
-    * { box-sizing: border-box; }
+      * {
+        box-sizing: border-box;
+      }
 
-    html { scroll-behavior: smooth; }
+      html {
+        scroll-behavior: smooth;
+      }
 
-    body {
-      margin: 0;
-      min-height: 100vh;
-      color: var(--text);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background:
-        radial-gradient(circle at 18% 10%, rgba(221,183,235,.12), transparent 28rem),
-        radial-gradient(circle at 82% 16%, rgba(68,87,238,.10), transparent 32rem),
-        linear-gradient(180deg, var(--bg), var(--bg2) 60%, #202331);
-    }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        color: var(--text);
+        font-family:
+          Inter,
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
+        background:
+          radial-gradient(
+            circle at 18% 10%,
+            rgba(221, 183, 235, 0.12),
+            transparent 28rem
+          ),
+          radial-gradient(circle at 82% 16%, rgba(68, 87, 238, 0.1), transparent 32rem),
+          linear-gradient(180deg, var(--bg), var(--bg2) 60%, #202331);
+      }
 
-    a { color: inherit; }
+      a {
+        color: inherit;
+      }
 
-    .page {
-      width: min(1180px, calc(100% - 32px));
-      margin: 0 auto;
-      padding: 24px 0 56px;
-    }
+      .page {
+        width: min(1180px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 24px 0 56px;
+      }
 
-    .topbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 28px;
-    }
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 28px;
+      }
 
-    .brand {
-      text-decoration: none;
-      font-weight: 800;
-      letter-spacing: .02em;
-    }
+      .brand {
+        text-decoration: none;
+        font-weight: 800;
+        letter-spacing: 0.02em;
+      }
 
-    .back {
-      text-decoration: none;
-      color: var(--muted);
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,.03);
-      padding: 10px 14px;
-      border-radius: 12px;
-      transition: .2s ease;
-    }
+      .back {
+        text-decoration: none;
+        color: var(--muted);
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.03);
+        padding: 10px 14px;
+        border-radius: 12px;
+        transition: 0.2s ease;
+      }
 
-    .back:hover {
-      color: var(--text);
-      border-color: rgba(255,255,255,.22);
-      transform: translateY(-1px);
-    }
+      .back:hover {
+        color: var(--text);
+        border-color: rgba(255, 255, 255, 0.22);
+        transform: translateY(-1px);
+      }
 
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(280px, .9fr);
-      gap: 22px;
-      align-items: stretch;
-      margin-bottom: 22px;
-    }
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+        gap: 22px;
+        align-items: stretch;
+        margin-bottom: 22px;
+      }
 
-    .hero-card, .info-card, .viewer {
-      border: 1px solid var(--border);
-      background: var(--panel);
-      backdrop-filter: blur(12px);
-      border-radius: 22px;
-      box-shadow: var(--shadow);
-    }
+      .hero-card,
+      .info-card,
+      .viewer {
+        border: 1px solid var(--border);
+        background: var(--panel);
+        backdrop-filter: blur(12px);
+        border-radius: 22px;
+        box-shadow: var(--shadow);
+      }
 
-    .hero-card {
-      padding: clamp(24px, 5vw, 48px);
-      overflow: hidden;
-      position: relative;
-    }
+      .hero-card {
+        padding: clamp(24px, 5vw, 48px);
+        overflow: hidden;
+        position: relative;
+      }
 
-    .hero-card::after {
-      content: "";
-      position: absolute;
-      width: 280px;
-      height: 280px;
-      border-radius: 50%;
-      right: -110px;
-      top: -110px;
-      background: radial-gradient(circle, rgba(221,183,235,.18), transparent 68%);
-      pointer-events: none;
-    }
+      .hero-card::after {
+        content: "";
+        position: absolute;
+        width: 280px;
+        height: 280px;
+        border-radius: 50%;
+        right: -110px;
+        top: -110px;
+        background: radial-gradient(circle, rgba(221, 183, 235, 0.18), transparent 68%);
+        pointer-events: none;
+      }
 
-    .eyebrow {
-      color: var(--accent2);
-      font-size: .82rem;
-      text-transform: uppercase;
-      letter-spacing: .14em;
-      font-weight: 800;
-      margin-bottom: 12px;
-    }
+      .eyebrow {
+        color: var(--accent2);
+        font-size: 0.82rem;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        font-weight: 800;
+        margin-bottom: 12px;
+      }
 
-    h1 {
-      margin: 0;
-      font-size: clamp(2.4rem, 7vw, 5.2rem);
-      line-height: .98;
-      letter-spacing: -.05em;
-    }
+      h1 {
+        margin: 0;
+        font-size: clamp(2.4rem, 7vw, 5.2rem);
+        line-height: 0.98;
+        letter-spacing: -0.05em;
+      }
 
-    .lede {
-      margin: 18px 0 0;
-      max-width: 62ch;
-      color: var(--muted);
-      font-size: clamp(1rem, 1.6vw, 1.16rem);
-      line-height: 1.7;
-    }
+      .lede {
+        margin: 18px 0 0;
+        max-width: 62ch;
+        color: var(--muted);
+        font-size: clamp(1rem, 1.6vw, 1.16rem);
+        line-height: 1.7;
+      }
 
-    .info-card {
-      padding: 24px;
-      display: grid;
-      align-content: center;
-      gap: 16px;
-    }
+      .info-card {
+        padding: 24px;
+        display: grid;
+        align-content: center;
+        gap: 16px;
+      }
 
-    .axis-list {
-      display: grid;
-      gap: 10px;
-    }
+      .axis-list {
+        display: grid;
+        gap: 10px;
+      }
 
-    .axis-row {
-      display: grid;
-      grid-template-columns: 34px 1fr;
-      gap: 10px;
-      align-items: center;
-      padding: 10px 12px;
-      border-radius: 12px;
-      background: var(--panel-soft);
-      border: 1px solid rgba(255,255,255,.06);
-    }
+      .axis-row {
+        display: grid;
+        grid-template-columns: 34px 1fr;
+        gap: 10px;
+        align-items: center;
+        padding: 10px 12px;
+        border-radius: 12px;
+        background: var(--panel-soft);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+      }
 
-    .axis {
-      font-weight: 900;
-      color: var(--accent);
-      text-align: center;
-    }
+      .axis {
+        font-weight: 900;
+        color: var(--accent);
+        text-align: center;
+      }
 
-    .axis-row:last-child .axis { color: var(--accent2); }
+      .axis-row:last-child .axis {
+        color: var(--accent2);
+      }
 
-    .viewer {
-      padding: 18px;
-    }
+      .viewer {
+        padding: 18px;
+      }
 
-    .viewer-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) 280px;
-      gap: 18px;
-      align-items: start;
-    }
+      .viewer-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 280px;
+        gap: 18px;
+        align-items: start;
+      }
 
-    .stage {
-      min-width: 0;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,.08);
-      background:
-        linear-gradient(rgba(255,255,255,.02) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.02) 1px, transparent 1px),
-        #11131c;
-      background-size: 32px 32px;
-      overflow: hidden;
-    }
+      .stage {
+        min-width: 0;
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background:
+          linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px), #11131c;
+        background-size: 32px 32px;
+        overflow: hidden;
+      }
 
-    svg {
-      display: block;
-      width: 100%;
-      height: auto;
-      min-height: 420px;
-      touch-action: none;
-      user-select: none;
-      cursor: grab;
-    }
+      svg {
+        display: block;
+        width: 100%;
+        height: auto;
+        min-height: 420px;
+        touch-action: none;
+        user-select: none;
+        cursor: grab;
+      }
 
-    svg.dragging { cursor: grabbing; }
-
-    .controls {
-      display: grid;
-      gap: 14px;
-    }
-
-    .control-card {
-      background: var(--panel-soft);
-      border: 1px solid rgba(255,255,255,.08);
-      border-radius: 16px;
-      padding: 16px;
-    }
-
-    .control-card h2 {
-      font-size: 1rem;
-      margin: 0 0 14px;
-    }
-
-    .range-wrap {
-      display: grid;
-      gap: 7px;
-      margin-top: 13px;
-    }
-
-    .range-head {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      color: var(--muted);
-      font-size: .92rem;
-    }
-
-    input[type="range"] {
-      width: 100%;
-      accent-color: var(--accent);
-    }
-
-    .buttons {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-top: 14px;
-    }
-
-    button {
-      appearance: none;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,.045);
-      color: var(--text);
-      padding: 11px 12px;
-      border-radius: 12px;
-      font: inherit;
-      cursor: pointer;
-      transition: .2s ease;
-    }
-
-    button:hover {
-      transform: translateY(-1px);
-      border-color: rgba(255,255,255,.22);
-    }
-
-    button.primary {
-      background: rgba(221,183,235,.12);
-      border-color: rgba(221,183,235,.28);
-    }
-
-    .small {
-      color: var(--muted);
-      line-height: 1.55;
-      font-size: .92rem;
-      margin: 0;
-    }
-
-    .legend {
-      display: grid;
-      gap: 9px;
-      margin-top: 8px;
-    }
-
-    .legend-item {
-      display: flex;
-      align-items: center;
-      gap: 9px;
-      color: var(--muted);
-      font-size: .9rem;
-    }
-
-    .swatch {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      flex: 0 0 auto;
-    }
-
-    .swatch.one { background: var(--accent2); }
-    .swatch.two { background: var(--good); }
-    .swatch.w { background: var(--accent); }
-
-    .footer {
-      margin-top: 22px;
-      text-align: center;
-      color: var(--muted);
-      font-size: .9rem;
-    }
-
-    @media (max-width: 900px) {
-      .hero, .viewer-grid {
-        grid-template-columns: 1fr;
+      svg.dragging {
+        cursor: grabbing;
       }
 
       .controls {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        display: grid;
+        gap: 14px;
       }
-    }
 
-    @media (max-width: 620px) {
-      .page { width: min(100% - 20px, 1180px); }
-      .topbar { align-items: flex-start; }
-      .controls { grid-template-columns: 1fr; }
-      .buttons { grid-template-columns: 1fr; }
-      svg { min-height: 330px; }
-    }
-  </style>
-</head>
+      .control-card {
+        background: var(--panel-soft);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 16px;
+        padding: 16px;
+      }
 
-<body>
-  <main class="page">
-    <nav class="topbar" aria-label="Portfolio navigation">
-      <a class="brand" href="../../index.html">Jade's The Dev</a>
-      <a class="back" href="../index.html">← Back to Projects</a>
-    </nav>
+      .control-card h2 {
+        font-size: 1rem;
+        margin: 0 0 14px;
+      }
 
-    <section class="hero">
-      <div class="hero-card">
-        <div class="eyebrow">Interactive Geometry</div>
-        <h1>4D Tesseract Explorer</h1>
-        <p class="lede">
-          A tesseract is the four-dimensional analogue of a cube.
-          This page calculates all 16 vertices in four-dimensional space,
-          rotates them through W, projects them into 3D, and then projects that
-          result onto your 2D screen.
-        </p>
-      </div>
+      .range-wrap {
+        display: grid;
+        gap: 7px;
+        margin-top: 13px;
+      }
 
-      <aside class="info-card">
-        <div class="axis-list">
-          <div class="axis-row"><div class="axis">X</div><div>left ↔ right</div></div>
-          <div class="axis-row"><div class="axis">Y</div><div>forward ↔ backward</div></div>
-          <div class="axis-row"><div class="axis">Z</div><div>up ↔ down</div></div>
-          <div class="axis-row"><div class="axis">W</div><div>ana ↔ kata</div></div>
+      .range-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      input[type="range"] {
+        width: 100%;
+        accent-color: var(--accent);
+      }
+
+      .buttons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-top: 14px;
+      }
+
+      button {
+        appearance: none;
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.045);
+        color: var(--text);
+        padding: 11px 12px;
+        border-radius: 12px;
+        font: inherit;
+        cursor: pointer;
+        transition: 0.2s ease;
+      }
+
+      button:hover {
+        transform: translateY(-1px);
+        border-color: rgba(255, 255, 255, 0.22);
+      }
+
+      button.primary {
+        background: rgba(221, 183, 235, 0.12);
+        border-color: rgba(221, 183, 235, 0.28);
+      }
+
+      .small {
+        color: var(--muted);
+        line-height: 1.55;
+        font-size: 0.92rem;
+        margin: 0;
+      }
+
+      .legend {
+        display: grid;
+        gap: 9px;
+        margin-top: 8px;
+      }
+
+      .legend-item {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      .swatch {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        flex: 0 0 auto;
+      }
+
+      .swatch.one {
+        background: var(--accent2);
+      }
+      .swatch.two {
+        background: var(--good);
+      }
+      .swatch.w {
+        background: var(--accent);
+      }
+
+      .footer {
+        margin-top: 22px;
+        text-align: center;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 900px) {
+        .hero,
+        .viewer-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .controls {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 620px) {
+        .page {
+          width: min(100% - 20px, 1180px);
+        }
+        .topbar {
+          align-items: flex-start;
+        }
+        .controls {
+          grid-template-columns: 1fr;
+        }
+        .buttons {
+          grid-template-columns: 1fr;
+        }
+        svg {
+          min-height: 330px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- -------------------------------
+     Main content
+     ------------------------------- -->
+    <main class="page">
+      <!-- -------------------------------
+     Navigation
+     ------------------------------- -->
+      <nav
+        class="topbar"
+        aria-label="Portfolio navigation"
+      >
+        <a
+          class="brand"
+          href="../../index.html"
+        >
+          Jade's The Dev
+        </a>
+        <a
+          class="back"
+          href="../index.html"
+        >
+          ← Back to Projects
+        </a>
+      </nav>
+
+      <!-- -------------------------------
+     Section: hero
+     ------------------------------- -->
+      <section class="hero">
+        <div class="hero-card">
+          <div class="eyebrow">Interactive Geometry</div>
+          <h1>4D Tesseract Explorer</h1>
+          <p class="lede">
+            A tesseract is the four-dimensional analogue of a cube. This page calculates
+            all 16 vertices in four-dimensional space, rotates them through W, projects
+            them into 3D, and then projects that result onto your 2D screen.
+          </p>
         </div>
-      </aside>
-    </section>
 
-    <section class="viewer" aria-labelledby="viewer-title">
-      <div class="viewer-grid">
-        <div class="stage">
-          <svg id="tesseract" viewBox="0 0 760 620" role="img" aria-label="Interactive 3D projection of a four-dimensional tesseract">
-            <g id="edges"></g>
-            <g id="points"></g>
-            <g id="labels"></g>
-          </svg>
-        </div>
-
-        <aside class="controls">
-          <div class="control-card">
-            <h2 id="viewer-title">4D Rotation</h2>
-
-            <label class="range-wrap">
-              <span class="range-head"><span>X ↔ W</span><span id="xwVal">0°</span></span>
-              <input id="xw" type="range" min="-180" max="180" value="0" />
-            </label>
-
-            <label class="range-wrap">
-              <span class="range-head"><span>Y ↔ W</span><span id="ywVal">0°</span></span>
-              <input id="yw" type="range" min="-180" max="180" value="0" />
-            </label>
-
-            <label class="range-wrap">
-              <span class="range-head"><span>Z ↔ W</span><span id="zwVal">0°</span></span>
-              <input id="zw" type="range" min="-180" max="180" value="0" />
-            </label>
-
-            <div class="buttons">
-              <button id="reset" type="button">Reset</button>
-              <button id="auto" class="primary" type="button">Auto Rotate</button>
+        <aside class="info-card">
+          <div class="axis-list">
+            <div class="axis-row">
+              <div class="axis">X</div>
+              <div>left ↔ right</div>
             </div>
-          </div>
-
-          <div class="control-card">
-            <h2>How to use it</h2>
-            <p class="small">
-              Drag the tesseract to rotate the 3D camera. Use the three sliders
-              to rotate the object through planes that include the fourth
-              spatial axis, W.
-            </p>
-          </div>
-
-          <div class="control-card">
-            <h2>Projection guide</h2>
-            <div class="legend">
-              <div class="legend-item"><span class="swatch one"></span>One W-side</div>
-              <div class="legend-item"><span class="swatch two"></span>Opposite W-side</div>
-              <div class="legend-item"><span class="swatch w"></span>Edges connecting through W</div>
+            <div class="axis-row">
+              <div class="axis">Y</div>
+              <div>forward ↔ backward</div>
+            </div>
+            <div class="axis-row">
+              <div class="axis">Z</div>
+              <div>up ↔ down</div>
+            </div>
+            <div class="axis-row">
+              <div class="axis">W</div>
+              <div>ana ↔ kata</div>
             </div>
           </div>
         </aside>
-      </div>
-    </section>
+      </section>
 
-    <p class="footer">
-      Built with HTML, CSS, SVG, and vanilla JavaScript.
-    </p>
-  </main>
+      <!-- -------------------------------
+     Section: viewer
+     ------------------------------- -->
+      <section
+        class="viewer"
+        aria-labelledby="viewer-title"
+      >
+        <div class="viewer-grid">
+          <div class="stage">
+            <svg
+              id="tesseract"
+              viewBox="0 0 760 620"
+              role="img"
+              aria-label="Interactive 3D projection of a four-dimensional tesseract"
+            >
+              <g id="edges"></g>
+              <g id="points"></g>
+              <g id="labels"></g>
+            </svg>
+          </div>
 
-  <script>
-    const svg = document.getElementById("tesseract");
-    const edgeGroup = document.getElementById("edges");
-    const pointGroup = document.getElementById("points");
-    const labelGroup = document.getElementById("labels");
+          <aside class="controls">
+            <div class="control-card">
+              <h2 id="viewer-title">4D Rotation</h2>
 
-    const sliders = {
-      xw: document.getElementById("xw"),
-      yw: document.getElementById("yw"),
-      zw: document.getElementById("zw")
-    };
+              <label class="range-wrap">
+                <span class="range-head">
+                  <span>X ↔ W</span>
+                  <span id="xwVal">0°</span>
+                </span>
+                <input
+                  id="xw"
+                  type="range"
+                  min="-180"
+                  max="180"
+                  value="0"
+                />
+              </label>
 
-    const values = {
-      xw: document.getElementById("xwVal"),
-      yw: document.getElementById("ywVal"),
-      zw: document.getElementById("zwVal")
-    };
+              <label class="range-wrap">
+                <span class="range-head">
+                  <span>Y ↔ W</span>
+                  <span id="ywVal">0°</span>
+                </span>
+                <input
+                  id="yw"
+                  type="range"
+                  min="-180"
+                  max="180"
+                  value="0"
+                />
+              </label>
 
-    const vertices = [];
-    for (let i = 0; i < 16; i++) {
-      vertices.push([
-        (i & 1) ? 1 : -1,
-        (i & 2) ? 1 : -1,
-        (i & 4) ? 1 : -1,
-        (i & 8) ? 1 : -1
-      ]);
-    }
+              <label class="range-wrap">
+                <span class="range-head">
+                  <span>Z ↔ W</span>
+                  <span id="zwVal">0°</span>
+                </span>
+                <input
+                  id="zw"
+                  type="range"
+                  min="-180"
+                  max="180"
+                  value="0"
+                />
+              </label>
 
-    const edges = [];
-    for (let i = 0; i < 16; i++) {
-      for (let bit = 0; bit < 4; bit++) {
-        const j = i ^ (1 << bit);
-        if (i < j) edges.push([i, j, bit]);
+              <div class="buttons">
+                <button
+                  id="reset"
+                  type="button"
+                >
+                  Reset
+                </button>
+                <button
+                  id="auto"
+                  class="primary"
+                  type="button"
+                >
+                  Auto Rotate
+                </button>
+              </div>
+            </div>
+
+            <div class="control-card">
+              <h2>How to use it</h2>
+              <p class="small">
+                Drag the tesseract to rotate the 3D camera. Use the three sliders to
+                rotate the object through planes that include the fourth spatial axis, W.
+              </p>
+            </div>
+
+            <div class="control-card">
+              <h2>Projection guide</h2>
+              <div class="legend">
+                <div class="legend-item">
+                  <span class="swatch one"></span>
+                  One W-side
+                </div>
+                <div class="legend-item">
+                  <span class="swatch two"></span>
+                  Opposite W-side
+                </div>
+                <div class="legend-item">
+                  <span class="swatch w"></span>
+                  Edges connecting through W
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <p class="footer">Built with HTML, CSS, SVG, and vanilla JavaScript.</p>
+    </main>
+
+    <!-- -------------------------------
+     Scripts
+     ------------------------------- -->
+    <script>
+      const svg = document.getElementById("tesseract");
+      const edgeGroup = document.getElementById("edges");
+      const pointGroup = document.getElementById("points");
+      const labelGroup = document.getElementById("labels");
+
+      const sliders = {
+        xw: document.getElementById("xw"),
+        yw: document.getElementById("yw"),
+        zw: document.getElementById("zw"),
+      };
+
+      const values = {
+        xw: document.getElementById("xwVal"),
+        yw: document.getElementById("ywVal"),
+        zw: document.getElementById("zwVal"),
+      };
+
+      const vertices = [];
+      for (let i = 0; i < 16; i++) {
+        vertices.push([i & 1 ? 1 : -1, i & 2 ? 1 : -1, i & 4 ? 1 : -1, i & 8 ? 1 : -1]);
       }
-    }
 
-    let viewX = -0.34;
-    let viewY = 0.60;
-    let dragging = false;
-    let pointerX = 0;
-    let pointerY = 0;
-    let animationId = null;
-    let autoRotate = false;
+      const edges = [];
+      for (let i = 0; i < 16; i++) {
+        for (let bit = 0; bit < 4; bit++) {
+          const j = i ^ (1 << bit);
+          if (i < j) edges.push([i, j, bit]);
+        }
+      }
 
-    function rotate4D(point, axisA, axisB, angle) {
-      const result = point.slice();
-      const c = Math.cos(angle);
-      const s = Math.sin(angle);
+      let viewX = -0.34;
+      let viewY = 0.6;
+      let dragging = false;
+      let pointerX = 0;
+      let pointerY = 0;
+      let animationId = null;
+      let autoRotate = false;
 
-      result[axisA] = point[axisA] * c - point[axisB] * s;
-      result[axisB] = point[axisA] * s + point[axisB] * c;
+      function rotate4D(point, axisA, axisB, angle) {
+        const result = point.slice();
+        const c = Math.cos(angle);
+        const s = Math.sin(angle);
 
-      return result;
-    }
+        result[axisA] = point[axisA] * c - point[axisB] * s;
+        result[axisB] = point[axisA] * s + point[axisB] * c;
 
-    function rotate3D(point) {
-      let [x, y, z] = point;
+        return result;
+      }
 
-      let c = Math.cos(viewY);
-      let s = Math.sin(viewY);
-      [x, z] = [x * c + z * s, -x * s + z * c];
+      function rotate3D(point) {
+        let [x, y, z] = point;
 
-      c = Math.cos(viewX);
-      s = Math.sin(viewX);
-      [y, z] = [y * c - z * s, y * s + z * c];
+        let c = Math.cos(viewY);
+        let s = Math.sin(viewY);
+        [x, z] = [x * c + z * s, -x * s + z * c];
 
-      return [x, y, z];
-    }
+        c = Math.cos(viewX);
+        s = Math.sin(viewX);
+        [y, z] = [y * c - z * s, y * s + z * c];
 
-    function projectVertices() {
-      const ax = Number(sliders.xw.value) * Math.PI / 180;
-      const ay = Number(sliders.yw.value) * Math.PI / 180;
-      const az = Number(sliders.zw.value) * Math.PI / 180;
+        return [x, y, z];
+      }
 
-      return vertices.map(vertex => {
-        let point = rotate4D(vertex, 0, 3, ax);
-        point = rotate4D(point, 1, 3, ay);
-        point = rotate4D(point, 2, 3, az);
+      function projectVertices() {
+        const ax = (Number(sliders.xw.value) * Math.PI) / 180;
+        const ay = (Number(sliders.yw.value) * Math.PI) / 180;
+        const az = (Number(sliders.zw.value) * Math.PI) / 180;
 
-        const wDistance = 3.5 - point[3];
+        return vertices.map((vertex) => {
+          let point = rotate4D(vertex, 0, 3, ax);
+          point = rotate4D(point, 1, 3, ay);
+          point = rotate4D(point, 2, 3, az);
 
-        let point3D = [
-          point[0] / wDistance * 3.5,
-          point[1] / wDistance * 3.5,
-          point[2] / wDistance * 3.5
+          const wDistance = 3.5 - point[3];
+
+          let point3D = [
+            (point[0] / wDistance) * 3.5,
+            (point[1] / wDistance) * 3.5,
+            (point[2] / wDistance) * 3.5,
+          ];
+
+          point3D = rotate3D(point3D);
+
+          const zDistance = 6 - point3D[2];
+          const scale = 250 / zDistance;
+
+          return {
+            x: 380 + point3D[0] * scale,
+            y: 310 - point3D[1] * scale,
+            z: point3D[2],
+            w: point[3],
+          };
+        });
+      }
+
+      function createLine(a, b, color, width, opacity) {
+        const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+        line.setAttribute("x1", a.x);
+        line.setAttribute("y1", a.y);
+        line.setAttribute("x2", b.x);
+        line.setAttribute("y2", b.y);
+        line.setAttribute("stroke", color);
+        line.setAttribute("stroke-width", width);
+        line.setAttribute("stroke-opacity", opacity);
+        line.setAttribute("stroke-linecap", "round");
+        return line;
+      }
+
+      function render() {
+        values.xw.textContent = sliders.xw.value + "°";
+        values.yw.textContent = sliders.yw.value + "°";
+        values.zw.textContent = sliders.zw.value + "°";
+
+        const projected = projectVertices();
+
+        edgeGroup.replaceChildren();
+        pointGroup.replaceChildren();
+        labelGroup.replaceChildren();
+
+        edges.forEach(([a, b, bit]) => {
+          const isWEdge = bit === 3;
+          const startsOnPositiveW = (a & 8) !== 0;
+
+          const color = isWEdge ? "#ddb7eb" : startsOnPositiveW ? "#87d7c4" : "#f6c46a";
+
+          edgeGroup.appendChild(
+            createLine(
+              projected[a],
+              projected[b],
+              color,
+              isWEdge ? 2.8 : 2.2,
+              isWEdge ? 0.92 : 0.8,
+            ),
+          );
+        });
+
+        projected.forEach((point, i) => {
+          const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+          circle.setAttribute("cx", point.x);
+          circle.setAttribute("cy", point.y);
+          circle.setAttribute("r", 4.5);
+          circle.setAttribute("fill", i & 8 ? "#87d7c4" : "#f6c46a");
+          circle.setAttribute("stroke", "#f5f6fb");
+          circle.setAttribute("stroke-width", "1");
+          pointGroup.appendChild(circle);
+        });
+
+        const labels = [
+          { index: 15, text: "+W / kata" },
+          { index: 7, text: "−W / ana" },
         ];
 
-        point3D = rotate3D(point3D);
+        labels.forEach(({ index, text }) => {
+          const point = projected[index];
+          const label = document.createElementNS("http://www.w3.org/2000/svg", "text");
+          label.setAttribute("x", point.x + 10);
+          label.setAttribute("y", point.y - 10);
+          label.setAttribute("fill", "#c6cbda");
+          label.setAttribute("font-size", "15");
+          label.setAttribute("font-weight", "700");
+          label.textContent = text;
+          labelGroup.appendChild(label);
+        });
+      }
 
-        const zDistance = 6 - point3D[2];
-        const scale = 250 / zDistance;
-
-        return {
-          x: 380 + point3D[0] * scale,
-          y: 310 - point3D[1] * scale,
-          z: point3D[2],
-          w: point[3]
-        };
-      });
-    }
-
-    function createLine(a, b, color, width, opacity) {
-      const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
-      line.setAttribute("x1", a.x);
-      line.setAttribute("y1", a.y);
-      line.setAttribute("x2", b.x);
-      line.setAttribute("y2", b.y);
-      line.setAttribute("stroke", color);
-      line.setAttribute("stroke-width", width);
-      line.setAttribute("stroke-opacity", opacity);
-      line.setAttribute("stroke-linecap", "round");
-      return line;
-    }
-
-    function render() {
-      values.xw.textContent = sliders.xw.value + "°";
-      values.yw.textContent = sliders.yw.value + "°";
-      values.zw.textContent = sliders.zw.value + "°";
-
-      const projected = projectVertices();
-
-      edgeGroup.replaceChildren();
-      pointGroup.replaceChildren();
-      labelGroup.replaceChildren();
-
-      edges.forEach(([a, b, bit]) => {
-        const isWEdge = bit === 3;
-        const startsOnPositiveW = (a & 8) !== 0;
-
-        const color = isWEdge
-          ? "#ddb7eb"
-          : startsOnPositiveW
-            ? "#87d7c4"
-            : "#f6c46a";
-
-        edgeGroup.appendChild(
-          createLine(
-            projected[a],
-            projected[b],
-            color,
-            isWEdge ? 2.8 : 2.2,
-            isWEdge ? 0.92 : 0.8
-          )
-        );
+      Object.values(sliders).forEach((slider) => {
+        slider.addEventListener("input", render);
       });
 
-      projected.forEach((point, i) => {
-        const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-        circle.setAttribute("cx", point.x);
-        circle.setAttribute("cy", point.y);
-        circle.setAttribute("r", 4.5);
-        circle.setAttribute("fill", (i & 8) ? "#87d7c4" : "#f6c46a");
-        circle.setAttribute("stroke", "#f5f6fb");
-        circle.setAttribute("stroke-width", "1");
-        pointGroup.appendChild(circle);
+      svg.addEventListener("pointerdown", (event) => {
+        dragging = true;
+        pointerX = event.clientX;
+        pointerY = event.clientY;
+        svg.classList.add("dragging");
+        svg.setPointerCapture(event.pointerId);
       });
 
-      const labels = [
-        { index: 15, text: "+W / kata" },
-        { index: 7, text: "−W / ana" }
-      ];
+      svg.addEventListener("pointermove", (event) => {
+        if (!dragging) return;
 
-      labels.forEach(({ index, text }) => {
-        const point = projected[index];
-        const label = document.createElementNS("http://www.w3.org/2000/svg", "text");
-        label.setAttribute("x", point.x + 10);
-        label.setAttribute("y", point.y - 10);
-        label.setAttribute("fill", "#c6cbda");
-        label.setAttribute("font-size", "15");
-        label.setAttribute("font-weight", "700");
-        label.textContent = text;
-        labelGroup.appendChild(label);
+        const dx = event.clientX - pointerX;
+        const dy = event.clientY - pointerY;
+
+        pointerX = event.clientX;
+        pointerY = event.clientY;
+
+        viewY += dx * 0.009;
+        viewX += dy * 0.009;
+
+        render();
       });
-    }
 
-    Object.values(sliders).forEach(slider => {
-      slider.addEventListener("input", render);
-    });
+      function endDrag(event) {
+        dragging = false;
+        svg.classList.remove("dragging");
+        try {
+          svg.releasePointerCapture(event.pointerId);
+        } catch {}
+      }
 
-    svg.addEventListener("pointerdown", event => {
-      dragging = true;
-      pointerX = event.clientX;
-      pointerY = event.clientY;
-      svg.classList.add("dragging");
-      svg.setPointerCapture(event.pointerId);
-    });
+      svg.addEventListener("pointerup", endDrag);
+      svg.addEventListener("pointercancel", endDrag);
 
-    svg.addEventListener("pointermove", event => {
-      if (!dragging) return;
+      document.getElementById("reset").addEventListener("click", () => {
+        sliders.xw.value = 0;
+        sliders.yw.value = 0;
+        sliders.zw.value = 0;
+        viewX = -0.34;
+        viewY = 0.6;
+        render();
+      });
 
-      const dx = event.clientX - pointerX;
-      const dy = event.clientY - pointerY;
+      const autoButton = document.getElementById("auto");
 
-      pointerX = event.clientX;
-      pointerY = event.clientY;
+      autoButton.addEventListener("click", () => {
+        autoRotate = !autoRotate;
+        autoButton.textContent = autoRotate ? "Stop Rotation" : "Auto Rotate";
 
-      viewY += dx * 0.009;
-      viewX += dy * 0.009;
+        if (autoRotate) animate();
+        else if (animationId) cancelAnimationFrame(animationId);
+      });
+
+      function animate() {
+        if (!autoRotate) return;
+
+        const next = Number(sliders.xw.value) + 0.35;
+        sliders.xw.value = next > 180 ? -180 : next;
+        viewY += 0.0025;
+
+        render();
+        animationId = requestAnimationFrame(animate);
+      }
 
       render();
-    });
-
-    function endDrag(event) {
-      dragging = false;
-      svg.classList.remove("dragging");
-      try { svg.releasePointerCapture(event.pointerId); } catch {}
-    }
-
-    svg.addEventListener("pointerup", endDrag);
-    svg.addEventListener("pointercancel", endDrag);
-
-    document.getElementById("reset").addEventListener("click", () => {
-      sliders.xw.value = 0;
-      sliders.yw.value = 0;
-      sliders.zw.value = 0;
-      viewX = -0.34;
-      viewY = 0.60;
-      render();
-    });
-
-    const autoButton = document.getElementById("auto");
-
-    autoButton.addEventListener("click", () => {
-      autoRotate = !autoRotate;
-      autoButton.textContent = autoRotate ? "Stop Rotation" : "Auto Rotate";
-
-      if (autoRotate) animate();
-      else if (animationId) cancelAnimationFrame(animationId);
-    });
-
-    function animate() {
-      if (!autoRotate) return;
-
-      const next = Number(sliders.xw.value) + 0.35;
-      sliders.xw.value = next > 180 ? -180 : next;
-      viewY += 0.0025;
-
-      render();
-      animationId = requestAnimationFrame(animate);
-    }
-
-    render();
-  </script>
-</body>
+    </script>
+  </body>
 </html>

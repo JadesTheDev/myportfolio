@@ -1,3 +1,6 @@
+/* -------------------------------
+   Blog navigation and rendering
+   ------------------------------- */
 (function () {
   "use strict";
 
@@ -8,7 +11,7 @@
   }
 
   function getCategoryById(catId) {
-    return (rantData.categories || []).find(c => c.id === catId) || null;
+    return (rantData.categories || []).find((c) => c.id === catId) || null;
   }
 
   function escapeHtml(str) {
@@ -20,7 +23,10 @@
       .replaceAll("'", "&#039;");
   }
 
-  // ===== phone time =====
+  /* -------------------------------
+   phone time
+   ------------------------------- */
+
   function updatePhoneTime() {
     const el = $("phone-time");
     if (!el) return;
@@ -30,44 +36,49 @@
   updatePhoneTime();
   setInterval(updatePhoneTime, 30000);
 
-  // ===== Launcher =====
+  /* -------------------------------
+   Launcher
+   ------------------------------- */
+
   function renderLauncher() {
     const grid = $("categoryGrid");
     if (!grid) return;
 
     const layout = rantData.launcherApps || [];
 
-    grid.innerHTML = layout.map(item => {
-      if (item.type === "spacer") {
-        return `<div class="app-spacer" aria-hidden="true"></div>`;
-      }
+    grid.innerHTML = layout
+      .map((item) => {
+        if (item.type === "spacer") {
+          return `<div class="app-spacer" aria-hidden="true"></div>`;
+        }
 
-      if (item.type === "link") {
-        const emoji = escapeHtml(item.emoji || "🔗");
-        const label = escapeHtml(item.label || "Link");
-        const href = escapeHtml(item.href || "#");
-        return `
+        if (item.type === "link") {
+          const emoji = escapeHtml(item.emoji || "🔗");
+          const label = escapeHtml(item.label || "Link");
+          const href = escapeHtml(item.href || "#");
+          return `
           <a class="app" href="${href}" data-label="${label.toLowerCase()}">
             <div class="app-square"><div class="app-emoji" aria-hidden="true">${emoji}</div></div>
             <div class="app-label">${label}</div>
           </a>
         `;
-      }
+        }
 
-      const cat = getCategoryById(item.id);
-      if (!cat) return `<div class="app-spacer" aria-hidden="true"></div>`;
+        const cat = getCategoryById(item.id);
+        if (!cat) return `<div class="app-spacer" aria-hidden="true"></div>`;
 
-      const emoji = escapeHtml(cat.emoji || "📁");
-      const label = escapeHtml(cat.name || "Category");
-      const href = `pages/category.html?cat=${encodeURIComponent(cat.id)}`;
+        const emoji = escapeHtml(cat.emoji || "📁");
+        const label = escapeHtml(cat.name || "Category");
+        const href = `pages/category.html?cat=${encodeURIComponent(cat.id)}`;
 
-      return `
+        return `
         <a class="app" href="${href}" data-label="${label.toLowerCase()}">
           <div class="app-square"><div class="app-emoji" aria-hidden="true">${emoji}</div></div>
           <div class="app-label">${label}</div>
         </a>
       `;
-    }).join("");
+      })
+      .join("");
 
     // Hook up search (only on launcher)
     const input = $("launcherSearch");
@@ -78,9 +89,9 @@
 
     function applyFilter() {
       const q = input.value.trim().toLowerCase();
-      apps.forEach(a => {
+      apps.forEach((a) => {
         const label = a.getAttribute("data-label") || "";
-        a.style.display = (!q || label.includes(q)) ? "" : "none";
+        a.style.display = !q || label.includes(q) ? "" : "none";
       });
     }
 
@@ -95,7 +106,10 @@
     }
   }
 
-  // ===== Category page =====
+  /* -------------------------------
+   Category page
+   ------------------------------- */
+
   function renderCategory() {
     const list = $("topicList");
     if (!list) return;
@@ -118,17 +132,19 @@
     if (titleEl) titleEl.textContent = `${cat.emoji || "📁"} ${cat.name}`;
     if (subEl) subEl.textContent = "Pick a topic to open the thread.";
 
-    const topics = (rantData.topics && rantData.topics[catId]) ? rantData.topics[catId] : [];
+    const topics =
+      rantData.topics && rantData.topics[catId] ? rantData.topics[catId] : [];
     if (!topics.length) {
       list.innerHTML = `<div class="empty">No topics yet. Add one in <code>rantData.js</code>.</div>`;
       return;
     }
 
-    list.innerHTML = topics.map(t => {
-      const title = escapeHtml(t.title);
-      const blurb = escapeHtml(t.blurb || "");
-      const updated = escapeHtml(t.updated || "");
-      return `
+    list.innerHTML = topics
+      .map((t) => {
+        const title = escapeHtml(t.title);
+        const blurb = escapeHtml(t.blurb || "");
+        const updated = escapeHtml(t.updated || "");
+        return `
         <a class="rowItem" href="thread.html?cat=${encodeURIComponent(catId)}&thread=${encodeURIComponent(t.id)}">
           <div class="rowMain">
             <div class="rowTitle">${title}</div>
@@ -137,10 +153,14 @@
           <div class="rowMeta muted">${updated}</div>
         </a>
       `;
-    }).join("");
+      })
+      .join("");
   }
 
-  // ===== Thread page =====
+  /* -------------------------------
+   Thread page
+   ------------------------------- */
+
   function renderThread() {
     const chat = $("chat");
     if (!chat) return;
@@ -150,7 +170,8 @@
     const threadId = params.get("thread");
     const key = `${catId}/${threadId}`;
 
-    const thread = (rantData.threads && rantData.threads[key]) ? rantData.threads[key] : null;
+    const thread =
+      rantData.threads && rantData.threads[key] ? rantData.threads[key] : null;
 
     if (!thread) {
       const titleEl = $("threadTitle");
@@ -163,11 +184,12 @@
     if (titleEl) titleEl.textContent = thread.title || "Thread";
 
     const msgs = thread.messages || [];
-    chat.innerHTML = msgs.map(m => {
-      const claim = escapeHtml(m.claim || "");
-      const evidence = escapeHtml(m.evidence || "");
-      const citation = escapeHtml(m.citation || "");
-      return `
+    chat.innerHTML = msgs
+      .map((m) => {
+        const claim = escapeHtml(m.claim || "");
+        const evidence = escapeHtml(m.evidence || "");
+        const citation = escapeHtml(m.citation || "");
+        return `
         <div class="pair">
           <div class="bubble claim">${claim}</div>
           <div class="bubble receipt">
@@ -176,7 +198,8 @@
           </div>
         </div>
       `;
-    }).join("");
+      })
+      .join("");
   }
 
   renderLauncher();

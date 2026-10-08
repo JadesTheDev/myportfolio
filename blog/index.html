@@ -1,52 +1,138 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Rant OS</title>
-  <link rel="stylesheet" href="css/rant.css" />
-</head>
+  <!-- -------------------------------
+     Page settings and styles
+     ------------------------------- -->
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />
+    <title>Rant OS</title>
+    <link
+      rel="stylesheet"
+      href="css/rant.css"
+    />
+  </head>
 
-<body class="stage">
-  <div class="phone-shell" role="application" aria-label="Rant OS Phone">
-
-    <!-- STATUS BAR -->
-    <header class="status-bar" aria-label="Phone status bar">
-      <div id="phone-time" class="status-time">12:00</div>
-      <div class="status-icons" aria-hidden="true">
-        <span title="Signal">📶</span>
-        <span title="Wi-Fi">📡</span>
-        <span title="Battery">🔋</span>
-      </div>
-    </header>
-
-    <!-- CONTENT -->
-    <main class="phone-content">
-      <!-- SEARCH BAR (replaces title/subtitle) -->
-      <div class="search-wrap">
-        <div class="search">
-          <span class="search-ico" aria-hidden="true">🔎</span>
-          <input id="launcherSearch" type="search" placeholder="Search apps…" autocomplete="off" />
-          <button id="searchClear" class="search-clear" type="button" aria-label="Clear search">✕</button>
+  <body class="stage">
+    <div
+      class="phone-shell"
+      role="application"
+      aria-label="Rant OS Phone"
+    >
+      <!-- STATUS BAR -->
+      <!-- -------------------------------
+     Header
+     ------------------------------- -->
+      <header
+        class="status-bar"
+        aria-label="Phone status bar"
+      >
+        <div
+          id="phone-time"
+          class="status-time"
+        >
+          12:00
         </div>
-      </div>
+        <div
+          class="status-icons"
+          aria-hidden="true"
+        >
+          <span title="Signal">📶</span>
+          <span title="Wi-Fi">📡</span>
+          <span title="Battery">🔋</span>
+        </div>
+      </header>
 
-      <section class="grid" id="categoryGrid" aria-label="Apps"></section>
-    </main>
+      <!-- CONTENT -->
+      <!-- -------------------------------
+     Main content
+     ------------------------------- -->
+      <main class="phone-content">
+        <!-- SEARCH BAR (replaces title/subtitle) -->
+        <div class="search-wrap">
+          <div class="search">
+            <span
+              class="search-ico"
+              aria-hidden="true"
+            >
+              🔎
+            </span>
+            <input
+              id="launcherSearch"
+              type="search"
+              placeholder="Search apps…"
+              autocomplete="off"
+            />
+            <button
+              id="searchClear"
+              class="search-clear"
+              type="button"
+              aria-label="Clear search"
+            >
+              ✕
+            </button>
+          </div>
+        </div>
 
-    <!-- ANDROID NAV -->
-    <nav class="android-nav" aria-label="Android navigation bar">
-      <button class="nav-btn" type="button" onclick="history.back()" aria-label="Back">◁</button>
-      <a class="nav-home" href="../home/index.html" aria-label="Home">◯</a>
-      <button class="nav-btn" type="button" aria-label="Recents" disabled>▢</button>
-    </nav>
+        <!-- -------------------------------
+     Section: grid
+     ------------------------------- -->
+        <section
+          class="grid"
+          id="categoryGrid"
+          aria-label="Apps"
+        ></section>
+      </main>
 
-  </div>
+      <!-- ANDROID NAV -->
+      <!-- -------------------------------
+     Navigation
+     ------------------------------- -->
+      <nav
+        class="android-nav"
+        aria-label="Android navigation bar"
+      >
+        <button
+          class="nav-btn"
+          type="button"
+          onclick="history.back()"
+          aria-label="Back"
+        >
+          ◁
+        </button>
+        <a
+          class="nav-home"
+          href="../home/index.html"
+          aria-label="Home"
+        >
+          ◯
+        </a>
+        <button
+          class="nav-btn"
+          type="button"
+          aria-label="Recents"
+          disabled
+        >
+          ▢
+        </button>
+      </nav>
+    </div>
 
-  <script src="data/rantData.js"></script>
-  <script src="js/rant.js"></script>
+    <!-- -------------------------------
+     Scripts
+     ------------------------------- -->
+    <script src="data/rantData.js"></script>
+    <!-- -------------------------------
+     Scripts
+     ------------------------------- -->
+    <script src="js/rant.js"></script>
 
-  <script src="../assets/orbs.js"></script>
-  
-</body>
+    <!-- -------------------------------
+     Scripts
+     ------------------------------- -->
+    <script src="../assets/orbs.js"></script>
+  </body>
 </html>

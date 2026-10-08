@@ -1,44 +1,131 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Category • Rant OS</title>
-  <link rel="stylesheet" href="../css/rant.css" />
-</head>
+  <!-- -------------------------------
+     Page settings and styles
+     ------------------------------- -->
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />
+    <title>Category • Rant OS</title>
+    <link
+      rel="stylesheet"
+      href="../css/rant.css"
+    />
+  </head>
 
-<body class="phone">
-  <!-- STATUS BAR -->
-  <header class="status-bar" aria-label="Phone status bar">
-    <div id="phone-time" class="status-time">12:00</div>
-    <div class="status-icons">
-      <span class="status-icon" aria-hidden="true">📶</span>
-      <span class="status-icon" aria-hidden="true">📡</span>
-      <img class="status-battery" src="../../assets/icons/battery.png" alt="Battery">
-    </div>
-  </header>
-
-  <!-- MAIN CONTENT -->
-  <main class="shell phone-content">
-    <header class="top row">
-      <a class="back" href="../index.html">← Home</a>
-      <div>
-        <h1 id="categoryTitle">Category</h1>
-        <p id="categorySubtitle" class="muted"></p>
+  <body class="phone">
+    <!-- STATUS BAR -->
+    <!-- -------------------------------
+     Header
+     ------------------------------- -->
+    <header
+      class="status-bar"
+      aria-label="Phone status bar"
+    >
+      <div
+        id="phone-time"
+        class="status-time"
+      >
+        12:00
+      </div>
+      <div class="status-icons">
+        <span
+          class="status-icon"
+          aria-hidden="true"
+        >
+          📶
+        </span>
+        <span
+          class="status-icon"
+          aria-hidden="true"
+        >
+          📡
+        </span>
+        <img
+          class="status-battery"
+          src="../../assets/icons/battery.png"
+          alt="Battery"
+        />
       </div>
     </header>
 
-    <section id="topicList" class="list" aria-label="Topics"></section>
-  </main>
+    <!-- MAIN CONTENT -->
+    <!-- -------------------------------
+     Main content
+     ------------------------------- -->
+    <main class="shell phone-content">
+      <!-- -------------------------------
+     Header
+     ------------------------------- -->
+      <header class="top row">
+        <a
+          class="back"
+          href="../index.html"
+        >
+          ← Home
+        </a>
+        <div>
+          <h1 id="categoryTitle">Category</h1>
+          <p
+            id="categorySubtitle"
+            class="muted"
+          ></p>
+        </div>
+      </header>
 
-  <!-- ANDROID NAV BAR -->
-  <nav class="android-nav" aria-label="Android navigation bar">
-    <button class="nav-btn" type="button" onclick="history.back()" aria-label="Back">◁</button>
-    <a class="nav-home" href="/home/index.html" aria-label="Home">◯</a>
-    <button class="nav-btn" type="button" aria-label="Recents" disabled>▢</button>
-  </nav>
+      <!-- -------------------------------
+     Section: topicList
+     ------------------------------- -->
+      <section
+        id="topicList"
+        class="list"
+        aria-label="Topics"
+      ></section>
+    </main>
 
-  <script src="../data/rantData.js"></script>
-  <script src="../js/rant.js"></script>
-</body>
+    <!-- ANDROID NAV BAR -->
+    <!-- -------------------------------
+     Navigation
+     ------------------------------- -->
+    <nav
+      class="android-nav"
+      aria-label="Android navigation bar"
+    >
+      <button
+        class="nav-btn"
+        type="button"
+        onclick="history.back()"
+        aria-label="Back"
+      >
+        ◁
+      </button>
+      <a
+        class="nav-home"
+        href="/home/index.html"
+        aria-label="Home"
+      >
+        ◯
+      </a>
+      <button
+        class="nav-btn"
+        type="button"
+        aria-label="Recents"
+        disabled
+      >
+        ▢
+      </button>
+    </nav>
+
+    <!-- -------------------------------
+     Scripts
+     ------------------------------- -->
+    <script src="../data/rantData.js"></script>
+    <!-- -------------------------------
+     Scripts
+     ------------------------------- -->
+    <script src="../js/rant.js"></script>
+  </body>
 </html>
