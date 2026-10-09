@@ -1615,3 +1615,59 @@ textarea {
 .details-copy p:last-child {
   margin-bottom: 0;
 }
+
+
+/* -------------------------------
+   Additional projects: balanced two-by-two grid
+   ------------------------------- */
+
+.project-reserve-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
+  align-items: stretch;
+}
+
+.project-reserve-grid .project-card {
+  position: relative;
+  min-width: 0;
+}
+
+.project-reserve-grid .project-media {
+  flex: none;
+  aspect-ratio: 16 / 10;
+}
+
+.project-reserve-grid .project-body .tags {
+  margin-top: auto;
+}
+
+.project-reserve-grid .project-actions {
+  margin-top: 0;
+}
+
+.project-reserve-grid .card-primary-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
+.project-reserve-grid .project-card:has(.card-primary-link:focus-visible) {
+  outline: 3px solid var(--violet);
+  outline-offset: 4px;
+}
+
+.trailer-card .project-media {
+  background: #090b15;
+}
+
+.trailer-card .project-media img {
+  object-fit: contain;
+}
+
+@media (max-width: 590px) {
+  .project-reserve-grid {
+    grid-template-columns: minmax(0, 1fr);
+    grid-auto-rows: auto;
+  }
+}
