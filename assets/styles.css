@@ -1671,3 +1671,22 @@ textarea {
     grid-auto-rows: auto;
   }
 }
+
+
+/* SDC355: visitor welcome beside the existing brand */
+#visitor-welcome { font-weight: 500; color: var(--plum); margin-left: .3rem; }
+
+/* Keep project demos clickable while exposing separate source links. */
+.project-reserve-grid .project-github-link {
+  position: relative;
+  z-index: 3;
+  margin-left: auto;
+  padding: .25rem .55rem;
+  border: 1px solid var(--line);
+  border-radius: .5rem;
+  color: var(--ink);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.project-reserve-grid .project-github-link:hover,
+.project-reserve-grid .project-github-link:focus-visible { border-color: var(--violet); color: var(--violet); }
