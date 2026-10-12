@@ -99,11 +99,7 @@
               action="https://formspree.io/f/xqpeqlen"
               method="POST"
             >
-              <input
-                type="hidden"
-                name="subject"
-                value="Portfolio inquiry: {{ inquiry_type }}"
-              />
+
               <div
                 class="hidden"
                 aria-hidden="true"
@@ -169,8 +165,19 @@
                     autocomplete="tel"
                   />
                 </label>
+                <!-- SDC355 1.10: separate, editable subject field -->
                 <label class="field field-full">
-                  <span class="label-text">Message ("Subject Field")</span>
+                  <span class="label-text">Subject</span>
+                  <input
+                    type="text"
+                    name="subject"
+                    placeholder="Briefly describe your inquiry"
+                    maxlength="150"
+                    required
+                  />
+                </label>
+                <label class="field field-full">
+                  <span class="label-text">Message</span>
                   <textarea
                     name="message"
                     rows="6"
