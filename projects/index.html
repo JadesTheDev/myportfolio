@@ -36,6 +36,43 @@
       #from-the-farm .project-media {
         position: relative;
       }
+
+      /* From the Farm: actions left, collaborator dropdown right. */
+      #from-the-farm .project-actions {
+        align-items: flex-start;
+      }
+      #from-the-farm .project-collaborators {
+        margin-left: auto;
+        text-align: right;
+        min-width: 0;
+      }
+      #from-the-farm .project-collaborators summary {
+        display: block;
+        list-style: none;
+        cursor: pointer;
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+        font-weight: 850;
+        color: #e6e6ff;
+        text-decoration: none;
+      }
+      #from-the-farm .project-collaborators summary::-webkit-details-marker {
+        display: none;
+      }
+      #from-the-farm .project-collaborators summary:hover {
+        text-decoration: underline;
+      }
+      #from-the-farm .project-collaborators summary:focus-visible {
+        outline: 3px solid var(--violet);
+        outline-offset: 4px;
+        border-radius: 4px;
+      }
+      #from-the-farm .collaborator-links {
+        display: grid;
+        gap: 0.4rem;
+        margin-top: 0.65rem;
+      }
     </style>
   </head>
   <body class="projects-page">
