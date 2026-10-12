@@ -75,3 +75,62 @@ if (!reduceMotion.matches) {
 
   requestAnimationFrame(animateOrbs);
 }
+
+/* -------------------------------
+   From the Farm collaborator menu
+   Keep the collaborator control visually consistent with project links
+   while separating it from the primary actions.
+   ------------------------------- */
+if (document.getElementById("from-the-farm")) {
+  const collaboratorStyles = document.createElement("style");
+  collaboratorStyles.textContent = `
+    #from-the-farm .project-actions {
+      width: 100%;
+      align-items: flex-start;
+    }
+
+    #from-the-farm .project-collaborators {
+      margin-left: auto;
+      position: relative;
+      color: #e6e6ff;
+      font-weight: 850;
+    }
+
+    #from-the-farm .project-collaborators summary {
+      cursor: pointer;
+      color: #e6e6ff;
+      text-decoration: underline;
+      text-underline-offset: 0.18em;
+      list-style: none;
+      white-space: nowrap;
+    }
+
+    #from-the-farm .project-collaborators summary::-webkit-details-marker {
+      display: none;
+    }
+
+    #from-the-farm .collaborator-links {
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.55rem;
+      margin-top: 0.3rem;
+      white-space: nowrap;
+    }
+
+    #from-the-farm .collaborator-links a {
+      color: #e6e6ff;
+    }
+
+    @media (max-width: 620px) {
+      #from-the-farm .project-collaborators {
+        width: 100%;
+        margin-left: 0;
+      }
+
+      #from-the-farm .collaborator-links {
+        justify-content: flex-start;
+      }
+    }
+  `;
+  document.head.appendChild(collaboratorStyles);
+}
