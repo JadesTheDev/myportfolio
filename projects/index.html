@@ -22,6 +22,21 @@
       rel="stylesheet"
       href="../assets/styles.css?v=20261009-project-grid"
     />
+    <style>
+      /* From the Farm: keep the card body interactive for collaborator links. */
+      #from-the-farm .card-primary-link::after {
+        display: none;
+      }
+      #from-the-farm .project-media-link {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        display: block;
+      }
+      #from-the-farm .project-media {
+        position: relative;
+      }
+    </style>
   </head>
   <body class="projects-page">
     <a
@@ -104,6 +119,13 @@
             id="from-the-farm"
           >
             <div class="project-media">
+              <a
+                class="project-media-link"
+                href="https://jadesthedev.github.io/academic_projects/SDC_445/FromTheFarm/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Open From the Farm live app"
+              ></a>
               <img
                 src="../assets/farm-preview.png"
                 alt="From the Farm app showing its local produce marketplace"
