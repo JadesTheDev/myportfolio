@@ -1690,3 +1690,24 @@ textarea {
 }
 .project-reserve-grid .project-github-link:hover,
 .project-reserve-grid .project-github-link:focus-visible { border-color: var(--violet); color: var(--violet); }
+
+
+/* -------------------------------
+   Shared footer: human review preference
+   ------------------------------- */
+.site-footer .footer-review-notice {
+  grid-column: 1 / -1;
+  grid-row: auto;
+  width: 100%;
+  max-width: 90ch;
+  justify-self: center;
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.8rem;
+  line-height: 1.5;
+  text-align: center;
+}
+.footer-review-notice strong {
+  color: var(--ink);
+  font-weight: 700;
+}
