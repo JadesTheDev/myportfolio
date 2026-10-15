@@ -28,9 +28,14 @@ document.addEventListener("DOMContentLoaded", () => {
   // Dark mode is the default; unchecked enables temporary light mode.
   const toggle = document.querySelector("#dark-mode-toggle");
   if (toggle) {
-    toggle.checked = true;
+    // Remember theme preference across page navigation.
+    let darkMode = true;
+    try { darkMode = localStorage.getItem("sdc355-dark-mode") !== "false"; } catch (_) {}
+    toggle.checked = darkMode;
+    document.body.classList.toggle("course-light", !darkMode);
     toggle.addEventListener("change", () => {
       document.body.classList.toggle("course-light", !toggle.checked);
+      try { localStorage.setItem("sdc355-dark-mode", String(toggle.checked)); } catch (_) {}
     });
   }
 });
