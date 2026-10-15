@@ -63,6 +63,8 @@
         </a>
         <a href="../contact/">Contact</a>
       </nav>
+      <!-- SDC355 2.9: temporary theme toggle for coursework -->
+      <label class="course-theme-control"><input type="checkbox" id="dark-mode-toggle" checked /> Dark Mode</label>
     </header>
 
     <!-- -------------------------------
@@ -77,17 +79,7 @@
           <aside class="about-aside">
             <p class="eyebrow">About me</p>
             <h1>Curious by nature.</h1>
-            <div
-              class="skills"
-              aria-label="Areas of focus"
-            >
-              <span>Software Development</span>
-              <span>Web Development</span>
-              <span>Systems</span>
-              <span>DevOps</span>
-              <span>UI/UX</span>
-              <span>Problem Solving</span>
-            </div>
+            <div class="skills-list-wrap"><h2 class="skills-list-title">Technical Skills</h2><ul id="technical-skills" class="technical-skills"></ul></div>
           </aside>
           <div class="content-card about-copy">
             <h2>A little about me.</h2>
@@ -386,5 +378,6 @@
         score, rank, or screen me for hiring decisions.
       </p>
     </footer>
+    <script src="../assets/course-2-9.js" defer></script>
   </body>
 </html>

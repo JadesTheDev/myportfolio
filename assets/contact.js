@@ -40,6 +40,7 @@
     }
     if (!form.reportValidity()) return;
 
+    const visitorName = form.elements.namedItem("name").value.trim();
     sending = true;
     button.disabled = true;
     button.textContent = "Sending…";
@@ -73,7 +74,7 @@
       }
       form.reset();
       status.dataset.state = "success";
-      status.textContent = "Thanks! Your message was submitted successfully.";
+      status.textContent = `Thank you, ${visitorName}! Your message has been sent!`;
     } catch (error) {
       status.dataset.state = "error";
       status.textContent =

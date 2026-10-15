@@ -115,6 +115,8 @@
         <a href="../about/">About</a>
         <a href="../contact/">Contact</a>
       </nav>
+      <!-- SDC355 2.9: temporary theme toggle for coursework -->
+      <label class="course-theme-control"><input type="checkbox" id="dark-mode-toggle" checked /> Dark Mode</label>
     </header>
 
     <!-- -------------------------------
@@ -464,6 +466,20 @@
           </article>
         </div>
       </section>
+      <!-- SDC355 2.9: Featured Content is controlled by project count. -->
+      <section class="section featured-content" aria-labelledby="featured-content-title">
+        <h2 id="featured-content-title">Featured Content</h2>
+        <div id="university-resources" class="content-card featured-resource" hidden>
+          <h3>University Resources</h3>
+          <p>Explore my program and university resources.</p>
+          <a href="https://www.ecpi.edu/programs" target="_blank" rel="noopener noreferrer">ECPI University Programs ↗</a>
+        </div>
+        <div id="personal-projects" class="content-card featured-resource" hidden>
+          <h3>Personal Projects</h3>
+          <p>Explore the projects already featured above, including my web applications and interactive demos.</p>
+          <a href="#current-work">Browse my personal projects ↑</a>
+        </div>
+      </section>
     </main>
 
     <!-- -------------------------------
@@ -535,5 +551,6 @@
      Scripts
      ------------------------------- -->
     <script src="../assets/orbs.js"></script>
+    <script src="../assets/course-2-9.js" defer></script>
   </body>
 </html>

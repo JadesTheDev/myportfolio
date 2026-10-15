@@ -1711,3 +1711,25 @@ textarea {
   color: var(--ink);
   font-weight: 700;
 }
+
+/* SDC355 2.9 temporary coursework additions: remove after grading. */
+.course-theme-control {display:flex;align-items:center;gap:.45rem;font-size:.8rem;color:var(--ink);cursor:pointer;white-space:nowrap}
+.course-theme-control input {accent-color:var(--violet)}
+.technical-skills {padding-left:1.35rem;line-height:1.85;color:var(--ink-soft)}
+.skills-list-title {font-size:1.1rem;margin-bottom:.4rem}
+.featured-content {display:grid;gap:1rem}
+.featured-resource {padding:1.5rem}
+.featured-resource[hidden] {display:none!important}
+body.course-light {
+  --ink:#202337;--ink-soft:#41465c;--paper:#f8f6fc;--paper-2:#eeebf6;
+  --navy:#2e345d;--plum:#754178;--violet:#5146b4;--coral:#a74457;--gold:#795313;
+  --line:rgba(36,35,65,.18);--shadow:0 18px 45px rgba(40,32,65,.12);
+  --glow-lavender:rgba(172,150,233,.26);--glow-gold:rgba(235,196,117,.24);
+  background-color:#f8f6fc;color:var(--ink);
+}
+body.course-light .content-card,body.course-light .project-card,body.course-light .contact-form,
+body.course-light .about-details,body.course-light .site-header {background-color:var(--paper-2);color:var(--ink)}
+body.course-light input:not([type=checkbox]),body.course-light textarea,body.course-light select {
+  background:#fff;color:#202337;border-color:rgba(36,35,65,.22)
+}
+body.course-light a {color:var(--violet)}
