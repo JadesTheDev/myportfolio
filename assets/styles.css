@@ -1733,3 +1733,39 @@ body.course-light input:not([type=checkbox]),body.course-light textarea,body.cou
   background:#fff;color:#202337;border-color:rgba(36,35,65,.22)
 }
 body.course-light a {color:var(--violet)}
+
+/* SDC355 2.9 visual fixes: accessible temporary light mode and skills card. */
+.coursework-skills-section {padding-top:0;padding-bottom:1.5rem}
+.coursework-skills-card {padding:1.5rem 2rem}
+.coursework-skills-card h2 {margin:0 0 .3rem}
+.coursework-skills-card p {margin:.2rem 0 1rem;color:var(--ink-soft)}
+.technical-skills {display:grid;grid-template-columns:repeat(auto-fit,minmax(125px,1fr));gap:.45rem 1.5rem;margin:0;padding-left:1.25rem}
+body.course-light {
+ --ink:#242337;--ink-soft:#48465d;--paper:#faf8ff;--paper-2:#f0ecf8;
+ --glow-lavender:rgba(193,170,234,.30);--glow-gold:rgba(246,216,164,.22);
+ --glow-blue:rgba(126,146,233,.12);--glow-coral:rgba(240,174,159,.12);
+ --glow-violet:rgba(180,168,229,.16);
+ background:
+ radial-gradient(circle at 86% 8%,var(--glow-lavender),transparent 30rem),
+ radial-gradient(circle at 10% 30%,var(--glow-gold),transparent 28rem),
+ radial-gradient(circle at 67% 43%,var(--glow-blue),transparent 24rem),
+ linear-gradient(180deg,#fbfaff 0%,#f1eff9 55%,#ece9f5 100%);
+ background-attachment:fixed;
+ color:var(--ink);
+}
+body.course-light .site-header {background:transparent;color:var(--ink)}
+body.course-light .site-nav a {color:var(--ink-soft)}
+body.course-light .site-nav a:hover,body.course-light .site-nav a[aria-current="page"] {background:rgba(81,70,180,.12);color:#29234d}
+body.course-light h1,body.course-light h2,body.course-light h3,body.course-light p,
+body.course-light .eyebrow,body.course-light .brand,body.course-light .course-theme-control,
+body.course-light .footer-review-notice strong {color:var(--ink)}
+body.course-light .content-card,body.course-light .project-card,body.course-light .about-copy,
+body.course-light .work-card,body.course-light .contact-form {background:#fff;color:var(--ink);border-color:rgba(36,35,65,.14)}
+body.course-light .site-footer,body.course-light .site-footer p,body.course-light .footer-copyright {color:var(--ink-soft)}
+body.course-light .button-primary {background:#5046ad;color:#fff}
+body.course-light .button-secondary {color:#39336e;border-color:rgba(57,51,110,.25)}
+body.course-light .brand-mark {color:#fff}
+body.course-light .project-card a,body.course-light .featured-resource a {color:#443a94}
+body.course-light .project-card .project-github-link {color:#443a94}
+body.course-light .about-details {background:transparent;color:var(--ink)}
+body.course-light .about-details summary {color:#443a94}
