@@ -1,556 +1,535 @@
+
 <!doctype html>
 <html lang="en">
-  <!-- -------------------------------
-     Page settings and styles
-     ------------------------------- -->
-  <head>
+<head>
     <meta charset="UTF-8" />
-    <meta
-      name="description"
-      content="Software and web development projects by Jade Powell."
-    />
-    <meta
-      name="author"
-      content="Jade Powell"
-    />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
+    <meta name="description" content="Software and web development projects by Jade Powell." />
+    <meta name="author" content="Jade Powell" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Projects | Jade Powell</title>
-    <link
-      rel="stylesheet"
-      href="../assets/styles.css?v=20261014-human-review"
-    />
-    <style>
-      /* From the Farm: keep the card body interactive for collaborator links. */
-      #from-the-farm .card-primary-link::after {
-        display: none;
-      }
-      #from-the-farm .project-media-link {
-        position: absolute;
-        inset: 0;
-        z-index: 2;
-        display: block;
-      }
-      #from-the-farm .project-media {
-        position: relative;
-      }
 
-      /* From the Farm: actions left, collaborator dropdown right. */
-      #from-the-farm .project-actions {
-        align-items: flex-start;
-      }
-      #from-the-farm .project-collaborators {
-        margin-left: auto;
-        text-align: right;
-        min-width: 0;
-      }
-      #from-the-farm .project-collaborators summary {
-        display: block;
-        list-style: none;
-        cursor: pointer;
-        font-family: inherit;
-        font-size: inherit;
-        line-height: inherit;
-        font-weight: 850;
-        color: #e6e6ff;
-        text-decoration: none;
-      }
-      #from-the-farm .project-collaborators summary::-webkit-details-marker {
-        display: none;
-      }
-      #from-the-farm .project-collaborators summary:hover {
-        text-decoration: underline;
-      }
-      #from-the-farm .project-collaborators summary:focus-visible {
-        outline: 3px solid var(--violet);
-        outline-offset: 4px;
-        border-radius: 4px;
-      }
-      #from-the-farm .collaborator-links {
-        display: grid;
-        gap: 0.4rem;
-        margin-top: 0.65rem;
-      }
+    <link rel="stylesheet" href="../assets/styles.css?v=20261014-human-review" />
+
+    <style>
+        /* From the Farm */
+        #from-the-farm .card-primary-link::after {
+            display: none;
+        }
+
+        #from-the-farm .project-media-link {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            display: block;
+        }
+
+        #from-the-farm .project-media {
+            position: relative;
+        }
+
+        #from-the-farm .project-actions {
+            align-items: flex-start;
+        }
+
+        #from-the-farm .project-collaborators {
+            margin-left: auto;
+            text-align: right;
+            min-width: 0;
+        }
+
+        #from-the-farm .project-collaborators summary {
+            display: block;
+            list-style: none;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: inherit;
+            line-height: inherit;
+            font-weight: 850;
+            color: #e6e6ff;
+            text-decoration: none;
+        }
+
+        #from-the-farm .project-collaborators summary::-webkit-details-marker {
+            display: none;
+        }
+
+        #from-the-farm .project-collaborators summary:hover {
+            text-decoration: underline;
+        }
+
+        #from-the-farm .project-collaborators summary:focus-visible {
+            outline: 3px solid var(--violet);
+            outline-offset: 4px;
+            border-radius: 4px;
+        }
+
+        #from-the-farm .collaborator-links {
+            display: grid;
+            gap: 0.4rem;
+            margin-top: 0.65rem;
+        }
+
+        /* Bill of Rights and History Featured Card */
+        #rights-history {
+            width: 100%;
+            margin-top: 1.5rem;
+            border-left: 4px solid #C54768;
+        }
+
+        #rights-history .featured-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem 2rem;
+            margin-top: 1rem;
+        }
+
+        #rights-history .featured-links a {
+            color: #e7a0bb;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        #rights-history .featured-links a:hover,
+        #rights-history .featured-links a:focus-visible {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            #rights-history .featured-links {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+        }
     </style>
-  </head>
-  <body class="projects-page">
-    <a
-      class="skip-link"
-      href="#main"
-    >
-      Skip to content
-    </a>
-    <!-- -------------------------------
-     Header
-     ------------------------------- -->
+</head>
+
+<body class="projects-page">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- Header -->
     <header class="site-header">
-      <a
-        class="brand"
-        href="../home/"
-      >
-        <span
-          class="brand-mark"
-          aria-hidden="true"
-        >
-          JP
-        </span>
-        <span>Jade Powell</span>
-      </a>
-      <!-- -------------------------------
-     Navigation
-     ------------------------------- -->
-      <nav
-        class="site-nav"
-        aria-label="Primary navigation"
-      >
-        <a href="../home/">Home</a>
-        <a
-          href="../projects/"
-          aria-current="page"
-        >
-          Projects
+        <a class="brand" href="../home/">
+            <span class="brand-mark" aria-hidden="true">JP</span>
+            <span>Jade Powell</span>
         </a>
-        <a href="../about/">About</a>
-        <a href="../contact/">Contact</a>
-      </nav>
-      <!-- SDC355 2.9: temporary theme toggle for coursework -->
-      <label class="course-theme-control"><input type="checkbox" id="dark-mode-toggle" checked /> Dark Mode</label>
+
+        <nav class="site-nav" aria-label="Primary navigation">
+            <a href="../home/">Home</a>
+            <a href="../projects/" aria-current="page">Projects</a>
+            <a href="../about/">About</a>
+            <a href="../contact/">Contact</a>
+        </nav>
+
+        <!-- SDC355 2.9 Coursework Theme Toggle -->
+        <label class="course-theme-control">
+            <input type="checkbox" id="dark-mode-toggle" checked />
+            Dark Mode
+        </label>
     </header>
 
-    <!-- -------------------------------
-     Main content
-     ------------------------------- -->
+    <!-- Main Content -->
     <main id="main">
-      <!-- -------------------------------
-     Section: section-tight
-     ------------------------------- -->
-      <section class="section-tight">
-        <p class="eyebrow">Portfolio</p>
-        <h1>Things I’ve built.</h1>
-        <p class="lede">
-          Coursework, collaborative builds, and experiments that show how I approach
-          interfaces, programming, and solving a problem from idea to working project.
-        </p>
-      </section>
 
-      <!-- -------------------------------
-     Section: section
-     ------------------------------- -->
-      <section
-        class="section"
-        aria-labelledby="current-work"
-      >
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">Featured</p>
-            <h2 id="current-work">Current work</h2>
-          </div>
-          <p>
-            These projects represent the direction I’m growing into now, rather than only
-            where I started.
-          </p>
-        </div>
-        <div class="project-grid current-work-grid">
-          <article
-            class="project-card featured"
-            id="from-the-farm"
-          >
-            <div class="project-media">
-              <a
-                class="project-media-link"
-                href="https://jadesthedev.github.io/academic_projects/SDC_445/FromTheFarm/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Open From the Farm live app"
-              ></a>
-              <img
-                src="../assets/farm-preview.png"
-                alt="From the Farm app showing its local produce marketplace"
-              />
+        <!-- Introduction -->
+        <section class="section-tight">
+            <p class="eyebrow">Portfolio</p>
+            <h1>Things I’ve built.</h1>
+            <p class="lede">
+                Coursework, collaborative builds, and experiments that show
+                how I approach interfaces, programming, and solving a problem
+                from idea to working project.
+            </p>
+        </section>
+
+        <!-- Current Work -->
+        <section class="section" aria-labelledby="current-work">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">Featured</p>
+                    <h2 id="current-work">Current work</h2>
+                </div>
+                <p>
+                    These projects represent the direction I’m growing into now,
+                    rather than only where I started.
+                </p>
             </div>
-            <div class="project-body">
-              <h3>From the Farm</h3>
-              <p>
-                A supplier-discovery application built around local farms, farmers
-                markets, and producers. The project focuses on practical search, map-based
-                discovery, supplier profiles, and a friendly interface for connecting
-                local producers with customers.
-              </p>
-              <div class="tags">
-                <span class="tag">React</span>
-                <span class="tag">JavaScript</span>
-                <span class="tag">Responsive UI</span>
-                <span class="tag">Interface Design</span>
-                <span class="tag">Deployment</span>
-              </div>
-              <div class="project-actions">
-                <a
-                  class="card-primary-link"
-                  href="https://jadesthedev.github.io/academic_projects/SDC_445/FromTheFarm/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Visit Website ↗
+
+            <div class="project-grid current-work-grid">
+
+                <!-- From the Farm -->
+                <article class="project-card featured" id="from-the-farm">
+                    <div class="project-media">
+                        <a
+                            class="project-media-link"
+                            href="https://jadesthedev.github.io/academic_projects/SDC_445/FromTheFarm/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Open From the Farm live app"
+                        ></a>
+                        <img
+                            src="../assets/farm-preview.png"
+                            alt="From the Farm app showing its local produce marketplace"
+                        />
+                    </div>
+
+                    <div class="project-body">
+                        <h3>From the Farm</h3>
+                        <p>
+                            A supplier-discovery application built around local farms,
+                            farmers markets, and producers. The project focuses on
+                            practical search, map-based discovery, supplier profiles,
+                            and a friendly interface for connecting local producers
+                            with customers.
+                        </p>
+
+                        <div class="tags">
+                            <span class="tag">React</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Responsive UI</span>
+                            <span class="tag">Interface Design</span>
+                            <span class="tag">Deployment</span>
+                        </div>
+
+                        <div class="project-actions">
+                            <a
+                                class="card-primary-link"
+                                href="https://jadesthedev.github.io/academic_projects/SDC_445/FromTheFarm/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >Visit Website ↗</a>
+
+                            <a
+                                href="https://github.com/JadesTheDev/academic_projects/tree/main/SDC_445"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >GitHub ↗</a>
+
+                            <details class="project-collaborators">
+                                <summary>Collaborators ▾</summary>
+                                <div class="collaborator-links">
+                                    <a href="https://github.com/holheb7286" target="_blank" rel="noopener noreferrer">Holly ↗</a>
+                                    <a href="https://github.com/Patrick0526" target="_blank" rel="noopener noreferrer">Patrick ↗</a>
+                                </div>
+                            </details>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Island Survival Simulator -->
+                <article class="project-card">
+                    <div class="project-media">
+                        <img
+                            src="../assets/island-preview.png"
+                            alt="An island with palm trees rendered in colored ASCII characters"
+                        />
+                    </div>
+                    <div class="project-body">
+                        <h3>Island Survival Simulator</h3>
+                        <p>
+                            A playable survival simulation centered on managing
+                            hunger, thirst, energy, shelter, fire, and illness
+                            across ten days.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">C#</span>
+                            <span class="tag">Game Logic</span>
+                            <span class="tag">Simulation</span>
+                        </div>
+                        <div class="project-actions">
+                            <a class="card-primary-link" href="./Island%20Survival%20Simulator.zip" download>
+                                Download build ↓
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Academic Projects -->
+                <article class="project-card academic-card">
+                    <div class="project-media">
+                        <img
+                            src="../assets/academic-preview.png"
+                            alt="Academic project directory organized by course"
+                        />
+                    </div>
+                    <div class="project-body">
+                        <p class="eyebrow">Coursework archive</p>
+                        <h3>Academic Projects</h3>
+                        <p>Browse my coursework, assignments, source code, and demos by course.</p>
+                        <div class="tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">C#</span>
+                            <span class="tag">SQL</span>
+                            <span class="tag">Web</span>
+                        </div>
+                        <div class="project-actions">
+                            <a
+                                class="card-primary-link"
+                                href="https://jadesthedev.github.io/academic_projects/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >Browse academic projects ↗</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Additional Projects -->
+            <div class="project-grid project-reserve-grid" aria-label="Additional project cards">
+
+                <!-- Megan Dodson -->
+                <article class="project-card megan-card">
+                    <div class="project-media">
+                        <img
+                            src="../assets/megans_thumbnail.png"
+                            alt="Megan Dodson's harp website with watercolor artwork and the headline Music for life's beautiful moments."
+                            loading="lazy"
+                        />
+                        <div class="megan-notes" aria-hidden="true">
+                            <svg class="megan-note" viewBox="0 0 32 48" focusable="false">
+                                <ellipse cx="10" cy="37" rx="8" ry="5" transform="rotate(-20 10 37)" />
+                                <path d="M17 36V6c9 1 13 7 10 14-1-6-4-8-10-9" fill="none" stroke="currentColor" stroke-width="3" />
+                            </svg>
+                            <svg class="megan-note" viewBox="0 0 32 48" focusable="false">
+                                <ellipse cx="10" cy="37" rx="8" ry="5" transform="rotate(-20 10 37)" />
+                                <path d="M17 36V6c9 1 13 7 10 14-1-6-4-8-10-9" fill="none" stroke="currentColor" stroke-width="3" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="project-body">
+                        <h3>Megan Dodson | Harpist</h3>
+                        <p>
+                            A responsive website for a live harp musician,
+                            featuring watercolor artwork, flowing musical details,
+                            and event inquiries.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                        <div class="project-actions">
+                            <a class="card-primary-link" href="https://jadesthedev.github.io/megans-website/" target="_blank" rel="noopener noreferrer">
+                                Visit website ↗
+                            </a>
+                            <a class="project-github-link" href="https://github.com/JadesTheDev/megans-website" target="_blank" rel="noopener noreferrer" aria-label="View project source on GitHub">
+                                GitHub ↗
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- LaShay's Photography -->
+                <article class="project-card lashay-card">
+                    <div class="project-media">
+                        <img
+                            src="../assets/lashays_thumbnail.png"
+                            alt="LaShay's Photography banner with her portrait and photography branding."
+                            loading="lazy"
+                        />
+                    </div>
+                    <div class="project-body">
+                        <h3>LaShay’s Photography</h3>
+                        <p>
+                            A responsive portrait and lifestyle photography website
+                            with a photo gallery, photographer introduction,
+                            and booking inquiries.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                        <div class="project-actions">
+                            <a class="card-primary-link" href="https://jadesthedev.github.io/lashays.website/" target="_blank" rel="noopener noreferrer">
+                                Visit website ↗
+                            </a>
+                            <a class="project-github-link" href="https://github.com/JadesTheDev/lashays.website" target="_blank" rel="noopener noreferrer" aria-label="View project source on GitHub">
+                                GitHub ↗
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Tesseract Explorer -->
+                <article class="project-card tesseract-card">
+                    <div class="project-media">
+                        <img
+                            src="../assets/tesseract-demo-thumbnail.png"
+                            alt="Glowing teal, gold, and lavender tesseract with the title 4D Tesseract Demo."
+                            loading="lazy"
+                        />
+                    </div>
+                    <div class="project-body">
+                        <h3>4D Tesseract Explorer</h3>
+                        <p>
+                            An interactive visualization that rotates a tesseract
+                            through the fourth spatial dimension and projects it
+                            from 4D into 3D and finally onto the screen.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">SVG</span>
+                            <span class="tag">Interactive Math</span>
+                        </div>
+                        <div class="project-actions">
+                            <a class="card-primary-link" href="./tesseract/">Explore demo ↗</a>
+                            <a class="project-github-link" href="https://github.com/JadesTheDev/myportfolio/tree/main/projects/tesseract" target="_blank" rel="noopener noreferrer">
+                                GitHub ↗
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Trailer Hunt -->
+                <article class="project-card trailer-card">
+                    <div class="project-media">
+                        <img
+                            src="../assets/trailer-hunt-thumbnail.png"
+                            alt="Trailer Hunt emblem with a cargo trailer beneath a crescent moon."
+                            loading="lazy"
+                        />
+                    </div>
+                    <div class="project-body">
+                        <h3>Trailer Hunt</h3>
+                        <p>
+                            A trailer-search project for my future tiny house,
+                            with listing filters, favorites, and links to search
+                            multiple marketplaces.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Search Tools</span>
+                        </div>
+                        <div class="project-actions">
+                            <a class="card-primary-link" href="https://jadesthedev.github.io/Trailer-Hunt/" target="_blank" rel="noopener noreferrer">
+                                Visit website ↗
+                            </a>
+                            <a class="project-github-link" href="https://github.com/JadesTheDev/Trailer-Hunt" target="_blank" rel="noopener noreferrer">
+                                GitHub ↗
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- Featured Content -->
+        <section class="section featured-content" aria-labelledby="featured-content-title">
+            <h2 id="featured-content-title">Featured Content</h2>
+
+            <!-- University Resources -->
+            <div id="university-resources" class="content-card featured-resource" hidden>
+                <h3>University Resources</h3>
+                <p>Explore my program and university resources.</p>
+                <a href="https://www.ecpi.edu/programs" target="_blank" rel="noopener noreferrer">
+                    ECPI University Programs ↗
                 </a>
-                <a
-                  href="https://github.com/JadesTheDev/academic_projects/tree/main/SDC_445"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  GitHub ↗
-                </a>
-                <details class="project-collaborators">
-                  <summary>Collaborators ▾</summary>
-                  <div class="collaborator-links">
+            </div>
+
+            <!-- Personal Projects -->
+            <div id="personal-projects" class="content-card featured-resource" hidden>
+                <h3>Personal Projects</h3>
+                <p>
+                    Explore the projects already featured above,
+                    including my web applications and interactive demos.
+                </p>
+                <a href="#current-work">Browse my personal projects ↑</a>
+            </div>
+
+            <!-- Bill of Rights and Historical Education -->
+            <div id="rights-history" class="content-card featured-resource">
+                <h3>The Bill of Rights &amp; Recently Deleted History</h3>
+
+                <p>
+                    Explore the first ten amendments to the United States
+                    Constitution through an interactive JavaScript project,
+                    alongside Extra History's Recently Deleted History video series.
+                </p>
+
+                <div class="featured-links">
                     <a
-                      href="https://github.com/holheb7286"
-                      target="_blank"
-                      rel="noopener noreferrer"
+                        href="https://jadesthedev.github.io/academic_projects/SDC355/3.3_elements/Elements.html"
+                        target="_blank"
+                        rel="noopener noreferrer"
                     >
-                      Holly ↗
+                        Explore the Bill of Rights ↗
                     </a>
+
                     <a
-                      href="https://github.com/Patrick0526"
-                      target="_blank"
-                      rel="noopener noreferrer"
+                        href="https://youtube.com/playlist?list=PLhyKYa0YJ_5BdCf-5YkmYvBDBiGPnq1MT"
+                        target="_blank"
+                        rel="noopener noreferrer"
                     >
-                      Patrick ↗
+                        Watch Recently Deleted History ↗
                     </a>
-                  </div>
-                </details>
-              </div>
+                </div>
             </div>
-          </article>
 
-          <article class="project-card">
-            <div class="project-media">
-              <img
-                src="../assets/island-preview.png"
-                alt="An island with palm trees rendered in colored ASCII characters"
-              />
-            </div>
-            <div class="project-body">
-              <h3>Island Survival Simulator</h3>
-              <p>
-                A playable survival simulation centered on managing hunger, thirst,
-                energy, shelter, fire, and illness across ten days.
-              </p>
-              <div class="tags">
-                <span class="tag">C#</span>
-                <span class="tag">Game Logic</span>
-                <span class="tag">Simulation</span>
-              </div>
-              <div class="project-actions">
-                <a
-                  class="card-primary-link"
-                  href="./Island%20Survival%20Simulator.zip"
-                  download
-                >
-                  Download build ↓
-                </a>
-              </div>
-            </div>
-          </article>
-          <article class="project-card academic-card">
-            <div class="project-media">
-              <img
-                src="../assets/academic-preview.png"
-                alt="Academic project directory organized by course"
-              />
-            </div>
-            <div class="project-body">
-              <p class="eyebrow">Coursework archive</p>
-              <h3>Academic Projects</h3>
-              <p>Browse my coursework, assignments, source code, and demos by course.</p>
-              <div class="tags">
-                <span class="tag">Python</span>
-                <span class="tag">C#</span>
-                <span class="tag">SQL</span>
-                <span class="tag">Web</span>
-              </div>
-              <div class="project-actions">
-                <a
-                  class="card-primary-link"
-                  href="https://jadesthedev.github.io/academic_projects/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Browse academic projects ↗
-                </a>
-              </div>
-            </div>
-          </article>
-        </div>
-        <div
-          class="project-grid project-reserve-grid"
-          aria-label="Additional project cards"
-        >
-          <!-- -------------------------------
-             Megan's harp website
-             ------------------------------- -->
-          <article class="project-card megan-card">
-            <div class="project-media">
-              <img
-                src="../assets/megans_thumbnail.png"
-                alt="Megan Dodson's harp website with watercolor artwork and the headline Music for life's beautiful moments."
-                loading="lazy"
-              />
-              <!-- Decorative notes drift over the thumbnail. -->
-              <div
-                class="megan-notes"
-                aria-hidden="true"
-              >
-                <svg
-                  class="megan-note"
-                  viewBox="0 0 32 48"
-                  focusable="false"
-                >
-                  <ellipse
-                    cx="10"
-                    cy="37"
-                    rx="8"
-                    ry="5"
-                    transform="rotate(-20 10 37)"
-                  />
-                  <path
-                    d="M17 36V6c9 1 13 7 10 14-1-6-4-8-10-9"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="3"
-                  />
-                </svg>
-                <svg
-                  class="megan-note"
-                  viewBox="0 0 32 48"
-                  focusable="false"
-                >
-                  <ellipse
-                    cx="10"
-                    cy="37"
-                    rx="8"
-                    ry="5"
-                    transform="rotate(-20 10 37)"
-                  />
-                  <path
-                    d="M17 36V6c9 1 13 7 10 14-1-6-4-8-10-9"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="3"
-                  />
-                </svg>
-              </div>
-            </div>
-            <div class="project-body">
-              <h3>Megan Dodson | Harpist</h3>
-              <p>
-                A responsive website for a live harp musician, featuring watercolor
-                artwork, flowing musical details, and event inquiries.
-              </p>
-              <div class="tags">
-                <span class="tag">HTML</span>
-                <span class="tag">CSS</span>
-                <span class="tag">JavaScript</span>
-              </div>
-              <div class="project-actions">
-                <a
-                  class="card-primary-link"
-                  href="https://jadesthedev.github.io/megans-website/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Visit website ↗
-                </a>
-                <!-- SDC355: separate GitHub source link -->
-                <a class="project-github-link" href="https://github.com/JadesTheDev/megans-website" target="_blank" rel="noopener noreferrer" aria-label="View project source on GitHub">GitHub ↗</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- -------------------------------
-               LaShay's photography website
-               ------------------------------- -->
-          <article class="project-card lashay-card">
-            <div class="project-media">
-              <img
-                src="../assets/lashays_thumbnail.png"
-                alt="LaShay's Photography banner with her portrait and photography branding."
-                loading="lazy"
-              />
-            </div>
-            <div class="project-body">
-              <h3>LaShay’s Photography</h3>
-              <p>
-                A responsive portrait and lifestyle photography website with a photo
-                gallery, photographer introduction, and booking inquiries.
-              </p>
-              <div class="tags">
-                <span class="tag">HTML</span>
-                <span class="tag">CSS</span>
-                <span class="tag">JavaScript</span>
-              </div>
-              <div class="project-actions">
-                <a
-                  class="card-primary-link"
-                  href="https://jadesthedev.github.io/lashays.website/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Visit website ↗
-                </a>
-                <!-- SDC355: separate GitHub source link -->
-                <a class="project-github-link" href="https://github.com/JadesTheDev/lashays.website" target="_blank" rel="noopener noreferrer" aria-label="View project source on GitHub">GitHub ↗</a>
-              </div>
-            </div>
-          </article>
-
-          <article
-            class="project-card tesseract-card"
-          >
-            <div class="project-media">
-              <img
-                src="../assets/tesseract-demo-thumbnail.png"
-                alt="Glowing teal, gold, and lavender tesseract with the title 4D Tesseract Demo."
-                loading="lazy"
-              />
-            </div>
-            <div class="project-body">
-              <h3>4D Tesseract Explorer</h3>
-              <p>
-                An interactive visualization that rotates a tesseract through the fourth
-                spatial dimension and projects it from 4D into 3D and finally onto the
-                screen.
-              </p>
-              <div class="tags">
-                <span class="tag">JavaScript</span>
-                <span class="tag">SVG</span>
-                <span class="tag">Interactive Math</span>
-              </div>
-              <div class="project-actions">
-                <a class="card-primary-link" href="./tesseract/">Explore demo ↗</a>
-                <a class="project-github-link" href="https://github.com/JadesTheDev/myportfolio/tree/main/projects/tesseract" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- -------------------------------
-               Trailer Hunt
-               ------------------------------- -->
-          <article
-            class="project-card trailer-card"
-          >
-            <div class="project-media">
-              <img
-                src="../assets/trailer-hunt-thumbnail.png"
-                alt="Trailer Hunt emblem with a cargo trailer beneath a crescent moon."
-                loading="lazy"
-              />
-            </div>
-            <div class="project-body">
-              <h3>Trailer Hunt</h3>
-              <p>
-                A trailer-search project for my future tiny house, with listing
-                filters, favorites, and links to search multiple marketplaces.
-              </p>
-              <div class="tags">
-                <span class="tag">Python</span>
-                <span class="tag">JavaScript</span>
-                <span class="tag">Search Tools</span>
-              </div>
-              <div class="project-actions">
-                <a class="card-primary-link" href="https://jadesthedev.github.io/Trailer-Hunt/" target="_blank" rel="noopener noreferrer">Visit website ↗</a>
-                <a class="project-github-link" href="https://github.com/JadesTheDev/Trailer-Hunt" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-              </div>
-            </div>
-          </article>
-        </div>
-      </section>
-      <!-- SDC355 2.9: Featured Content is controlled by project count. -->
-      <section class="section featured-content" aria-labelledby="featured-content-title">
-        <h2 id="featured-content-title">Featured Content</h2>
-        <div id="university-resources" class="content-card featured-resource" hidden>
-          <h3>University Resources</h3>
-          <p>Explore my program and university resources.</p>
-          <a href="https://www.ecpi.edu/programs" target="_blank" rel="noopener noreferrer">ECPI University Programs ↗</a>
-        </div>
-        <div id="personal-projects" class="content-card featured-resource" hidden>
-          <h3>Personal Projects</h3>
-          <p>Explore the projects already featured above, including my web applications and interactive demos.</p>
-          <a href="#current-work">Browse my personal projects ↑</a>
-        </div>
-      </section>
+        </section>
     </main>
 
-    <!-- -------------------------------
-     Footer
-     ------------------------------- -->
+    <!-- Footer -->
     <footer class="site-footer">
-      <span class="footer-copyright">© 2026 Jade Powell</span>
-      <span class="footer-support">
-        <a
-          class="support-invitation"
-          href="../support/"
-        >
-          <span class="support-mini-icon">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.6"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              aria-hidden="true"
-              focusable="false"
+        <span class="footer-copyright">© 2026 Jade Powell</span>
+
+        <span class="footer-support">
+            <a class="support-invitation" href="../support/">
+                <span class="support-mini-icon">
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.6"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                        focusable="false"
+                    >
+                        <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z" />
+                    </svg>
+                </span>
+
+                <span>Like what you see? Consider supporting me!</span>
+
+                <span class="support-mini-icon support-gold">
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.6"
+                        stroke-linecap="round"
+                        aria-hidden="true"
+                        focusable="false"
+                    >
+                        <circle cx="12" cy="12" r="9" />
+                        <path d="M12 6v12m3-9c-.5-1-1.5-1.5-3-1.5-4 0-4 4.5 0 4.5s4 4.5 0 4.5c-1.5 0-2.5-.5-3-1.5" />
+                    </svg>
+                </span>
+            </a>
+        </span>
+
+        <span class="footer-github">
+            <a
+                href="https://github.com/JadesTheDev"
+                target="_blank"
+                rel="noopener noreferrer"
             >
-              <path
-                d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"
-              />
-            </svg>
-          </span>
-          <span>Like what you see? Consider supporting me!</span>
-          <span class="support-mini-icon support-gold">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.6"
-              stroke-linecap="round"
-              aria-hidden="true"
-              focusable="false"
-            >
-              <circle
-                cx="12"
-                cy="12"
-                r="9"
-              />
-              <path
-                d="M12 6v12m3-9c-.5-1-1.5-1.5-3-1.5-4 0-4 4.5 0 4.5s4 4.5 0 4.5c-1.5 0-2.5-.5-3-1.5"
-              />
-            </svg>
-          </span>
-        </a>
-      </span>
-      <span class="footer-github">
-        <a
-          href="https://github.com/JadesTheDev"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          GitHub ↗
-        </a>
-      </span>
-      <p class="footer-review-notice">
-        <strong>Human review requested.</strong> Please do not use AI systems,
-        including large language models (LLMs), to evaluate this portfolio or
-        score, rank, or screen me for hiring decisions.
-      </p>
+                GitHub ↗
+            </a>
+        </span>
+
+        <p class="footer-review-notice">
+            <strong>Human review requested.</strong>
+            Please do not use AI systems, including large language models (LLMs),
+            to evaluate this portfolio or score, rank, or screen me for hiring decisions.
+        </p>
     </footer>
 
-    <!-- -------------------------------
-     Scripts
-     ------------------------------- -->
+    <!-- Scripts -->
     <script src="../assets/orbs.js"></script>
     <script src="../assets/course-2-9.js" defer></script>
-  </body>
+</body>
 </html>
