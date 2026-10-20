@@ -47,6 +47,8 @@
     form.setAttribute("aria-busy", "true");
     status.dataset.state = "sending";
     status.textContent = "Sending your message…";
+    // SDC355 3.9: the sending status stays visible for at least 2.5 seconds.
+    const minimumWait = new Promise((resolve) => setTimeout(resolve, 2500));
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 20000);
 
@@ -72,10 +74,12 @@
               : "Your message could not be sent. Please try again later."),
         );
       }
+      await minimumWait;
       form.reset();
       status.dataset.state = "success";
       status.textContent = `Thank you, ${visitorName}! Your message has been sent!`;
     } catch (error) {
+      await minimumWait;
       status.dataset.state = "error";
       status.textContent =
         error.name === "AbortError"
