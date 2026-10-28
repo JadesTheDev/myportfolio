@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tracking Visits</title>
+  <!-- Jade Powell | October 28, 2026 | SDC355 PA 4.6: Tracking Visits using cookies. -->
+  <link rel="stylesheet" href="assets/styles.css">
+  <style>
+    .tracking-exercise { width:min(720px,92vw); margin:12vh auto; padding:2rem; background:var(--paper); border:1px solid var(--line); border-radius:var(--radius-lg); box-shadow:var(--shadow); }
+    .tracking-exercise h1 { font-size:clamp(2rem,5vw,3.5rem); }
+    .tracking-exercise .visit-tracking-message { margin-top:1rem; font-size:1rem; }
+  </style>
+</head>
+<body>
+  <main class="tracking-exercise">
+    <p class="eyebrow">SDC355 · Performance Assessment 4.6</p>
+    <h1>Jade Powell — Tracking Visits</h1>
+    <p id="visit-tracking-message" class="visit-tracking-message" aria-live="polite"></p>
+    <p>Refresh this page to see your previous visit. Open Developer Tools → Console and enter <code>document.cookie</code> to verify.</p>
+  </main>
+  <script src="assets/visit-tracker.js" defer></script>
+</body>
+</html>
