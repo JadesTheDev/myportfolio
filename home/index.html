@@ -71,6 +71,16 @@
     <!-- -------------------------------
      Main content
      ------------------------------- -->
+    <!-- SDC355: Visitor name and cookie preferences -->
+    <div id="visitor-name-dialog" hidden>
+      <form id="visitor-name-form">
+        <h2>Welcome!</h2>
+        <label for="visitor-name">What is your name?</label>
+        <input type="text" id="visitor-name" name="visitorName" maxlength="60" autocomplete="given-name" placeholder="Your name" />
+        <label><input type="checkbox" id="remember-visitor" /> Remember me for 2 minutes</label>
+        <button type="submit">Continue</button>
+      </form>
+    </div>
     <main id="main">
       <!-- -------------------------------
      Section: hero

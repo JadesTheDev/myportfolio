@@ -1,11 +1,45 @@
-// SDC355 1.10: Ask for a visitor's name and personalize the page.
-// This is a browser prompt, not an account sign-in or database request.
+/*
+ * SDC355 - Personalized Welcome
+ * Uses a cookie to remember a visitor's name for 2 minutes.
+ * Visitors can choose whether to save their name.
+ */
 document.addEventListener("DOMContentLoaded", () => {
   const greeting = document.getElementById("visitor-welcome");
-  if (!greeting) return;
+  const nameForm = document.getElementById("visitor-name-form");
+  const nameInput = document.getElementById("visitor-name");
+  const rememberCheckbox = document.getElementById("remember-visitor");
+  const nameDialog = document.getElementById("visitor-name-dialog");
+  if (!greeting || !nameForm || !nameInput || !rememberCheckbox || !nameDialog) return;
 
-  const answer = window.prompt("Welcome! What is your name?");
-  const visitorName = answer && answer.trim() ? answer.trim().slice(0, 60) : "Visitor";
-  // textContent displays user input safely without parsing HTML.
-  greeting.textContent = `Welcomes You, ${visitorName}`;
+  const cookieName = "visitorName";
+  function getCookie(name) {
+    const prefix = `${name}=`;
+    const cookie = document.cookie.split("; ").find((item) => item.startsWith(prefix));
+    if (!cookie) return null;
+    try { return decodeURIComponent(cookie.slice(prefix.length)); }
+    catch { return null; }
+  }
+  function setCookie(name, value) {
+    document.cookie = `${name}=${encodeURIComponent(value)}; max-age=120; path=/myportfolio/; SameSite=Lax`;
+  }
+  function deleteCookie(name) {
+    document.cookie = `${name}=; max-age=0; path=/myportfolio/; SameSite=Lax`;
+  }
+  function showGreeting(name) {
+    greeting.textContent = `Welcomes You, ${name}`;
+  }
+  const savedName = getCookie(cookieName);
+  if (savedName && savedName.trim()) {
+    showGreeting(savedName.slice(0, 60));
+    return;
+  }
+  nameDialog.hidden = false;
+  nameForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const visitorName = nameInput.value.trim().slice(0, 60) || "Visitor";
+    showGreeting(visitorName);
+    if (rememberCheckbox.checked) setCookie(cookieName, visitorName);
+    else deleteCookie(cookieName);
+    nameDialog.hidden = true;
+  });
 });
