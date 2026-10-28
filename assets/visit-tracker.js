@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
       weekday: "long", year: "numeric", month: "long", day: "numeric",
       hour: "numeric", minute: "2-digit", second: "2-digit"
     });
-    output.textContent = `Your last visit was ${formatted}! Welcome back!`;
+    output.textContent = `Your last visit was ${formatted}\nWelcome back!`;
   } else {
     output.textContent = "This is your first visit! Welcome to Jade's little corner of the cosmos!";
   }
