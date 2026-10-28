@@ -1771,4 +1771,4 @@ body.course-light .about-details {background:transparent;color:var(--ink)}
 body.course-light .about-details summary {color:#443a94}
 
 /* SDC355 PA 4.6: subtle previous-visit message under the existing greeting. */
-.visit-tracking-message { display:block; margin-top:.15rem; color:#d6a4d4; font-size:.73rem; font-weight:500; letter-spacing:0; line-height:1.35; }
+.visit-tracking-message { display:block; white-space:pre-line; margin-top:.15rem; color:#d6a4d4; font-size:.73rem; font-weight:500; letter-spacing:0; line-height:1.35; }
