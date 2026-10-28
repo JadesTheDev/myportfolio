@@ -14,7 +14,7 @@ if (!reduceMotion.matches) {
       baseY: 8,
       ampX: 7,
       ampY: 6,
-      speed: 0.000253, // orb 1
+      speed: 0.00029095, // orb 1
       phase: 0,
     },
     {
@@ -24,7 +24,7 @@ if (!reduceMotion.matches) {
       baseY: 30,
       ampX: 8,
       ampY: 7,
-      speed: 0.000207, // orb 2
+      speed: 0.00023805, // orb 2
       phase: 1.4,
     },
     {
@@ -34,7 +34,7 @@ if (!reduceMotion.matches) {
       baseY: 43,
       ampX: 9,
       ampY: 8,
-      speed: 0.00023, // orb 3
+      speed: 0.0002645, // orb 3
       phase: 2.2,
     },
     {
@@ -44,7 +44,7 @@ if (!reduceMotion.matches) {
       baseY: 72,
       ampX: 7,
       ampY: 9,
-      speed: 0.000196, // orb 4
+      speed: 0.0002254, // orb 4
       phase: 3.1,
     },
     {
@@ -54,7 +54,7 @@ if (!reduceMotion.matches) {
       baseY: 82,
       ampX: 8,
       ampY: 7,
-      speed: 0.000242, // orb 5
+      speed: 0.0002783, // orb 5
       phase: 4.3,
     },
   ];
