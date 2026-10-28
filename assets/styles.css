@@ -1769,3 +1769,6 @@ body.course-light .project-card a,body.course-light .featured-resource a {color:
 body.course-light .project-card .project-github-link {color:#443a94}
 body.course-light .about-details {background:transparent;color:var(--ink)}
 body.course-light .about-details summary {color:#443a94}
+
+/* SDC355 PA 4.6: subtle previous-visit message under the existing greeting. */
+.visit-tracking-message { display:block; margin-top:.15rem; color:#d6a4d4; font-size:.73rem; font-weight:500; letter-spacing:0; line-height:1.35; }
