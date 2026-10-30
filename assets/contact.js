@@ -8,6 +8,31 @@
   const status = document.querySelector("#contact-status");
   let sending = false;
 
+  // SDC355 4.4: save the entered email only when the visitor opts in.
+  const emailField = form.elements.namedItem("email");
+  const rememberEmail = document.querySelector("#remember-email");
+  const cookieStatus = document.querySelector("#email-cookie-status");
+  const saveEmailCookie = () => {
+    if (!rememberEmail.checked) return;
+    const email = emailField.value.trim();
+    if (!emailField.validity.valid || !email) {
+      cookieStatus.textContent = "Enter a valid email address to save it.";
+      return;
+    }
+    document.cookie = "userEmail=" + encodeURIComponent(email) + "; Max-Age=604800; Path=/; SameSite=Lax; Secure";
+    cookieStatus.textContent = "Email saved in a cookie on this device: " + email;
+  };
+  rememberEmail.addEventListener("change", () => {
+    if (rememberEmail.checked) {
+      saveEmailCookie();
+    } else {
+      document.cookie = "userEmail=; Max-Age=0; Path=/; SameSite=Lax; Secure";
+      cookieStatus.textContent = "Saved email cookie cleared.";
+    }
+  });
+  emailField.addEventListener("change", saveEmailCookie);
+
+
   /* -------------------------------
      Preselect the inquiry from Support page links
      ------------------------------- */
