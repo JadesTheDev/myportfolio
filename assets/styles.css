@@ -1780,3 +1780,7 @@ body.course-light .about-details summary {color:#443a94}
 .course-modal { width: min(100%, 480px); padding: 2rem; border-radius: var(--radius-lg); border: 1px solid rgba(255,255,255,.2); background: #242636; color: var(--ink); box-shadow: 0 24px 70px rgba(0,0,0,.5); }
 .course-modal h2 { font-size: 1.65rem; }
 .course-modal p { margin: 1rem 0 1.5rem; color: var(--ink-soft); }
+
+/* SDC355 4.8: center the work-in-progress modal content. */
+.course-modal { text-align: center; margin: auto; }
+.course-modal-backdrop { align-items: center; justify-items: center; }
