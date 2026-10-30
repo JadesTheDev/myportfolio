@@ -45,7 +45,7 @@
         >
           JP
         </span>
-        <span>Jade Powell <span id="visitor-welcome" aria-live="polite"></span><span id="visit-tracking-message" class="visit-tracking-message" aria-live="polite"></span></span>
+        <span>Jade Powell <span class="course-progress-label"> · SDC355 4.8: Theme preference saved</span><span id="visit-tracking-message" class="visit-tracking-message" aria-live="polite"></span></span>
       </a>
       <!-- -------------------------------
      Navigation
@@ -71,15 +71,13 @@
     <!-- -------------------------------
      Main content
      ------------------------------- -->
-    <!-- SDC355: Visitor name and cookie preferences -->
-    <div id="visitor-name-dialog" hidden>
-      <form id="visitor-name-form">
-        <h2>Welcome!</h2>
-        <label for="visitor-name">What is your name?</label>
-        <input type="text" id="visitor-name" name="visitorName" maxlength="60" autocomplete="given-name" placeholder="Your name" />
-        <label><input type="checkbox" id="remember-visitor" /> Remember me for 2 minutes</label>
-        <button type="submit">Continue</button>
-      </form>
+    <!-- SDC355 Project 4.8: Accessible, dismissible welcome modal. -->
+    <div id="course-progress-modal" class="course-modal-backdrop" hidden>
+      <section class="course-modal" role="dialog" aria-modal="true" aria-labelledby="course-modal-title" aria-describedby="course-modal-description">
+        <h2 id="course-modal-title">This page is a work in progress.</h2>
+        <p id="course-modal-description">SDC355 Project 4.8: Dark mode preference is saved between visits. The Contact form includes a submit-button tooltip, and this modal can be dismissed.</p>
+        <button type="button" class="button button-primary" id="course-modal-close">Close</button>
+      </section>
     </div>
     <main id="main">
       <!-- -------------------------------
@@ -229,7 +227,7 @@
      ------------------------------- -->
     <script src="../assets/orbs.js"></script>
     <!-- SDC355: personalized visitor greeting -->
-    <script src="../assets/welcome.js" defer></script>
+    <script src="../assets/course-4-8.js" defer></script>
     <script src="../assets/visit-tracker.js" defer></script>
     <script src="../assets/course-2-9.js" defer></script>
     <script src="../assets/course-3-9.js" defer></script>
