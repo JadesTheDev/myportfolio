@@ -38,7 +38,8 @@ document.addEventListener("DOMContentLoaded", () => {
             actionUrl: "https://jadesthedev.github.io/Trailer-Hunt/",
             actionLabel: "Visit website ↗",
             tags: ["Python", "JavaScript", "Search Tools"],
-            className: "trailer-card"
+            className: "trailer-card",
+            section: "reserve"
         }
     ];
 
@@ -108,6 +109,9 @@ document.addEventListener("DOMContentLoaded", () => {
         actions.appendChild(link);
         body.append(heading, summary, tags, actions);
         article.append(media, body);
-        container.appendChild(article);
+        const target = project.section === "reserve"
+            ? document.getElementById("dynamic-reserve-projects")
+            : container;
+        if (target) target.appendChild(article);
     }
 });
