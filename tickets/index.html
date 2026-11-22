@@ -1,102 +1,55 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-  <meta name="description" content="IT service tickets documenting hands-on hardware repair, Linux deployment, and technical support projects by Jade Powell." />
-  <title>IT Tickets | Jade Powell</title>
-  <link rel="stylesheet" href="../assets/styles.css?v=20261014-human-review" />
-  <link rel="stylesheet" href="./tickets.css" />
-</head>
-<body class="tickets-page">
-<a class="skip-link" href="#main">Skip to content</a>
-<header class="site-header">
- <a class="brand" href="../home/" aria-label="Jade Powell home"><span class="brand-mark" aria-hidden="true">JP</span><span>Jade Powell</span></a>
- <nav class="site-nav" aria-label="Primary navigation">
-  <a href="../home/">Home</a><a href="../projects/">Projects</a><a href="../tickets/" aria-current="page">Tickets</a><a href="../about/">About</a><a href="../contact/">Contact</a>
- </nav>
-</header>
-<main id="main">
- <section class="tickets-intro">
-  <p class="eyebrow">Systems · Hardware · Technical support</p>
-  <h1>Service <span>Tickets.</span></h1>
-  <p class="lede">Real troubleshooting, documented like a working IT service desk. Each ticket records the request, equipment, steps taken, validation, and outcome—without sharing private machine or account information.</p>
-  <div class="ticket-metrics" aria-label="Ticket overview">
-   <div><strong>02</strong><span>Tracked tickets</span></div><div><strong>01</strong><span>Resolved</span></div><div><strong>01</strong><span>Planned</span></div>
-  </div>
- </section>
- <section class="section-tight" aria-label="Service desk tickets">
-  <div class="ticket-toolbar">
-   <div><p class="eyebrow">Service desk</p><h2>Ticket queue</h2></div>
-   <div class="ticket-filters" role="group" aria-label="Filter tickets">
-    <button type="button" class="ticket-filter active" data-filter="all" aria-pressed="true">All (2)</button>
-    <button type="button" class="ticket-filter" data-filter="resolved" aria-pressed="false">Resolved (1)</button>
-    <button type="button" class="ticket-filter" data-filter="planned" aria-pressed="false">Planned (1)</button>
-   </div>
-  </div>
-  <div class="ticket-list">
-   <article class="service-ticket" id="it-0001" data-status="resolved">
-    <div class="ticket-heading">
-     <div><span class="ticket-id">IT-0001</span><span class="ticket-category">Hardware / OS deployment</span></div>
-     <span class="ticket-status status-resolved"><span aria-hidden="true">●</span> Resolved</span>
-    </div>
-    <h3>Lenovo SSD replacement &amp; Linux Mint deployment</h3>
-    <p class="ticket-summary">Replaced legacy desktop storage with a PNY CS900 500 GB SATA SSD and deployed Linux Mint 22.3 as a development workstation, now named <strong>penguin-master</strong>.</p>
-    <dl class="ticket-fields">
-     <div><dt>Asset</dt><dd>Lenovo IdeaCentre 510A-15ICB</dd></div>
-     <div><dt>Work period</dt><dd>Nov 16–19, 2026</dd></div>
-     <div><dt>Technician</dt><dd>Jade Powell</dd></div>
-     <div><dt>Priority</dt><dd>Standard</dd></div>
-    </dl>
-    <details class="ticket-details">
-     <summary>View diagnosis, work log &amp; resolution <span aria-hidden="true">⌄</span></summary>
-     <div class="ticket-details-inner">
-      <h4>Service request</h4><p>Modernize an older Lenovo workstation's storage and move it to a functioning Linux desktop environment.</p>
-      <h4>Work log</h4><ol>
-       <li>Identified the Lenovo model and compatible SATA hardware.</li>
-       <li>Installed a PNY CS900 500 GB SSD with SATA power and data connections.</li>
-       <li>Prepared Linux Mint installation media with Rufus.</li>
-       <li>Worked through UEFI/GRUB boot selection and installed Linux Mint 22.3.</li>
-       <li>Removed the installer USB and confirmed an independent SSD boot.</li>
-       <li>Configured the continuing Linux workstation under the hostname <code>penguin-master</code>.</li>
-      </ol>
-      <h4>Validation</h4><p>Linux Mint booted successfully from the internal replacement SSD without installation media. Later workstation login and configuration issues belong in separate follow-on work.</p>
-     </div>
-    </details>
-    <div class="ticket-actions">
-     <a class="button button-primary" href="./docs/IT-0001-Lenovo-SSD-Linux-Mint.md" download="IT-0001-Lenovo-SSD-Linux-Mint.md">Download technical report ↓</a>
-     <a class="button button-secondary" href="./docs/IT-0001-Lenovo-SSD-Linux-Mint.html" target="_blank" rel="noopener noreferrer">Read / save as PDF ↗</a>
-    </div>
-   </article>
-   <article class="service-ticket" id="it-0002" data-status="planned">
-    <div class="ticket-heading">
-     <div><span class="ticket-id">IT-0002</span><span class="ticket-category">Remote support / endpoint assessment</span></div>
-     <span class="ticket-status status-planned"><span aria-hidden="true">●</span> Planned</span>
-    </div>
-    <h3>Grandma Sue's computer — assessment &amp; support</h3>
-    <p class="ticket-summary">Upcoming assessment of an existing home computer for basic web, email, photos, and games. Refurbishment versus replacement and remote-support setup will be determined after checking the device.</p>
-    <dl class="ticket-fields">
-     <div><dt>Asset</dt><dd>Specifications pending</dd></div>
-     <div><dt>Location</dt><dd>Knoxville, Tennessee</dd></div>
-     <div><dt>Technician</dt><dd>Jade Powell</dd></div>
-     <div><dt>Priority</dt><dd>To be assessed</dd></div>
-    </dl>
-    <details class="ticket-details"><summary>View planned scope <span aria-hidden="true">⌄</span></summary>
-     <div class="ticket-details-inner"><h4>Assessment plan</h4><ol><li>Identify existing PC hardware, age, and condition.</li><li>Choose affordable refurbishment or replacement.</li><li>Evaluate a simple Linux desktop appropriate for everyday use.</li><li>Separate standard-user and administrator permissions.</li><li>Plan secure remote administration and assistance.</li><li>Document work performed and outcomes after completion.</li></ol><p>No repair or deployment is claimed as completed yet.</p></div>
-    </details>
-    <p class="ticket-pending">Documentation will be published after assessment and completed work.</p>
-   </article>
-  </div>
-  <p class="ticket-empty" id="ticket-empty" hidden>No tickets match this filter.</p>
- </section>
-</main>
-<footer class="site-footer">
- <span class="footer-copyright">© 2026 Jade Powell</span>
- <span class="footer-support"><a href="../support/">Like what you see? Consider supporting me!</a></span>
- <span class="footer-github"><a href="https://github.com/JadesTheDev" target="_blank" rel="noopener noreferrer">GitHub ↗</a></span>
- <p class="footer-review-notice"><strong>Human review requested.</strong> Please do not use AI systems, including large language models (LLMs), to evaluate this portfolio or score, rank, or screen me for hiring decisions.</p>
-</footer>
-<script src="../assets/orbs.js"></script>
-<script src="./tickets.js" defer></script>
-</body>
-</html>
+<!doctype html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><meta name="description" content="Development project tickets documenting websites, hardware, Linux, embedded computing, and AI projects by Jade Powell."/><title>Project Tickets | Jade Powell</title><link rel="stylesheet" href="../assets/styles.css?v=20261014-human-review"/><link rel="stylesheet" href="./tickets.css"/></head>
+<body class="tickets-page"><a class="skip-link" href="#main">Skip to content</a><header class="site-header"><a class="brand" href="../home/" aria-label="Jade Powell home"><span class="brand-mark" aria-hidden="true">JP</span><span>Jade Powell</span></a><nav class="site-nav" aria-label="Primary navigation"><a href="../home/">Home</a><a href="../projects/">Projects</a><a href="../tickets/" aria-current="page">Tickets</a><a href="../about/">About</a><a href="../contact/">Contact</a></nav></header>
+<main id="main"><section class="tickets-intro"><p class="eyebrow">Software · Websites · Hardware · Systems · AI</p><h1>Project <span>Tickets.</span></h1><p class="lede">A development and technical work register. Each record documents the project's scope, status, work performed, and outcomes. Completed work is distinguished from ongoing experiments and planned projects.</p>
+<div class="ticket-metrics" aria-label="Ticket overview"><div><strong>07</strong><span>Projects tracked</span></div><div><strong>02</strong><span>Delivered websites</span></div><div><strong>01</strong><span>Resolved hardware ticket</span></div><div><strong>03</strong><span>Active builds</span></div><div><strong>01</strong><span>Planned project</span></div></div></section>
+<section class="section-tight" aria-label="Development tickets"><div class="ticket-toolbar"><div><p class="eyebrow">Development register</p><h2>Ticket queue</h2></div><div class="ticket-filters" role="group" aria-label="Filter tickets"><button type="button" class="ticket-filter active" data-filter="all" aria-pressed="true">All (7)</button><button type="button" class="ticket-filter" data-filter="active" aria-pressed="false">Active (3)</button><button type="button" class="ticket-filter" data-filter="delivered" aria-pressed="false">Delivered (2)</button><button type="button" class="ticket-filter" data-filter="resolved" aria-pressed="false">Resolved (1)</button><button type="button" class="ticket-filter" data-filter="planned" aria-pressed="false">Planned (1)</button></div></div>
+<div class="ticket-list"><article class="service-ticket" id="ticket-001" data-status="active">
+<div class="ticket-heading"><div><span class="ticket-id">DEV-001</span><span class="ticket-category">Web development / Portfolio</span></div><span class="ticket-status status-active"><span aria-hidden="true">●</span> Active</span></div>
+<h3>Developer Portfolio Website</h3><p class="ticket-summary">An evolving professional portfolio showcasing software projects, client websites, technical experiments, and documented support work.</p>
+<dl class="ticket-fields"><div><dt>Project</dt><dd>JadesTheDev / GitHub Pages</dd></div><div><dt>Owner / Developer</dt><dd>Jade Powell</dd></div><div><dt>Status</dt><dd>Active</dd></div><div><dt>Record</dt><dd>DEV-001</dd></div></dl>
+<details class="ticket-details"><summary>View project scope &amp; outcome <span aria-hidden="true">⌄</span></summary><div class="ticket-details-inner"><h4>Scope / work log</h4><ol><li>Design and develop a responsive multi-page website with HTML, CSS, and JavaScript.</li><li>Maintain project gallery, contact integration, accessibility features, and dark-mode controls.</li><li>Publish updates through GitHub Pages and maintain public technical documentation.</li></ol><h4>Current outcome</h4><p>Website published and under active development.</p></div></details>
+<div class="ticket-actions"><a class="button button-primary" href="https://jadesthedev.github.io/myportfolio/" target="_blank" rel="noopener noreferrer">View website ↗</a><a class="button button-secondary" href="https://github.com/JadesTheDev/myportfolio" target="_blank" rel="noopener noreferrer">Source code ↗</a></div>
+</article>
+<article class="service-ticket" id="ticket-002" data-status="delivered">
+<div class="ticket-heading"><div><span class="ticket-id">DEV-002</span><span class="ticket-category">Client website / Photography</span></div><span class="ticket-status status-delivered"><span aria-hidden="true">●</span> Delivered</span></div>
+<h3>LaShay's Photography Website</h3><p class="ticket-summary">A responsive photographer website featuring a portfolio gallery, personal branding, photographer introduction, and contact inquiries.</p>
+<dl class="ticket-fields"><div><dt>Project</dt><dd>LaShay's Photography</dd></div><div><dt>Owner / Developer</dt><dd>Jade Powell</dd></div><div><dt>Status</dt><dd>Delivered</dd></div><div><dt>Record</dt><dd>DEV-002</dd></div></dl>
+<details class="ticket-details"><summary>View project scope &amp; outcome <span aria-hidden="true">⌄</span></summary><div class="ticket-details-inner"><h4>Scope / work log</h4><ol><li>Develop a responsive photography portfolio and gallery.</li><li>Implement the client inquiry form with Formspree.</li><li>Refine navigation, presentation, and contact experience.</li></ol><h4>Current outcome</h4><p>Published website; ongoing maintenance and further refinements can be documented as needed.</p></div></details>
+<div class="ticket-actions"><a class="button button-primary" href="https://jadesthedev.github.io/lashays.website/" target="_blank" rel="noopener noreferrer">Live website ↗</a><a class="button button-secondary" href="https://github.com/JadesTheDev/lashays.website" target="_blank" rel="noopener noreferrer">Repository ↗</a></div>
+</article>
+<article class="service-ticket" id="ticket-003" data-status="delivered">
+<div class="ticket-heading"><div><span class="ticket-id">DEV-003</span><span class="ticket-category">Client website / Music</span></div><span class="ticket-status status-delivered"><span aria-hidden="true">●</span> Delivered</span></div>
+<h3>Megan Dodson — Harpist Website</h3><p class="ticket-summary">A personalized musician website using watercolor-inspired design, music-themed illustrations, and event inquiry information.</p>
+<dl class="ticket-fields"><div><dt>Project</dt><dd>Megan Dodson · Harpist</dd></div><div><dt>Owner / Developer</dt><dd>Jade Powell</dd></div><div><dt>Status</dt><dd>Delivered</dd></div><div><dt>Record</dt><dd>DEV-003</dd></div></dl>
+<details class="ticket-details"><summary>View project scope &amp; outcome <span aria-hidden="true">⌄</span></summary><div class="ticket-details-inner"><h4>Scope / work log</h4><ol><li>Create an identity-driven responsive website for a live musician.</li><li>Tailor visual styling, typography, original artwork placement, and pricing language.</li><li>Build contact and event inquiry pathways; refine the design with client feedback.</li></ol><h4>Current outcome</h4><p>Published website; client review or later updates can be tracked separately.</p></div></details>
+<div class="ticket-actions"><a class="button button-primary" href="https://jadesthedev.github.io/megans-website/" target="_blank" rel="noopener noreferrer">Live website ↗</a><a class="button button-secondary" href="https://github.com/JadesTheDev/megans-website" target="_blank" rel="noopener noreferrer">Repository ↗</a></div>
+</article>
+<article class="service-ticket" id="ticket-004" data-status="resolved">
+<div class="ticket-heading"><div><span class="ticket-id">DEV-004</span><span class="ticket-category">Hardware / Linux deployment</span></div><span class="ticket-status status-resolved"><span aria-hidden="true">●</span> Resolved</span></div>
+<h3>Lenovo SSD Replacement &amp; Linux Mint Installation</h3><p class="ticket-summary">Installed a PNY CS900 500 GB SATA SSD in a Lenovo desktop, prepared installation media, and deployed Linux Mint 22.3 as a working development system.</p>
+<dl class="ticket-fields"><div><dt>Project</dt><dd>Lenovo IdeaCentre 510A-15ICB · penguin-master</dd></div><div><dt>Owner / Developer</dt><dd>Jade Powell</dd></div><div><dt>Status</dt><dd>Resolved</dd></div><div><dt>Record</dt><dd>DEV-004</dd></div></dl>
+<details class="ticket-details"><summary>View project scope &amp; outcome <span aria-hidden="true">⌄</span></summary><div class="ticket-details-inner"><h4>Scope / work log</h4><ol><li>Inspect hardware and replace legacy storage with a compatible SATA SSD.</li><li>Prepare bootable media and diagnose firmware/bootloader behavior.</li><li>Install Linux Mint and verify startup from internal storage without the installation USB.</li></ol><h4>Current outcome</h4><p>Storage replacement and operating-system installation completed; later account/configuration issues are separate follow-up work.</p></div></details>
+<div class="ticket-actions"><a class="button button-primary" href="./docs/IT-004-Lenovo-SSD-Linux-Mint.md" download="DEV-004-Linux-Deployment.md">Download report ↗</a><a class="button button-secondary" href="./docs/IT-004-Lenovo-SSD-Linux-Mint.html">Print / save as PDF ↗</a></div>
+</article>
+<article class="service-ticket" id="ticket-005" data-status="planned">
+<div class="ticket-heading"><div><span class="ticket-id">DEV-005</span><span class="ticket-category">Family technical support / Endpoint</span></div><span class="ticket-status status-planned"><span aria-hidden="true">●</span> Planned</span></div>
+<h3>Grandma Sue's Computer</h3><p class="ticket-summary">Assess an existing home computer, decide whether to refurbish or replace it affordably, then configure accessible everyday use and reliable remote support.</p>
+<dl class="ticket-fields"><div><dt>Project</dt><dd>Personal computer · Knoxville, TN</dd></div><div><dt>Owner / Developer</dt><dd>Jade Powell</dd></div><div><dt>Status</dt><dd>Planned</dd></div><div><dt>Record</dt><dd>DEV-005</dd></div></dl>
+<details class="ticket-details"><summary>View project scope &amp; outcome <span aria-hidden="true">⌄</span></summary><div class="ticket-details-inner"><h4>Scope / work log</h4><ol><li>Inspect existing hardware condition and specifications.</li><li>Choose between a budget refurbishment and replacement.</li><li>Consider Linux Mint or Zorin, a standard-user account, a separate administrator account, and secure remote administration.</li></ol><h4>Current outcome</h4><p>Awaiting initial device specifications and condition assessment. No repair or installation completed yet.</p></div></details>
+<p class="ticket-pending">Detailed downloadable documentation will be added as the work is documented.</p>
+</article>
+<article class="service-ticket" id="ticket-006" data-status="active">
+<div class="ticket-heading"><div><span class="ticket-id">DEV-006</span><span class="ticket-category">Embedded systems / Retro computing</span></div><span class="ticket-status status-active"><span aria-hidden="true">●</span> In progress</span></div>
+<h3>Bjorn — Portable Retro Computing Project</h3><p class="ticket-summary">A compact Game Boy Advance SP-inspired computing and learning device built around a Raspberry Pi Zero, custom handheld hardware, and a planned graphical interface.</p>
+<dl class="ticket-fields"><div><dt>Project</dt><dd>Bjorn Mk. II · Raspberry Pi Zero W</dd></div><div><dt>Owner / Developer</dt><dd>Jade Powell</dd></div><div><dt>Status</dt><dd>In progress</dd></div><div><dt>Record</dt><dd>DEV-006</dd></div></dl>
+<details class="ticket-details"><summary>View project scope &amp; outcome <span aria-hidden="true">⌄</span></summary><div class="ticket-details-inner"><h4>Scope / work log</h4><ol><li>Integrate handheld shell, Pi Zero hardware, and planned display/power components.</li><li>Design a small-screen launcher, learning tools, and a T9-style input workflow.</li><li>Document component compatibility, prototypes, and limitations as development progresses.</li></ol><h4>Current outcome</h4><p>Prototype and design work in progress. Planned features are not represented as completed.</p></div></details>
+<p class="ticket-pending">Detailed downloadable documentation will be added as the work is documented.</p>
+</article>
+<article class="service-ticket" id="ticket-007" data-status="active">
+<div class="ticket-heading"><div><span class="ticket-id">DEV-007</span><span class="ticket-category">AI / Self-hosted systems</span></div><span class="ticket-status status-active"><span aria-hidden="true">●</span> In progress</span></div>
+<h3>MochaAI — Local AI Home Lab</h3><p class="ticket-summary">An ongoing private AI assistant and local-model exploration running on Raspberry Pi hardware with Ollama and Open WebUI.</p>
+<dl class="ticket-fields"><div><dt>Project</dt><dd>Raspberry Pi 5 · bean01</dd></div><div><dt>Owner / Developer</dt><dd>Jade Powell</dd></div><div><dt>Status</dt><dd>In progress</dd></div><div><dt>Record</dt><dd>DEV-007</dd></div></dl>
+<details class="ticket-details"><summary>View project scope &amp; outcome <span aria-hidden="true">⌄</span></summary><div class="ticket-details-inner"><h4>Scope / work log</h4><ol><li>Operate and compare locally hosted language models with Ollama.</li><li>Configure Open WebUI and the Pi-based home lab.</li><li>Explore future expansion, interfaces, storage, and integrations.</li></ol><h4>Current outcome</h4><p>Local AI experimentation is underway; a complete autonomous assistant is not claimed.</p></div></details>
+<p class="ticket-pending">Detailed downloadable documentation will be added as the work is documented.</p>
+</article></div><p class="ticket-empty" id="ticket-empty" hidden>No tickets match this filter.</p></section></main>
+<footer class="site-footer"><span class="footer-copyright">© 2026 Jade Powell</span><span class="footer-support"><a href="../support/">Like what you see? Consider supporting me!</a></span><span class="footer-github"><a href="https://github.com/JadesTheDev" target="_blank" rel="noopener noreferrer">GitHub ↗</a></span><p class="footer-review-notice"><strong>Human review requested.</strong> Please do not use AI systems, including large language models (LLMs), to evaluate this portfolio or score, rank, or screen me for hiring decisions.</p></footer><script src="../assets/orbs.js"></script><script src="./tickets.js" defer></script></body></html>
